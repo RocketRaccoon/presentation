@@ -15,6 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <link rel="stylesheet" href="reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="styles/custom.css">
     <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
 
     <!-- For syntax highlighting -->
@@ -37,19 +38,13 @@
     <div class="slides">
 
         <!-- Cover page -->
-        <section>
+        <section data-transition="slide-in fade-out">
             <h2>Need an ARK? I Noah guy.</h2>
             <img data-fragment-index="1"data-src="images/ark_01.png">
-            <!--<p class="fragment" data-fragment-index="1">Appears last</p>-->
-            <!--<p class="fragment" data-fragment-index="2">Appears first</p>-->
-            <!--<p class="fragment" data-fragment-index="3">Appears second</p>-->
         </section>
-        <section>
+
         <section data-transition="slide-in fade-out">
             <h2>Component Testing</h2>
-            <!--<p class="fragment" data-fragment-index="1">Appears last</p>-->
-            <!--<p class="fragment" data-fragment-index="2">Appears first</p>-->
-            <!--<p class="fragment" data-fragment-index="3">Appears second</p>-->
         </section>
 
         <section data-transition="slide-in fade-out">
@@ -69,7 +64,7 @@
             </ol>
         </section>
 
-        <section>
+        <section data-transition="slide-in fade-out">
             <h2>Gradle task</h2>
             <pre>build.gradle<code data-trim data-noescape>
 componentTests {
@@ -87,15 +82,17 @@ componentTests {
 }
             </code></pre>
         </section>
-        <section data-background-image="images/croissant.png" class="croissant" data-background-position="80% 60%" data-background-size="150px">
+
+        <section class="croissant"
+                 data-transition="slide-in fade-out"
+                 data-background-image="images/croissant.png"
+                 data-background-position="80% 60%"
+                 data-background-size="150px">
             <h2>Integration Testing</h2>
             <ol style="text-align: left;">
                 <li class="fragment" data-fragment-index="1">119 & 4</li>
                 <li class="fragment" data-fragment-index="2">Part of deployment pipeline</li>
                 <li class="fragment" data-fragment-index="3">Using common RC libraries</li>
-                <!--<div style="position: absolute; right: 0; bottom: 0;">-->
-                    <!--<img class="croissant" data-src="croissant.png">-->
-                <!--</div>-->
             </ol>
         </section>
 
