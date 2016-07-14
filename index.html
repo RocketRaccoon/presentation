@@ -60,10 +60,35 @@
         <section class="stack">
             <section data-transition="slide-in fade-out">
                 <h2>Component Testing</h2>
+                <ol style="text-align: left;">
+                    <li class="fragment" data-fragment-index="1">Check service in isolated infrastructure</li>
+                    <li class="fragment" data-fragment-index="2">Check service contracts</li>
+                    <ul>
+                        <li class="fragment" data-fragment-index="3">Validate response with JSON schema</li>
+                        <li class="fragment" data-fragment-index="4">Validate interaction with other services</li>
+                    </ul>
+
+                </ol>
             </section>
 
             <section data-transition="slide-in fade-out">
-                <h2>Contract Testing</h2>
+                <h2>Mock external services</h2>
+                <ol>
+                    <li class="fragment" data-fragment-index="1">
+                        Wiremock in docker container
+                    <pre class="fragment" data-fragment-index="1">Dockerfile<code data-trim data-noescape>
+FROM platform/xas-base:0.4.4
+
+ARG WM_PACKAGE=wiremock
+ARG WM_VERSION=1.58
+
+ENV APP_NAME $WM_PACKAGE
+# install and run wiremock
+RUN curl -sSL -o $WM_PACKAGE.jar repo_url
+            </code></pre>
+                    </li>
+                    <li class="fragment" data-fragment-index="2">Control mock via remote api</li>
+                </ol>
             </section>
 
             <section data-transition="slide-in fade-out">
