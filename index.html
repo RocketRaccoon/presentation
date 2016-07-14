@@ -9,12 +9,13 @@
     <meta name="description" content="Maps for ESA presentation for FOSSGIS 2014">
     <meta name="author" content="Stephan Meissl">
 
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <link rel="stylesheet" href="reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="styles/custom.css">
     <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
 
     <!-- For syntax highlighting -->
@@ -22,8 +23,8 @@
 
     <!-- If the query includes 'print-pdf', use the PDF print sheet -->
     <script>
-            document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-        </script>
+        document.write('<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">');
+    </script>
 
     <!--[if lt IE 9]>
     <script src="reveal.js/lib/js/html5shiv.js"></script>
@@ -37,6 +38,13 @@
     <div class="slides">
 
         <!-- Cover page -->
+        <section>
+            <h2>Need an ARK? I Noah guy.</h2>
+            <img data-fragment-index="1"data-src="images/ark_01.png">
+            <!--<p class="fragment" data-fragment-index="1">Appears last</p>-->
+            <!--<p class="fragment" data-fragment-index="2">Appears first</p>-->
+            <!--<p class="fragment" data-fragment-index="3">Appears second</p>-->
+        </section>
         <section>
             <h2>Component Testing</h2>
             <!--<p class="fragment" data-fragment-index="1">Appears last</p>-->
@@ -57,8 +65,7 @@
         </section>
         <section>
             <h2>Gradle task</h2>
-            <pre>
-build.gradle<code data-trim data-noescape>
+            <pre>build.gradle<code data-trim data-noescape>
 componentTests {
     useDocker = true
 
@@ -71,9 +78,22 @@ componentTests {
         image = project.emulatorImage
         tag = project.emulatorImageTag
     }
-}</code></pre>
+}
+            </code></pre>
+        </section>
+        <section data-background-image="images/croissant.png" class="croissant" data-background-position="80% 60%" data-background-size="150px">
+            <h2>Integration Testing</h2>
+            <ol style="text-align: left;">
+                <li class="fragment" data-fragment-index="1">119 & 4</li>
+                <li class="fragment" data-fragment-index="2">Part of deployment pipeline</li>
+                <li class="fragment" data-fragment-index="3">Using common RC libraries</li>
+                <!--<div style="position: absolute; right: 0; bottom: 0;">-->
+                    <!--<img class="croissant" data-src="croissant.png">-->
+                <!--</div>-->
+            </ol>
         </section>
     </div>
+
 
 </div>
 
@@ -82,34 +102,58 @@ componentTests {
 
 <script>
 
-            // Full list of configuration options available here:
-            // https://github.com/hakimel/reveal.js#configuration
-            Reveal.initialize({
-                controls: true,
-                progress: true,
-                history: true,
-                keyboard: true,
-                touch: true,
-                overview: true,
-                center: true,
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        keyboard: true,
+        touch: true,
+        overview: true,
+        center: true,
 
-                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-                transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
 
-                // Optional libraries used to extend on reveal.js
-                dependencies: [
-                    { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-                    { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                    { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                    { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-                    { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-                    { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-                    // { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
-                    // { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
-                ]
-            });
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+            {
+                src: 'reveal.js/lib/js/classList.js', condition: function () {
+                return !document.body.classList;
+            }
+            },
+            {
+                src: 'reveal.js/plugin/markdown/marked.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'reveal.js/plugin/markdown/markdown.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            },
+            {
+                src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function () {
+                return !!document.body.classList;
+            }
+            },
+            {
+                src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function () {
+                return !!document.body.classList;
+            }
+            }
+            // { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+            // { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+    });
 
-        </script>
+</script>
 
 </body>
 </html>
