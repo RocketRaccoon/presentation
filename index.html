@@ -15,7 +15,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <link rel="stylesheet" href="reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="styles/custom.css">
     <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
 
     <!-- For syntax highlighting -->
@@ -46,12 +45,18 @@
             <!--<p class="fragment" data-fragment-index="3">Appears second</p>-->
         </section>
         <section>
+        <section data-transition="slide-in fade-out">
             <h2>Component Testing</h2>
             <!--<p class="fragment" data-fragment-index="1">Appears last</p>-->
             <!--<p class="fragment" data-fragment-index="2">Appears first</p>-->
             <!--<p class="fragment" data-fragment-index="3">Appears second</p>-->
         </section>
-        <section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Contract Testing</h2>
+        </section>
+
+        <section data-transition="slide-in fade-out">
             <h2>Execute tests workflow</h2>
             <ol style="text-align: left;">
                 <li class="fragment" data-fragment-index="1">Pull docker images</li>
@@ -63,6 +68,7 @@
                 <li class="fragment" data-fragment-index="7">Stop containers</li>
             </ol>
         </section>
+
         <section>
             <h2>Gradle task</h2>
             <pre>build.gradle<code data-trim data-noescape>
@@ -92,6 +98,85 @@ componentTests {
                 <!--</div>-->
             </ol>
         </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Jenkins</h2>
+            <ol style="text-align: left;">
+                <li class="fragment" data-fragment-index="1">Jobs pipeline</li>
+                <li class="fragment" data-fragment-index="2">Deploy via ADS</li>
+            </ol>
+        </section>
+
+        <section data-transition="slide-in fade-out"
+                 data-background-iframe="http://ams02-i01-jen02:8080/view/Platform/view/PLA-DIS-AMS-ARK/?fullscreen=true">
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Deploy via ADS</h2>
+            <p style="text-align: left;">
+                1. Python script
+                <pre>
+http://mercurial.nordigy.ru/platform/tools<code>
+deploy.py --env MY-ENV
+    --components ark:feature_branch mds:latest
+    -v true
+</code></pre>
+            </p>
+            <p style="text-align: left;">
+                2.
+                <a href="http://ams02-i01-jen02:8080/view/Platform/view/_Common/job/Platform-Deploy-Via-ADS/">Jenkins Job</a>
+            </p>
+        </section>
+
+        <section data-background-image="images/gatling-logo.png" data-background-size="250px" data-background-position="70% 45%">
+            <h2>Gatling</h2>
+            <div style="text-align: left;">
+                <ol>
+                    <li class="fragment" data-fragment-index="1">High performance</li>
+                    <li class="fragment" data-fragment-index="2">Developer-friendly DSL</li>
+                    <li class="fragment" data-fragment-index="3">Easy integrate with AGS</li>
+                    <li class="fragment" data-fragment-index="4">Ready-to-present HTML reports</li>
+                </ol>
+                <hr>
+                <p style="text-align: center;">"Arm yourself for performance"</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Gatling Simulation</h2>
+            <pre><code>class MySimulation extends Simulation {
+  val conf = http.baseUrl("http://localhost")
+
+  val scn = scenario("Gatling")
+      .exec(http("index").get("/"))
+      .feed(AccountFeeder())
+      .during(10 minutes) {
+        exec(
+          http("json").get("/json")
+            .check(jsonPath("$.id")
+            .saveAs("id"))
+        )
+      }
+  setUp(scn.inject(atOnceUsers(1)))
+      .protocols(conf)
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>Integrate with AGS</h2>
+            <pre><code>object AccountFeeder {
+  val accountService: AccountService = new AccountService()
+
+  def apply(): RecordSeqFeederBuilder[String] = {
+    return accountService.getAccounts(50).circular
+  }
+}</code></pre>
+        </section>
+
+        <section data-background-iframe="/gatling/index.html">
+
+        </section>
+
     </div>
 
 
@@ -115,6 +200,8 @@ componentTests {
 
         theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
         transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: 'slide-in', //Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
 
         // Optional libraries used to extend on reveal.js
         dependencies: [
