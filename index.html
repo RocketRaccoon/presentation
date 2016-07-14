@@ -110,7 +110,11 @@ RUN curl -sSL -o $WM_PACKAGE.jar repo_url
 
             <section data-transition="slide-in fade-out">
                 <h2>Gradle task</h2>
-            <pre>build.gradle<code data-trim data-noescape>
+                <p style="text-align: left;">
+                Custom gradle plugin
+                    <pre>build.gradle<code data-trim data-noescape>
+apply plugin: 'component-tests-plugin'
+
 componentTests {
     useDocker = true
 
@@ -124,7 +128,8 @@ componentTests {
         tag = project.emulatorImageTag
     }
 }
-            </code></pre>
+                    </code></pre>
+                </p>
             </section>
         </section>
 
