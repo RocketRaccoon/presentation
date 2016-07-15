@@ -133,17 +133,87 @@ componentTests {
             </section>
         </section>
 
-        <section class="croissant"
-                 data-transition="slide-in fade-out"
-                 data-background-image="images/croissant.png"
-                 data-background-position="80% 60%"
-                 data-background-size="150px">
-            <h2>Integration Testing</h2>
-            <ol style="text-align: left;">
-                <li class="fragment" data-fragment-index="1">119 & 4</li>
-                <li class="fragment" data-fragment-index="2">Part of deployment pipeline</li>
-                <li class="fragment" data-fragment-index="3">Using common RC libraries</li>
-            </ol>
+        <section class="stack">
+            <section class="croissant"
+                     data-transition="slide-in fade-out"
+                     data-background-image="images/croissant.png"
+                     data-background-position="80% 60%"
+                     data-background-size="150px">
+                <h2>Integration Testing</h2>
+                <ol style="text-align: left;">
+                    <li class="fragment" data-fragment-index="1">119  & 4(+9)</li>
+                    <li class="fragment" data-fragment-index="2">Using RC common libraries</li>
+                    <li class="fragment" data-fragment-index="3">Using ARK mock for exceptional cases</li>
+                    <li class="fragment" data-fragment-index="4">Part of deployment pipeline</li>
+                </ol>
+            </section>
+            <section data-transition="slide-in fade-out">
+                <h3>RC common libraries</h3>
+                <ol style="text-align: left;">
+                    <li class="fragment" data-fragment-index="1">rc-restassured</li>
+                    <ul data-fragment-index="2" class="fragment"><li>RcRestAssured should receive environment configuration for each test method to use "ToPwrFilter";</li></ul>
+                    <ul data-fragment-index="3" class="fragment"><li>No configuration <code data-trim data-noescape>-></code> no filter;</li></ul>
+                    <ul data-fragment-index="4" class="fragment"><li>Use to override: <code data-trim>RedirectFilter()</code> and <code data-trim>given(PwrFilter.DISABLED)</code>.</li></ul>
+                </ol>
+            </section>
+            <section data-transition="slide-in fade-out">
+                <h3>RC common libraries</h3>
+                <ol style="text-align: left;" start="2">
+                    <li class="fragment" data-fragment-index="1">rc-allure</li>
+                    <ul data-fragment-index="2" class="fragment"><li>ReportNG <code>-></code> Allure Report</li></ul>
+                    <ul data-fragment-index="2" class="fragment"><li>rc-restassured integrated with rc-allure to provide clear output</li></ul>
+                    <ul data-fragment-index="4" class="fragment"><li>Specify <code>aspectjweaver</code> in run configuration;</li></ul>
+                    <ul data-fragment-index="5" class="fragment"><li>Use Allure CLI to generate and run report;</li></ul>
+                    <ul data-fragment-index="6" class="fragment"><li>Extend Allure Report with custom plugins.</li></ul>
+                </ol>
+            </section>
+            <section data-transition="slide-in fade-out"
+                     data-background-iframe="http://ams02-i01-jen02:8080/job/Platform-PLA-DIS-AMS-ARK-ComponentsTests/167/allure/#/xunit/a2ec351a9ec46488/33b6333d79236ace">
+            </section>
+            <section data-transition="slide-in fade-out"
+                     data-background-iframe="http://ams02-i01-jen02:8080/job/Platform-PLA-DIS-AMS-ARK-IntegrationTests/allure/#/xunit/a23ba4237fba17f3/46632f74cef3ceff/d03ab7950f8d7718">
+            </section>
+            <section data-transition="slide-in fade-out">
+                <h3>ARK Mock</h3>
+                <ol style="text-align: left;">
+                    <li class="fragment" data-fragment-index="1">Mock behaviour scenarios are stored in api-server repository</li>
+                    <li class="fragment" data-fragment-index="2">They could be easily extended and passed to test with <code>@DataProvider</code></li>
+                    <li class="fragment" data-fragment-index="3">Scenario is mapped to RCRequestID to resolve parallel execution</li>
+                </ol>
+            </section>
+            <section data-transition="slide-in fade-out">
+                <h3>ARK Mock</h3>
+                <p style="text-align: left;">
+                <pre><code>public class ArkEmulatorScenarios {
+
+    private final MockServerClient client;
+
+    public ArkEmulatorScenarios(MockServerClient client) {
+        this.client = client;
+    }
+
+    public void returnMalformedRequest(String requestId) {
+        expectResponse(requestId,
+                ArkErrors.MALFORMED_REQUEST.toResponse());
+    }
+}
+</code></pre>
+                </p>
+            </section>
+            <section data-transition="slide-in fade-out">
+                <h3>ARK Mock</h3>
+                <p style="text-align: left;">
+                <pre><code>public void checkAndPrepareArkMock() {
+    String rcRequestId = UUID.randomUUID().toString();
+    MockServerClient mock = new MockServerClient(resolvedArkUri.getHost(),
+                resolvedArkUri.getPort());
+
+    ArkEmulatorScenarios scenario = new ArkEmulatorScenarios(mock);
+    scenario.dropConnection(rcRequestId);
+}
+</code></pre>
+                </p>
+            </section>
         </section>
 
         <section class="stack">
