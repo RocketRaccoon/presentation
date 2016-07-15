@@ -344,10 +344,136 @@ deploy.py --env MY-ENV
         </section>
         <section class="stack">
             <section data-transition="slide-in fade-out">
-                <h2>Performance testing</h2>
-                <li class="fragment" data-fragment-index="1">Goals</li>
+                <h2>High Availability Testing</h2>
+                <p style="text-transform: uppercase" class="fragment" data-fragment-index="1">If you don't have high availability</p>
+                <p style="text-transform: uppercase" class="fragment" data-fragment-index="2">you're gonna have a bad time</p>
+                <img src="images/ha.png" class="fragment" style="border: none; box-shadow: none;" data-fragment-index="2">
             </section>
+            <section data-transition="slide-in fade-out">
+                <h2>High Availability Testing</h2>
+                <h4>Recipe Like Grandma Used to Make</h4>
+                <ul style="text-align: left; list-style-type:none">
+                    <li class="fragment" data-fragment-index="1">L - Load with Gatling</li>
+                    <li class="fragment" data-fragment-index="2">O - Orchestrate with Ansible</li>
+                    <li class="fragment" data-fragment-index="3">M - Monitor with Zabbix/Marathon</li>
+                </ul>
+            </section>
+            <section data-transition="slide-in fade-out">
+                <h2>Ansible</h2>
+                <p style="font-size: smaller">is a fictional machine capable of instantaneous or superluminal communication</p>
+                <ul style="text-align: left;">
+                    <li class="fragment" data-fragment-index="1">Manage your inventory in simple text files</li>
+                    <li class="fragment" data-fragment-index="2">Playbooks: a simple + powerful automation language</li>
+                    <li class="fragment" data-fragment-index="3">Parallel task execution</li>
+                </ul>
+                <img src="images/ansible.png" data-fragment-index="4" class="fragment croissant">
+            </section>
+            <section data-transition="slide-in fade-out">
+                <h2>Ansible Pros & Cons</h2>
+                <ul style="text-align: left; list-style-type: none;">
+                    <li class="fragment" data-fragment-index="1">(+) Easy to start to use, good for small environments;</li>
+                    <li class="fragment" data-fragment-index="2">(-) Requires a solid SSH connection, need to be reconfigured after full deployments;</li>
+                    <li class="fragment" data-fragment-index="3">(-) Doesn't fail fast... it bombs, because of bare minimum of syntax checks;</li>
+                    <li class="fragment" data-fragment-index="4">(-) Large playbooks are hard to be maintained.</li>
+                </ul>
+            </section>
+            <section data-transition="slide-in fade-out">
+                <h2>Ansible</h2>
+                <h4>Inventory</h4>
+                <pre><code>[pladis-pas]
+pla01-t04-pas[01:03]
+
+[pladis-mds]
+pla01-t04-mds[01:02]
+
+marathon ansible_host=10.62.3.250
+
+[pladis-pwr]
+pla01-t04-pwr01
+</code></pre>
+            </section>
+            <section data-transition="slide-in fade-out">
+                <h2>Ansible</h2>
+                <h4>Playbook to manage ARK in Marathon</h4>
+                <pre><code data-trim data-noescape>- hosts: localhost
+  tasks:
+    - name: make request to marathon api
+      tags:
+        - get_ark_status
+      uri:
+        url: http://{{ hostvars['marathon']['ansible_host']  }}:8080/v2/apps?id=pla01-t04-ark
+        method: GET
+        user: marathon
+        password: marathon
+        force_basic_auth: yes
+      register: restdata
+    - debug: msg="{{ restdata.json.apps[0].id }}:{{ restdata.json.apps[0].tasksRunning }}:{{ restdata.json.apps[0].tasksHealthy }}:{{restdata.json.apps[0].tasksUnhealthy}} {{ restdata.json.apps[1].id }}:{{ restdata.json.apps[1].tasksRunning }}:{{ restdata.json.apps[1].tasksHealthy }}:{{restdata.json.apps[1].tasksUnhealthy}}"
+      tags:
+        - get_ark_status
+    - debug: msg="No errors for ark01 and ark02"
+      tags:
+        - get_ark_status
+      when: restdata.json.apps[0].tasksUnhealthy==0 and restdata.json.apps[1].tasksUnhealthy==0
+</code></pre>
+            </section>
+            <section data-transition="slide-in fade-out">
+            <h2>Ansible</h2>
+            <h4>Playbook to manage ARK in Marathon</h4>
+            <pre><code data-trim data-noescape>    - name: ARK kill ark01
+      tags:
+        - kill_ark01
+      uri:
+        url: http://{{ hostvars['marathon']['ansible_host']  }}:8080/v2/apps/pla01-t04-ark01/tasks?scale=true
+        method: DELETE
+        user: marathon
+        password: marathon
+        force_basic_auth: yes
+      register: ark01_restdata
+    - debug: msg="{{ ark01_restdata.msg }}"
+      tags:
+        - kill_ark01
+</code></pre>
         </section>
+            <section data-transition="slide-in fade-out">
+                <h2>Ansible</h2>
+                <h4>Execute tasks</h4>
+                <pre><code data-trim data-noescape># ansible pladis-pas -m shell -a "service pas status"
+pla01-t04-pas02 | SUCCESS | rc=0 >>
+pas (pid 8322) is running...
+
+pla01-t04-pas03 | SUCCESS | rc=0 >>
+pas (pid 9299) is running...
+
+pla01-t04-pas01 | SUCCESS | rc=0 >>
+pas (pid 23079) is running...
+
+</code></pre>
+            </section>
+            <section data-transition="slide-in fade-out">
+                <h2>Ansible</h2>
+                <h4>Execute tasks</h4>
+                <pre><code data-trim data-noescape># ansible-playbook marathon.yaml -t get_ark_status
+
+PLAY [localhost] ***************************************************************
+
+TASK [setup] *******************************************************************
+ok: [localhost]
+
+TASK [make request to marathon api] ********************************************
+ok: [localhost]
+
+TASK [debug] *******************************************************************
+ok: [localhost] => {
+    "msg": "/pla01-t04-ark01:3:3:0 /pla01-t04-ark02:3:3:0"
+}
+
+TASK [debug] *******************************************************************
+ok: [localhost] => {
+    "msg": "No errors for ark01 and ark02"
+}
+</code></pre>
+            </section>
+    </section>
 
 
     </div>
