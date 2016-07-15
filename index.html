@@ -137,7 +137,7 @@ componentTests {
             <section class="croissant"
                      data-transition="slide-in fade-out"
                      data-background-image="images/croissant.png"
-                     data-background-position="80% 60%"
+                     data-background-position="80% 70%"
                      data-background-size="150px">
                 <h2>Integration Testing</h2>
                 <ol style="text-align: left;">
@@ -145,6 +145,7 @@ componentTests {
                     <li class="fragment" data-fragment-index="2">Using RC common libraries</li>
                     <li class="fragment" data-fragment-index="3">Using ARK mock for exceptional cases</li>
                     <li class="fragment" data-fragment-index="4">Part of deployment pipeline</li>
+                    <li class="fragment" data-fragment-index="4">Run TestNG(RCTF) with Gradle</li>
                 </ol>
             </section>
             <section data-transition="slide-in fade-out">
@@ -160,8 +161,8 @@ componentTests {
                 <h3>RC common libraries</h3>
                 <ol style="text-align: left;" start="2">
                     <li class="fragment" data-fragment-index="1">rc-allure</li>
-                    <ul data-fragment-index="2" class="fragment"><li>ReportNG <code>-></code> Allure Report</li></ul>
-                    <ul data-fragment-index="2" class="fragment"><li>rc-restassured integrated with rc-allure to provide clear output</li></ul>
+                    <ul data-fragment-index="2" class="fragment"><li>ReportNG <code>-></code> Allure Report;</li></ul>
+                    <ul data-fragment-index="3" class="fragment"><li>rc-restassured is integrated with rc-allure to provide clear output;</li></ul>
                     <ul data-fragment-index="4" class="fragment"><li>Specify <code>aspectjweaver</code> in run configuration;</li></ul>
                     <ul data-fragment-index="5" class="fragment"><li>Use Allure CLI to generate and run report;</li></ul>
                     <ul data-fragment-index="6" class="fragment"><li>Extend Allure Report with custom plugins.</li></ul>
@@ -211,6 +212,38 @@ componentTests {
     ArkEmulatorScenarios scenario = new ArkEmulatorScenarios(mock);
     scenario.dropConnection(rcRequestId);
 }
+</code></pre>
+                </p>
+            </section>
+            <section data-transition="slide-in fade-out">
+                <h3>TestNG(RCTF) and Gradle</h3>
+                <p style="text-align: left;">
+                <pre><code>task integrationTests(type: Test) {
+    systemProperties System.getProperties()
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+    systemProperty "log4j.defaultInitOverride", false
+    systemProperty 'user.dir', project.projectDir
+
+    useTestNG() {
+        suiteXmlBuilder().suite(name: 'ARK Tests') {
+            test(name : 'Integration') {
+                classes('') {
+                    'class'(name: 'com.ringcentral.qa.integration.TestCreateDeviceOrderAsync')
+                }
+            }
+        }
+    }
+}
+</code></pre>
+                </p>
+            </section>
+            <section data-transition="slide-in fade-out">
+                <h3>TestNG and Gradle</h3>
+                <p style="text-align: left;">
+                <pre><code>ark-tests:clean integrationTests --info
+-Dpod=1 -Dpop=1
+-Denvironment.adsEnvId=${ENV_ID}
+...
 </code></pre>
                 </p>
             </section>
