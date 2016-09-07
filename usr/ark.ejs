@@ -1,0 +1,442 @@
+<div class="slides">
+    <section class="stack">
+        <section  class="croissant"
+                  data-transition="slide-in fade-out"
+                  data-background-image="img/ball.gif"
+                  data-background-size="53%"
+                  data-transition="slide-in fade-out"></section>
+    </section>
+
+    <!-- Cover page -->
+    <section class="stack">
+        <!---->
+        <section>
+            <h2>Need an ARK? I Noah guy.</h2>
+        </section>
+        <section data-transition="slide-in fade-out">
+            <img data-fragment-index="1" data-src="img/1_flow_submit.png">
+        </section>
+        <section data-transition="slide-in fade-out">
+            <img data-fragment-index="1" data-src="img/2_flow_push.png">
+        </section>
+        <section data-transition="slide-in fade-out">
+            <img data-fragment-index="1" data-src="img/3_flow_update.png">
+        </section>
+        <section data-transition="slide-in fade-out">
+            <img data-fragment-index="1" data-src="img/4_flow_get.png">
+        </section>
+    </section>
+
+    <section class="stack">
+        <section data-transition="slide-in fade-out">
+            <h2>Component Testing</h2>
+            <ol style="text-align: left;">
+                <li class="fragment" data-fragment-index="1">Check service in isolated infrastructure</li>
+                <li class="fragment" data-fragment-index="2">Check service contracts</li>
+                <ul>
+                    <li class="fragment" data-fragment-index="3">Validate response with JSON schema</li>
+                    <li class="fragment" data-fragment-index="4">Validate interaction with other services</li>
+                </ul>
+
+            </ol>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <img data-fragment-index="1" data-src="img/flow_test.png" style="width: 720px; height: 500px;">
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Mock external services</h2>
+            <ol>
+                <li class="fragment" data-fragment-index="1">
+                    Wiremock in docker container
+                    <pre class="fragment" data-fragment-index="1">Dockerfile<code data-trim data-noescape>
+FROM platform/xas-base:0.4.4
+
+ARG WM_PACKAGE=wiremock
+ARG WM_VERSION=1.58
+
+ENV APP_NAME $WM_PACKAGE
+# install and run wiremock
+RUN curl -sSL -o $WM_PACKAGE.jar repo_url
+        </code></pre>
+                </li>
+                <li class="fragment" data-fragment-index="2">Control mock via remote api</li>
+            </ol>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Execute tests workflow</h2>
+            <ol style="text-align: left;">
+                <li class="fragment" data-fragment-index="1">Pull docker img</li>
+                <li class="fragment" data-fragment-index="2">Start Mock for MDS</li>
+                <li class="fragment" data-fragment-index="3">Start Mock for Task Processor</li>
+                <li class="fragment" data-fragment-index="4">Start ARK</li>
+                <li class="fragment" data-fragment-index="5">Execute tests</li>
+                <li class="fragment" data-fragment-index="6">Collect ARK logs</li>
+                <li class="fragment" data-fragment-index="7">Stop containers</li>
+            </ol>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Gradle task</h2>
+            <p style="text-align: left;">
+                Custom gradle plugin
+            <pre>build.gradle<code data-trim data-noescape>
+apply plugin: 'component-tests-plugin'
+
+componentTests {
+useDocker = true
+
+ark {
+    image = project.arkImage
+    tag = project.arkImageTag
+}
+
+emulator {
+    image = project.emulatorImage
+    tag = project.emulatorImageTag
+}
+}
+                </code></pre>
+            </p>
+        </section>
+    </section>
+
+    <section class="stack">
+        <section class="croissant"
+                 data-transition="slide-in fade-out"
+                 data-background-image="img/croissant.png"
+                 data-background-position="80% 70%"
+                 data-background-size="150px">
+            <h2>Integration Testing</h2>
+            <ol style="text-align: left;">
+                <li class="fragment" data-fragment-index="1">119  & 4(+9)</li>
+                <li class="fragment" data-fragment-index="2">Using RC common libraries</li>
+                <li class="fragment" data-fragment-index="3">Using ARK mock for exceptional cases</li>
+                <li class="fragment" data-fragment-index="4">Part of deployment pipeline</li>
+                <li class="fragment" data-fragment-index="5">Run TestNG(RCTF) with Gradle</li>
+            </ol>
+        </section>
+        <section data-transition="slide-in fade-out">
+            <h3>RC common libraries</h3>
+            <ol style="text-align: left;">
+                <li class="fragment" data-fragment-index="1">rc-restassured</li>
+                <ul data-fragment-index="2" class="fragment"><li>RcRestAssured should receive environment configuration for each test method to use "ToPwrFilter";</li></ul>
+                <ul data-fragment-index="3" class="fragment"><li>No configuration <code data-trim data-noescape>-></code> no filter;</li></ul>
+                <ul data-fragment-index="4" class="fragment"><li>Use to override: <code data-trim>RedirectFilter()</code> and <code data-trim>given(PwrFilter.DISABLED)</code>.</li></ul>
+            </ol>
+        </section>
+        <section data-transition="slide-in fade-out">
+            <h3>RC common libraries</h3>
+            <ol style="text-align: left;" start="2">
+                <li class="fragment" data-fragment-index="1">rc-allure</li>
+                <ul data-fragment-index="2" class="fragment"><li>ReportNG <code>-></code> Allure Report;</li></ul>
+                <ul data-fragment-index="3" class="fragment"><li>rc-restassured is integrated with rc-allure to provide clear output;</li></ul>
+                <ul data-fragment-index="4" class="fragment"><li>Specify <code>aspectjweaver</code> in run configuration;</li></ul>
+                <ul data-fragment-index="5" class="fragment"><li>Use Allure CLI to generate and run report;</li></ul>
+                <ul data-fragment-index="6" class="fragment"><li>Extend Allure Report with custom plugins.</li></ul>
+            </ol>
+        </section>
+        <section data-transition="slide-in fade-out"
+                 data-background-iframe="http://ams02-i01-jen02:8080/job/Platform-PLA-DIS-AMS-ARK-ComponentsTests/167/allure/#/xunit/a2ec351a9ec46488/33b6333d79236ace">
+        </section>
+        <section data-transition="slide-in fade-out"
+                 data-background-iframe="http://ams02-i01-jen02:8080/job/Platform-PLA-DIS-AMS-ARK-IntegrationTests/allure/#/xunit/a23ba4237fba17f3/46632f74cef3ceff/d03ab7950f8d7718">
+        </section>
+        <section data-transition="slide-in fade-out">
+            <h3>ARK Mock</h3>
+            <ol style="text-align: left;">
+                <li class="fragment" data-fragment-index="1">Mock behaviour scenarios are stored in api-server repository</li>
+                <li class="fragment" data-fragment-index="2">They could be easily extended and passed to test with <code>@DataProvider</code></li>
+                <li class="fragment" data-fragment-index="3">Scenario is mapped to RCRequestID to resolve parallel execution</li>
+            </ol>
+        </section>
+        <section data-transition="slide-in fade-out">
+            <h3>ARK Mock</h3>
+            <p style="text-align: left;">
+            <pre><code>public class ArkEmulatorScenarios {
+
+private final MockServerClient client;
+
+public ArkEmulatorScenarios(MockServerClient client) {
+    this.client = client;
+}
+
+public void returnMalformedRequest(String requestId) {
+    expectResponse(requestId,
+            ArkErrors.MALFORMED_REQUEST.toResponse());
+}
+}
+</code></pre>
+            </p>
+        </section>
+        <section data-transition="slide-in fade-out">
+            <h3>ARK Mock</h3>
+            <p style="text-align: left;">
+            <pre><code>public void checkAndPrepareArkMock() {
+String rcRequestId = UUID.randomUUID().toString();
+MockServerClient mock = new MockServerClient(resolvedArkUri.getHost(),
+            resolvedArkUri.getPort());
+
+ArkEmulatorScenarios scenario = new ArkEmulatorScenarios(mock);
+scenario.dropConnection(rcRequestId);
+}
+</code></pre>
+            </p>
+        </section>
+        <section data-transition="slide-in fade-out">
+            <h3>TestNG(RCTF) and Gradle</h3>
+            <p style="text-align: left;">
+            <pre><code>task integrationTests(type: Test) {
+systemProperties System.getProperties()
+jvmArgs "-javaagent:${configurations.agent.singleFile}"
+systemProperty "log4j.defaultInitOverride", false
+systemProperty 'user.dir', project.projectDir
+
+useTestNG() {
+    suiteXmlBuilder().suite(name: 'ARK Tests') {
+        test(name : 'Integration') {
+            classes('') {
+                'class'(name: 'com.ringcentral.qa.integration.TestCreateDeviceOrderAsync')
+            }
+        }
+    }
+}
+}
+</code></pre>
+            </p>
+        </section>
+        <section data-transition="slide-in fade-out">
+            <h3>TestNG and Gradle</h3>
+            <p style="text-align: left;">
+            <pre><code>ark-tests:clean integrationTests --info
+-Dpod=1 -Dpop=1
+-Denvironment.adsEnvId=${ENV_ID}
+...
+</code></pre>
+            </p>
+        </section>
+    </section>
+
+    <section class="stack">
+        <section data-transition="slide-in fade-out">
+            <h2>Jenkins</h2>
+            <ol style="text-align: left;">
+                <li class="fragment" data-fragment-index="1">Jobs pipeline</li>
+                <li class="fragment" data-fragment-index="2">Deploy via ADS</li>
+                <li class="fragment" data-fragment-index="3">Trigger by commit</li>
+            </ol>
+
+        </section>
+
+        <section data-transition="slide-in fade-out"
+                 data-background-iframe="http://ams02-i01-jen02:8080/view/Platform/view/PLA-DIS-AMS-ARK/?fullscreen=true">
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Deploy via ADS</h2>
+            <p style="text-align: left;">
+                1. Python script
+            <pre>
+http://mercurial.nordigy.ru/platform/tools<code>
+deploy.py --env MY-ENV
+--components ark:feature_branch mds:latest
+-v true
+</code></pre>
+            </p>
+            <p style="text-align: left;">
+                2.
+                <a href="http://ams02-i01-jen02:8080/view/Platform/view/_Common/job/Platform-Deploy-Via-ADS/">Jenkins Job</a>
+            </p>
+        </section>
+    </section>
+
+    <section class="stack">
+        <section data-transition="slide-in fade-out">
+            <h2>Performance testing</h2>
+        </section>
+
+        <section data-background-image="img/gatling-logo.png" data-background-size="250px" data-background-position="70% 45%">
+            <h2>Gatling</h2>
+            <div style="text-align: left;">
+                <ol>
+                    <li class="fragment" data-fragment-index="1">High performance</li>
+                    <li class="fragment" data-fragment-index="2">Developer-friendly DSL</li>
+                    <li class="fragment" data-fragment-index="3">Easy integrate with AGS</li>
+                    <li class="fragment" data-fragment-index="4">Ready-to-present HTML reports</li>
+                </ol>
+                <hr>
+                <p style="text-align: center;">"Arm yourself for performance"</p>
+            </div>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Gatling Simulation</h2>
+            <pre><code>class MySimulation extends Simulation {
+val conf = http.baseUrl("http://localhost")
+
+val scn = scenario("Gatling")
+  .exec(http("index").get("/"))
+  .feed(AccountFeeder())
+  .during(10 minutes) {
+    exec(
+      http("json").get("/json")
+        .check(jsonPath("$.id")
+        .saveAs("id"))
+    )
+  }
+setUp(scn.inject(atOnceUsers(1)))
+  .protocols(conf)
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>Integrate with AGS</h2>
+            <pre><code>object AccountFeeder {
+val accountService: AccountService = new AccountService()
+
+def apply(): RecordSeqFeederBuilder[String] = {
+return accountService.getAccounts(50).circular
+}
+}</code></pre>
+        </section>
+
+        <section data-background-iframe="/gatling/index.html">
+        </section>
+    </section>
+    <section class="stack">
+        <section data-transition="slide-in fade-out">
+            <h2>High Availability Testing</h2>
+            <p style="text-transform: uppercase" class="fragment" data-fragment-index="1">If you don't have high availability</p>
+            <p style="text-transform: uppercase" class="fragment" data-fragment-index="2">you're gonna have a bad time</p>
+            <img src="img/ha.png" class="fragment" style="border: none; box-shadow: none;" data-fragment-index="2">
+        </section>
+        <section data-transition="slide-in fade-out">
+            <h2>High Availability Testing</h2>
+            <h4>Recipe Like Grandma Used to Make</h4>
+            <ul style="text-align: left; list-style-type:none">
+                <li class="fragment" data-fragment-index="1">L - Load with Gatling</li>
+                <li class="fragment" data-fragment-index="2">O - Orchestrate with Ansible</li>
+                <li class="fragment" data-fragment-index="3">M - Monitor with Zabbix/Marathon</li>
+            </ul>
+        </section>
+        <section data-transition="slide-in fade-out">
+            <h2>Ansible</h2>
+            <p style="font-size: smaller">is a fictional machine capable of instantaneous or superluminal communication</p>
+            <ul style="text-align: left;">
+                <li class="fragment" data-fragment-index="1">Manage your inventory in simple text files</li>
+                <li class="fragment" data-fragment-index="2">Playbooks: a simple + powerful automation language</li>
+                <li class="fragment" data-fragment-index="3">Parallel task execution</li>
+            </ul>
+            <img src="img/ansible.png" data-fragment-index="4" class="fragment croissant">
+        </section>
+        <section data-transition="slide-in fade-out">
+            <h2>Ansible Pros & Cons</h2>
+            <ul style="text-align: left; list-style-type: none;">
+                <li class="fragment" data-fragment-index="1">(+) Easy to start to use, good for small environments;</li>
+                <li class="fragment" data-fragment-index="2">(-) Requires a solid SSH connection, need to be reconfigured after full deployments;</li>
+                <li class="fragment" data-fragment-index="3">(-) Doesn't fail fast... it bombs, because of bare minimum of syntax checks;</li>
+                <li class="fragment" data-fragment-index="4">(-) Large playbooks are hard to be maintained.</li>
+            </ul>
+        </section>
+        <section data-transition="slide-in fade-out">
+            <h2>Ansible</h2>
+            <h4>Inventory</h4>
+            <pre><code>[pladis-pas]
+pla01-t04-pas[01:03]
+
+[pladis-mds]
+pla01-t04-mds[01:02]
+
+marathon ansible_host=10.62.3.250
+
+[pladis-pwr]
+pla01-t04-pwr01
+</code></pre>
+        </section>
+        <section data-transition="slide-in fade-out">
+            <h2>Ansible</h2>
+            <h4>Playbook to manage ARK in Marathon</h4>
+            <pre><code data-trim data-noescape>- hosts: localhost
+tasks:
+- name: make request to marathon api
+  tags:
+    - get_ark_status
+  uri:
+    url: http://{{ hostvars['marathon']['ansible_host']  }}:8080/v2/apps?id=pla01-t04-ark
+    method: GET
+    user: marathon
+    password: marathon
+    force_basic_auth: yes
+  register: restdata
+- debug: msg="{{ restdata.json.apps[0].id }}:{{ restdata.json.apps[0].tasksRunning }}:{{ restdata.json.apps[0].tasksHealthy }}:{{restdata.json.apps[0].tasksUnhealthy}} {{ restdata.json.apps[1].id }}:{{ restdata.json.apps[1].tasksRunning }}:{{ restdata.json.apps[1].tasksHealthy }}:{{restdata.json.apps[1].tasksUnhealthy}}"
+  tags:
+    - get_ark_status
+- debug: msg="No errors for ark01 and ark02"
+  tags:
+    - get_ark_status
+  when: restdata.json.apps[0].tasksUnhealthy==0 and restdata.json.apps[1].tasksUnhealthy==0
+</code></pre>
+        </section>
+        <section data-transition="slide-in fade-out">
+            <h2>Ansible</h2>
+            <h4>Playbook to manage ARK in Marathon</h4>
+            <pre><code data-trim data-noescape>    - name: ARK kill ark01
+  tags:
+    - kill_ark01
+  uri:
+    url: http://{{ hostvars['marathon']['ansible_host']  }}:8080/v2/apps/pla01-t04-ark01/tasks?scale=true
+    method: DELETE
+    user: marathon
+    password: marathon
+    force_basic_auth: yes
+  register: ark01_restdata
+- debug: msg="{{ ark01_restdata.msg }}"
+  tags:
+    - kill_ark01
+</code></pre>
+        </section>
+        <section data-transition="slide-in fade-out">
+            <h2>Ansible</h2>
+            <h4>Execute tasks</h4>
+            <pre><code data-trim data-noescape># ansible pladis-pas -m shell -a "service pas status"
+pla01-t04-pas02 | SUCCESS | rc=0 >>
+pas (pid 8322) is running...
+
+pla01-t04-pas03 | SUCCESS | rc=0 >>
+pas (pid 9299) is running...
+
+pla01-t04-pas01 | SUCCESS | rc=0 >>
+pas (pid 23079) is running...
+
+</code></pre>
+        </section>
+        <section data-transition="slide-in fade-out">
+            <h2>Ansible</h2>
+            <h4>Execute tasks</h4>
+            <pre><code data-trim data-noescape># ansible-playbook marathon.yaml -t get_ark_status
+
+PLAY [localhost] ***************************************************************
+
+TASK [setup] *******************************************************************
+ok: [localhost]
+
+TASK [make request to marathon api] ********************************************
+ok: [localhost]
+
+TASK [debug] *******************************************************************
+ok: [localhost] => {
+"msg": "/pla01-t04-ark01:3:3:0 /pla01-t04-ark02:3:3:0"
+}
+
+TASK [debug] *******************************************************************
+ok: [localhost] => {
+"msg": "No errors for ark01 and ark02"
+}
+</code></pre>
+        </section>
+    </section>
+
+
+</div>
