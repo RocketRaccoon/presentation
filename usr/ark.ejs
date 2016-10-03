@@ -111,11 +111,10 @@ emulator {
                  data-background-size="150px">
             <h2>Integration Testing</h2>
             <ol style="text-align: left;">
-                <li class="fragment" data-fragment-index="1">119  & 4(+9)</li>
+                <li class="fragment" data-fragment-index="1">Prefer Component Tests over Integration Tests</li>
                 <li class="fragment" data-fragment-index="2">Using RC common libraries</li>
                 <li class="fragment" data-fragment-index="3">Using ARK mock for exceptional cases</li>
                 <li class="fragment" data-fragment-index="4">Part of deployment pipeline</li>
-                <li class="fragment" data-fragment-index="5">Run TestNG(RCTF) with Gradle</li>
             </ol>
         </section>
         <section data-transition="slide-in fade-out">
@@ -131,18 +130,20 @@ emulator {
             <h3>RC common libraries</h3>
             <ol style="text-align: left;" start="2">
                 <li class="fragment" data-fragment-index="1">rc-allure</li>
-                <ul data-fragment-index="2" class="fragment"><li>ReportNG <code>-></code> Allure Report;</li></ul>
+                <ul data-fragment-index="2" class="fragment"><li>Replace ReportNG with Allure Report;</li></ul>
                 <ul data-fragment-index="3" class="fragment"><li>rc-restassured is integrated with rc-allure to provide clear output;</li></ul>
                 <ul data-fragment-index="4" class="fragment"><li>Specify <code>aspectjweaver</code> in run configuration;</li></ul>
                 <ul data-fragment-index="5" class="fragment"><li>Use Allure CLI to generate and run report;</li></ul>
-                <ul data-fragment-index="6" class="fragment"><li>Extend Allure Report with custom plugins.</li></ul>
+                <ul data-fragment-index="6" class="fragment"><li>Built-in reports aggregation function;</li></ul>
+                <ul data-fragment-index="7" class="fragment"><li>Run in Docker container;</li></ul>
+                <ul data-fragment-index="8" class="fragment"><li>Extend Allure Report with custom information and plugins.</li></ul>
             </ol>
         </section>
         <section data-transition="slide-in fade-out"
-                 data-background-iframe="http://ams02-i01-jen02:8080/job/Platform-PLA-DIS-AMS-ARK-ComponentsTests/167/allure/#/xunit/a2ec351a9ec46488/33b6333d79236ace">
+                 data-background-iframe="http://ams02-i01-jen02:8080/job/Platform-PLA-DIS-AMS-ARK-ComponentsTests/204/allure/#/xunit/4334ed14e9a352db/d14e45e39acbe3b3">
         </section>
         <section data-transition="slide-in fade-out"
-                 data-background-iframe="http://ams02-i01-jen02:8080/job/Platform-PLA-DIS-AMS-ARK-IntegrationTests/allure/#/xunit/a23ba4237fba17f3/46632f74cef3ceff/d03ab7950f8d7718">
+                 data-background-iframe="http://ams02-i01-jen02:8080/view/Platform/view/PLA-INT-SPB/job/Platform-PWR-PLA-INT-SPB-Replay/allure/#/">
         </section>
         <section data-transition="slide-in fade-out">
             <h3>ARK Mock</h3>
@@ -182,38 +183,6 @@ MockServerClient mock = new MockServerClient(resolvedArkUri.getHost(),
 ArkEmulatorScenarios scenario = new ArkEmulatorScenarios(mock);
 scenario.dropConnection(rcRequestId);
 }
-</code></pre>
-            </p>
-        </section>
-        <section data-transition="slide-in fade-out">
-            <h3>TestNG(RCTF) and Gradle</h3>
-            <p style="text-align: left;">
-            <pre><code>task integrationTests(type: Test) {
-systemProperties System.getProperties()
-jvmArgs "-javaagent:${configurations.agent.singleFile}"
-systemProperty "log4j.defaultInitOverride", false
-systemProperty 'user.dir', project.projectDir
-
-useTestNG() {
-    suiteXmlBuilder().suite(name: 'ARK Tests') {
-        test(name : 'Integration') {
-            classes('') {
-                'class'(name: 'com.ringcentral.qa.integration.TestCreateDeviceOrderAsync')
-            }
-        }
-    }
-}
-}
-</code></pre>
-            </p>
-        </section>
-        <section data-transition="slide-in fade-out">
-            <h3>TestNG and Gradle</h3>
-            <p style="text-align: left;">
-            <pre><code>ark-tests:clean integrationTests --info
--Dpod=1 -Dpop=1
--Denvironment.adsEnvId=${ENV_ID}
-...
 </code></pre>
             </p>
         </section>
@@ -265,6 +234,7 @@ deploy.py --env MY-ENV
                     <li class="fragment" data-fragment-index="2">Developer-friendly DSL</li>
                     <li class="fragment" data-fragment-index="3">Easy integrate with AGS</li>
                     <li class="fragment" data-fragment-index="4">Ready-to-present HTML reports</li>
+                    <li class="fragment" data-fragment-index="5">Real-time reporting with Grafana and InfluxDB (and Docker)</li>
                 </ol>
                 <hr>
                 <p style="text-align: center;">"Arm yourself for performance"</p>
@@ -304,8 +274,72 @@ return accountService.getAccounts(50).circular
 
         <section data-background-iframe="/gatling/index.html">
         </section>
+        <section data-transition="slide-in fade-out">
+            <h2>Real-time Reporting</h2>
+            <p style="text-align: left;">1. Run Grafana and InfluxDB</p>
+            <pre><code>docker run -d -p 8083:8083 -p 8086:8086 -p 2015:2015 \
+--name influxdb \
+-e GRAPHITE_DB="gatling" -e GRAPHITE_BINDING=':2015' \
+-e ADMIN_USER="root" -e INFLUXDB_INIT_PWD="root" \
+tutum/influxdb:latest
+
+docker run -d -p 3000:3000 \
+--link influxdb:influxdb \
+--name grafana \
+grafana/grafana
+</code></pre>
+        </section>
+        <section data-transition="slide-in fade-out">
+            <h2>Real-time Reporting</h2>
+            <p style="text-align: left;">2. Configure Gatling (e.g. with Maven)</p>
+    <pre><code><profile>
+    <id>availability-tests</id>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.gatling</groupId>
+                <artifactId>gatling-maven-plugin</artifactId>
+                <version>${gatlingMvnPluginVersion}</version>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+                            <configFolder>src/test/resources/conf</configFolder>
+                            <simulationsFolder>src/test/scala</simulationsFolder>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</profile>
+</code></pre>
+        </section>
+        <section data-transition="slide-in fade-out">
+            <h2>Real-time Reporting</h2>
+            <p style="text-align: left;">3. Configure connection to InfluxDB (gatling.conf)</p>
+            <pre><code>graphite {
+  host = "$INFLUXDB_HOST"
+  port = 2015
+  protocol = "tcp"
+  rootPathPrefix = "gatling"
+}
+</code></pre>
+        </section>
+        <section data-transition="slide-in fade-out">
+            <h2>Real-time Reporting</h2>
+            <p style="text-align: left;">3. Run tests and monitor results</p>
+            <pre><code>mvn test -Dgatling.simulationClass=TestMdsClusterAvailability -P availability-tests
+</code></pre>
+        </section>
+        <section data-transition="slide-in fade-out"
+                 data-background-iframe="http://pla01-t04-utl01:3000/dashboard/db/gatling">
+        </section>
     </section>
-    <section class="stack">
+    <!--<section class="stack">
         <section data-transition="slide-in fade-out">
             <h2>High Availability Testing</h2>
             <p style="text-transform: uppercase" class="fragment" data-fragment-index="1">If you don't have high availability</p>
@@ -436,7 +470,7 @@ ok: [localhost] => {
 }
 </code></pre>
         </section>
-    </section>
+    </section>-->
 
 
 </div>
