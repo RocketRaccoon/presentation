@@ -191,8 +191,8 @@ dockerCompose.isRequiredBy(tests)
         </section>
         <section data-transition="slide-in fade-out">
             <h3>RC common libraries</h3>
+            <p class="fragment" data-fragment-index="1">REST Assured</p>
             <ol style="text-align: left;">
-                <li class="fragment" data-fragment-index="1">rc-restassured</li>
                 <ul data-fragment-index="2" class="fragment"><li>RcRestAssured should receive environment configuration for each test method to use "ToPwrFilter";</li></ul>
                 <ul data-fragment-index="3" class="fragment"><li>No configuration <code data-trim data-noescape>-></code> no filter;</li></ul>
                 <ul data-fragment-index="4" class="fragment"><li>Use to override: <code data-trim>RedirectFilter()</code> and <code data-trim>given(PwrFilter.DISABLED)</code>.</li></ul>
@@ -200,8 +200,8 @@ dockerCompose.isRequiredBy(tests)
         </section>
         <section data-transition="slide-in fade-out">
             <h3>RC common libraries</h3>
-            <ol style="text-align: left;" start="2">
-                <li class="fragment" data-fragment-index="1">rc-allure</li>
+            <p class="fragment" data-fragment-index="1">Allure Report</p>
+            <ol style="text-align: left;">
                 <ul data-fragment-index="2" class="fragment"><li>Replace ReportNG with Allure Report;</li></ul>
                 <ul data-fragment-index="3" class="fragment"><li>rc-restassured is integrated with rc-allure to provide clear output;</li></ul>
                 <ul data-fragment-index="4" class="fragment"><li>Specify <code>aspectjweaver</code> in run configuration;</li></ul>
