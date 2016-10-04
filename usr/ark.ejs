@@ -185,7 +185,6 @@ dockerCompose.isRequiredBy(tests)
             <ol style="text-align: left;">
                 <li class="fragment" data-fragment-index="1">Prefer Component Tests over Integration Tests</li>
                 <li class="fragment" data-fragment-index="2">Using RC common libraries</li>
-                <li class="fragment" data-fragment-index="3">Using ARK mock for exceptional cases</li>
                 <li class="fragment" data-fragment-index="4">Part of deployment pipeline</li>
             </ol>
         </section>
@@ -217,49 +216,7 @@ dockerCompose.isRequiredBy(tests)
         <section data-transition="slide-in fade-out"
                  data-background-iframe="http://ams02-i01-jen02:8080/view/Platform/view/PLA-INT-SPB/job/Platform-PWR-PLA-INT-SPB-Replay/allure/#/">
         </section>
-        <section data-transition="slide-in fade-out">
-            <h3>ARK Mock</h3>
-            <ol style="text-align: left;">
-                <li class="fragment" data-fragment-index="1">Mock behaviour scenarios are stored in api-server repository</li>
-                <li class="fragment" data-fragment-index="2">They could be easily extended and passed to test with <code>@DataProvider</code></li>
-                <li class="fragment" data-fragment-index="3">Scenario is mapped to RCRequestID to resolve parallel execution</li>
-            </ol>
-        </section>
-        <section data-transition="slide-in fade-out">
-            <h3>ARK Mock</h3>
-            <p style="text-align: left;">
-            <pre><code>public class ArkEmulatorScenarios {
-
-private final MockServerClient client;
-
-public ArkEmulatorScenarios(MockServerClient client) {
-    this.client = client;
-}
-
-public void returnMalformedRequest(String requestId) {
-    expectResponse(requestId,
-            ArkErrors.MALFORMED_REQUEST.toResponse());
-}
-}
-</code></pre>
-            </p>
-        </section>
-        <section data-transition="slide-in fade-out">
-            <h3>ARK Mock</h3>
-            <p style="text-align: left;">
-            <pre><code>public void checkAndPrepareArkMock() {
-String rcRequestId = UUID.randomUUID().toString();
-MockServerClient mock = new MockServerClient(resolvedArkUri.getHost(),
-            resolvedArkUri.getPort());
-
-ArkEmulatorScenarios scenario = new ArkEmulatorScenarios(mock);
-scenario.dropConnection(rcRequestId);
-}
-</code></pre>
-            </p>
-        </section>
     </section>
-
     <section class="stack">
         <section data-transition="slide-in fade-out">
             <h2>Jenkins</h2>
