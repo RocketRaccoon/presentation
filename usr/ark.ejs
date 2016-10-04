@@ -34,11 +34,16 @@
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h2>Mock external services</h2>
+            <h2>Mock external services with Wiremock</h2>
             <ol>
-                <li class="fragment" data-fragment-index="1">
-                    Wiremock in docker container
-                    <pre class="fragment" data-fragment-index="1">Dockerfile<code data-trim data-noescape>
+                <li class="fragment" data-fragment-index="1">Wiremock in docker container</li>
+                <li class="fragment" data-fragment-index="2">Control mock via remote api</li>
+            </ol>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Wiremock in docker container</h2>
+            <pre class="fragment" data-fragment-index="1">Dockerfile<code data-trim data-noescape>
 FROM platform/xas-base:0.4.4
 
 ARG WM_PACKAGE=wiremock
@@ -47,14 +52,11 @@ ARG WM_VERSION=1.58
 ENV APP_NAME $WM_PACKAGE
 # install and run wiremock
 RUN curl -sSL -o $WM_PACKAGE.jar repo_url
-        </code></pre>
-                </li>
-                <li class="fragment" data-fragment-index="2">Control mock via remote api</li>
-            </ol>
+            </code></pre>
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h2>Execute tests workflow</h2>
+            <h2>Test Execute Workflow</h2>
             <ol style="text-align: left;">
                 <li class="fragment" data-fragment-index="1">Pull docker images</li>
                 <li class="fragment" data-fragment-index="2">Start Mock for MDS</li>
@@ -129,11 +131,10 @@ services:
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h2>Demonstration Docker Compose</h2>
-            <p>One command!</p>
-            <video controls>
-                <source src="video/docker-compose.mp4" type="video/mp4" />
-            </video>
+            <h2>One command!</h2>
+            <pre>shell<code data-trim data-noescape>
+docker-compose up --build
+                </code></pre>
         </section>
 
         <section data-transition="slide-in fade-out">
@@ -167,12 +168,12 @@ dockerCompose.isRequiredBy(tests)
             </p>
         </section>
 
-        <section data-transition="slide-in fade-out">
-            <h2>Demonstration Docker Compose With Gradle</h2>
-            <video controls>
-                <source src="video/gradle-docker-compose.mp4" type="video/mp4" />
-            </video>
-        </section>
+        <!--<section data-transition="slide-in fade-out">-->
+            <!--<h2>Demonstration Docker Compose With Gradle</h2>-->
+            <!--<video controls>-->
+                <!--<source src="video/gradle-docker-compose.mp4" type="video/mp4" />-->
+            <!--</video>-->
+        <!--</section>-->
     </section>
 
     <section class="stack">
