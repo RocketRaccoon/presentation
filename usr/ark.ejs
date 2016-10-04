@@ -56,7 +56,7 @@ RUN curl -sSL -o $WM_PACKAGE.jar repo_url
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h2>Test Execute Workflow</h2>
+            <h2>Test Execution Workflow</h2>
             <ol style="text-align: left;">
                 <li class="fragment" data-fragment-index="1">Pull docker images</li>
                 <li class="fragment" data-fragment-index="2">Start Mock for MDS</li>
@@ -168,6 +168,26 @@ dockerCompose.isRequiredBy(tests)
             </p>
         </section>
 
+        <section data-transition="slide-in fade-out">
+            <h2>Gradle task</h2>
+            <p style="text-align: left;">
+                Share docker variables with tests
+            <pre>build.gradle<code data-trim data-noescape>
+task tests(type: Test) {
+}
+
+tests.doFirst {
+    useTestNG()
+
+    dockerCompose.exposeAsSystemProperties(tests)
+
+    def serviceInfo = dockerCompose.servicesInfos.service
+    systemProperty 'someServiceHost', serviceInfo.host
+}
+                </code></pre>
+            </p>
+        </section>
+
         <!--<section data-transition="slide-in fade-out">-->
             <!--<h2>Demonstration Docker Compose With Gradle</h2>-->
             <!--<video controls>-->
@@ -231,26 +251,39 @@ dockerCompose.isRequiredBy(tests)
 
         <section data-transition="slide-in fade-out">
             <h2>Jenkins Pipeline</h2>
-            <ul style="text-align: left;">
-                <li class="fragment" data-fragment-index="1">Durable: Pipelines can survive both planned and unplanned restarts of your Jenkins master.</li>
-                <li class="fragment" data-fragment-index="2">Pausable: Pipelines can optionally stop and wait for human input or approval before completing the jobs for which they were built.</li>
-                <li class="fragment" data-fragment-index="3">Versatile: Pipelines support complex real-world CD requirements, including the ability to fork or join, loop, and work in parallel with each other.</li>
-                <li class="fragment" data-fragment-index="4">Extensible: The Pipeline plugin supports custom extensions to its DSL (domain scripting language) and multiple options for integration with other plugins.</li>
-            </ul>
+            <img class="croissant" data-fragment-index="1" data-src="img/jenkins-pipeline.png">
         </section>
 
-        <section data-transition="slide-in fade-out">
-            <h2>Pipeline Flow</h2>
-            <img data-fragment-index="1" data-src="img/realworld-pipeline-flow.png">
-        </section>
+        <!--<section data-transition="slide-in fade-out">-->
+            <!--<h2>Pipeline Flow</h2>-->
+            <!--<img data-fragment-index="1" data-src="img/realworld-pipeline-flow.png">-->
+        <!--</section>-->
 
         <section data-transition="slide-in fade-out">
             <h2>Pipeline As Code</h2>
-            <p>Loading pipeline scripts using the checkout scm step leverages the idea of "pipeline as code," and lets you maintain pipelines using version control and standalone Groovy editors.</p>
+            <p>Loading pipeline scripts using the checkout scm step leverages the idea of "pipeline as code," and lets you maintain pipelines using version control and your favorite Groovy editors.</p>
         </section>
 
         <section data-transition="slide-in fade-out">
             <h2>Example</h2>
+            <pre>
+Jenkinsfile<code>node {
+    checkout scm
+    stage('build') {
+    }
+
+    stage('tests') {
+        parallel(
+            'unit tests': {},
+            'integration tests': {}
+        )
+    }
+
+    stage('deploy') {
+        input 'Really?'
+    }
+}
+</code></pre>
         </section>
 
         <section data-transition="slide-in fade-out">
