@@ -37,7 +37,7 @@
                     <li class="fragment" data-fragment-index="3">Validate response with JSON schema</li>
                     <li class="fragment" data-fragment-index="4">Validate interaction with other services</li>
                 </ul>
-
+                <li class="fragment" data-fragment-index="5">Check service with any configuration</li>
             </ol>
         </section>
 
@@ -68,13 +68,93 @@ RUN curl -sSL -o $WM_PACKAGE.jar repo_url
         <section data-transition="slide-in fade-out">
             <h2>Execute tests workflow</h2>
             <ol style="text-align: left;">
-                <li class="fragment" data-fragment-index="1">Pull docker img</li>
+                <li class="fragment" data-fragment-index="1">Pull docker images</li>
                 <li class="fragment" data-fragment-index="2">Start Mock for MDS</li>
                 <li class="fragment" data-fragment-index="3">Start Mock for Task Processor</li>
-                <li class="fragment" data-fragment-index="4">Start ARK</li>
-                <li class="fragment" data-fragment-index="5">Execute tests</li>
-                <li class="fragment" data-fragment-index="6">Collect ARK logs</li>
-                <li class="fragment" data-fragment-index="7">Stop containers</li>
+                <li class="fragment" data-fragment-index="4">Configure ARK</li>
+                <li class="fragment" data-fragment-index="5">Start ARK</li>
+                <li class="fragment" data-fragment-index="6">Execute tests</li>
+                <li class="fragment" data-fragment-index="7">Collect ARK logs</li>
+                <li class="fragment" data-fragment-index="8">Stop containers</li>
+            </ol>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Docker workflow</h2>
+            <pre><code data-trim data-noescape>
+docker pull  ...
+docker pull  ...
+docker build ...
+docker build ...
+...
+...
+docker run   ...
+docker run   ...
+docker run   ...
+docker run   ...
+            </code></pre>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Docker Compose</h2>
+            <p>Compose is a tool for defining and running multi-container Docker applications</p>
+            <ol style="text-align: left;">
+                <li class="fragment" data-fragment-index="1">Build images from Dockerfiles</li>
+                <li class="fragment" data-fragment-index="2">Pull images from registry</li>
+                <li class="fragment" data-fragment-index="3">Configure and create containers</li>
+                <li class="fragment" data-fragment-index="4">Start and stop containers</li>
+            </ol>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Docker Compose</h2>
+            <pre>docker-compose.yml<code data-trim data-noescape>
+version: '2'
+services:
+  ark:
+    build: ark-server
+  mds:
+    build: emulator
+  processor:
+    build: emulator
+            </code></pre>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Docker Compose</h2>
+            <pre>docker-compose.yml<code data-trim data-noescape>
+version: '2'
+services:
+  ark:
+    build: ark-server
+    ports:
+      - "18080:8080"
+    volumes:
+     - ./containers/ark/configs:/etc/ringcentral/ark:ro
+    environment:
+      - ark.pwr.url=http://processor:8080
+    depends_on:
+      - processor
+    links:
+      - processor
+                </code></pre>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Demonstration Docker Compose</h2>
+            <p>One command!</p>
+            <video controls>
+                <source src="video/docker-compose.mp4" type="video/mp4" />
+            </video>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Integrate Docker Compose With Tests</h2>
+            <ol style="text-align: left;">
+                <li class="fragment" data-fragment-index="1">Start containers before tests</li>
+                <li class="fragment" data-fragment-index="2">Share containers environment variables with tests</li>
+                <li class="fragment" data-fragment-index="3">Stop containers after tests</li>
+                <li class="fragment" data-fragment-index="4">Cleanup</li>
             </ol>
         </section>
 
@@ -83,24 +163,55 @@ RUN curl -sSL -o $WM_PACKAGE.jar repo_url
             <p style="text-align: left;">
                 Custom gradle plugin
             <pre>build.gradle<code data-trim data-noescape>
-apply plugin: 'component-tests-plugin'
+apply plugin: 'docker-compose'
 
-componentTests {
-useDocker = true
-
-ark {
-    image = project.arkImage
-    tag = project.arkImageTag
+dockerCompose {
+    composeFile = 'docker-compose.yml'
+    stopContainers = true
+    removeContainers = true
+    removeVolumes = true
+    waitForHealthyStateTimeout = Duration.ofMinutes(1)
+    waitForTcpPortsTimeout = Duration.ofMinutes(3)
 }
 
-emulator {
-    image = project.emulatorImage
-    tag = project.emulatorImageTag
-}
-}
+dockerCompose.isRequiredBy(tests)
                 </code></pre>
             </p>
         </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Demonstration Docker Compose With Gradle</h2>
+            <video controls>
+                <source src="video/gradle-docker-compose.mp4" type="video/mp4" />
+            </video>
+        </section>
+    </section>
+
+    <section class="stack">
+        <section data-transition="slide-in fade-out">
+            <h2>Jenkins Pipeline</h2>
+            <ul style="text-align: left;">
+                <li class="fragment" data-fragment-index="1">Durable: Pipelines can survive both planned and unplanned restarts of your Jenkins master.</li>
+                <li class="fragment" data-fragment-index="2">Pausable: Pipelines can optionally stop and wait for human input or approval before completing the jobs for which they were built.</li>
+                <li class="fragment" data-fragment-index="3">Versatile: Pipelines support complex real-world CD requirements, including the ability to fork or join, loop, and work in parallel with each other.</li>
+                <li class="fragment" data-fragment-index="4">Extensible: The Pipeline plugin supports custom extensions to its DSL (domain scripting language) and multiple options for integration with other plugins.</li>
+            </ul>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Pipeline Flow</h2>
+            <img data-fragment-index="1" data-src="img/realworld-pipeline-flow.png">
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Pipeline As Code</h2>
+            <p>Loading pipeline scripts using the checkout scm step leverages the idea of "pipeline as code," and lets you maintain pipelines using version control and standalone Groovy editors.</p>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Example</h2>
+        </section>
+
     </section>
 
     <section class="stack">
