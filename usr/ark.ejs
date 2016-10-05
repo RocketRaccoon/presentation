@@ -35,10 +35,10 @@
 
         <section data-transition="slide-in fade-out">
             <h2>Mock external services with Wiremock</h2>
-            <ol>
+            <ul>
                 <li class="fragment" data-fragment-index="1">Wiremock in docker container</li>
                 <li class="fragment" data-fragment-index="2">Control mock via remote api</li>
-            </ol>
+            </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
@@ -203,32 +203,32 @@ tests.doFirst {
                  data-background-position="80% 70%"
                  data-background-size="150px">
             <h2>Integration Testing</h2>
-            <ol style="text-align: left;">
+            <ul style="text-align: left;">
                 <li class="fragment" data-fragment-index="1">Prefer Component Tests over Integration Tests</li>
                 <li class="fragment" data-fragment-index="2">Using RC common libraries</li>
                 <li class="fragment" data-fragment-index="4">Part of deployment pipeline</li>
-            </ol>
+            </ul>
         </section>
         <section data-transition="slide-in fade-out">
             <h3>RC common libraries</h3>
             <p class="fragment" data-fragment-index="1">REST Assured</p>
-            <ol style="text-align: left;">
-                <ul data-fragment-index="2" class="fragment"><li>RcRestAssured should receive environment configuration for each test method to use "ToPwrFilter";</li></ul>
-                <ul data-fragment-index="3" class="fragment"><li>No configuration <code data-trim data-noescape>-></code> no filter;</li></ul>
-                <ul data-fragment-index="4" class="fragment"><li>Use to override: <code data-trim>RedirectFilter()</code> and <code data-trim>given(PwrFilter.DISABLED)</code>.</li></ul>
-            </ol>
+            <ul style="text-align: left;">
+                <li data-fragment-index="2" class="fragment">RcRestAssured should receive environment configuration for each test method to use "ToPwrFilter"</li>
+                <li data-fragment-index="3" class="fragment">No configuration ⇨ no filter</li>
+                <li data-fragment-index="4" class="fragment">Use to override: <code data-trim>RedirectFilter()</code> and <code data-trim>given(PwrFilter.DISABLED)</code></li>
+            </ul>
         </section>
         <section data-transition="slide-in fade-out">
             <h3>RC common libraries</h3>
             <p class="fragment" data-fragment-index="1">Allure Report</p>
-            <ol style="text-align: left;">
-                <ul data-fragment-index="2" class="fragment"><li>Replace ReportNG with Allure Report;</li></ul>
-                <ul data-fragment-index="3" class="fragment"><li>rc-restassured is integrated with rc-allure to provide clear output;</li></ul>
-                <ul data-fragment-index="4" class="fragment"><li>Specify <code>aspectjweaver</code> in run configuration;</li></ul>
-                <ul data-fragment-index="5" class="fragment"><li>Use Allure CLI to generate and run report;</li></ul>
-                <ul data-fragment-index="6" class="fragment"><li>Built-in reports aggregation function;</li></ul>
-                <ul data-fragment-index="7" class="fragment"><li>Extend Allure Report with custom information and plugins.</li></ul>
-            </ol>
+            <ul style="text-align: left;">
+                <li data-fragment-index="2" class="fragment">Replace ReportNG with Allure Report</li>
+                <li data-fragment-index="3" class="fragment">rc-restassured is integrated with rc-allure to provide clear output</li>
+                <li data-fragment-index="4" class="fragment">Specify <code>aspectjweaver</code> in run configuration</li>
+                <li data-fragment-index="5" class="fragment">Use Allure CLI to generate and run report</li>
+                <li data-fragment-index="6" class="fragment">Built-in reports aggregation function</li>
+                <li data-fragment-index="7" class="fragment">Extend Allure Report with custom information and plugins</li>
+            </ul>
         </section>
         <section data-transition="slide-in fade-out"
                  data-background-image="img/allure_sample_test.png">
@@ -240,11 +240,11 @@ tests.doFirst {
     <section class="stack">
         <section data-transition="slide-in fade-out">
             <h2>Jenkins</h2>
-            <ol style="text-align: left;">
+            <ul style="text-align: left;">
                 <li class="fragment" data-fragment-index="1">Jobs pipeline</li>
                 <li class="fragment" data-fragment-index="2">Deploy via ADS</li>
                 <li class="fragment" data-fragment-index="3">Trigger by commit</li>
-            </ol>
+            </ul>
 
         </section>
 
@@ -311,13 +311,13 @@ deploy.py --env MY-ENV
         <section data-background-image="img/gatling-logo.png" data-background-size="250px" data-background-position="70% 45%">
             <h2>Gatling</h2>
             <div style="text-align: left;">
-                <ol>
+                <ul>
                     <li class="fragment" data-fragment-index="1">High performance</li>
                     <li class="fragment" data-fragment-index="2">Developer-friendly DSL</li>
                     <li class="fragment" data-fragment-index="3">Easy integrate with AGS</li>
                     <li class="fragment" data-fragment-index="4">Ready-to-present HTML reports</li>
                     <li class="fragment" data-fragment-index="5">Real-time reporting with Grafana and InfluxDB (and Docker)</li>
-                </ol>
+                </ul>
                 <hr>
                 <p style="text-align: center;">"Arm yourself for performance"</p>
             </div>
@@ -391,7 +391,6 @@ grafana/grafana
     <pre><code><plugin>
     <groupId>io.gatling</groupId>
     <artifactId>gatling-maven-plugin</artifactId>
-    <version>${gatlingMvnPluginVersion}</version>
     <executions>
         <execution>
             <phase>test</phase>
@@ -428,6 +427,10 @@ grafana/grafana
             <h3>MDS Availability Test</h3>
             <img class="croissant" data-fragment-index="1" data-src="img/grafana.png">
         </section>
+
+    </section>
+    <section data-transition="slide-in fade-out">
+        <h2>Spasibo</h2>
     </section>
     <!--<section class="stack">
         <section data-transition="slide-in fade-out">
