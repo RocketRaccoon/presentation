@@ -227,15 +227,14 @@ tests.doFirst {
                 <ul data-fragment-index="4" class="fragment"><li>Specify <code>aspectjweaver</code> in run configuration;</li></ul>
                 <ul data-fragment-index="5" class="fragment"><li>Use Allure CLI to generate and run report;</li></ul>
                 <ul data-fragment-index="6" class="fragment"><li>Built-in reports aggregation function;</li></ul>
-                <ul data-fragment-index="7" class="fragment"><li>Run in Docker container;</li></ul>
-                <ul data-fragment-index="8" class="fragment"><li>Extend Allure Report with custom information and plugins.</li></ul>
+                <ul data-fragment-index="7" class="fragment"><li>Extend Allure Report with custom information and plugins.</li></ul>
             </ol>
         </section>
         <section data-transition="slide-in fade-out"
-                 data-background-iframe="http://ams02-i01-jen02:8080/job/Platform-PLA-DIS-AMS-ARK-ComponentsTests/204/allure/#/xunit/4334ed14e9a352db/d14e45e39acbe3b3">
+                 data-background-image="img/allure_sample_test.png">
         </section>
         <section data-transition="slide-in fade-out"
-                 data-background-iframe="http://ams02-i01-jen02:8080/view/Platform/view/PLA-INT-SPB/job/Platform-PWR-PLA-INT-SPB-Replay/allure/#/">
+                 data-background-image="img/allure_suite_of_suites.png">
         </section>
     </section>
     <section class="stack">
@@ -355,7 +354,21 @@ return accountService.getAccounts(50).circular
 }</code></pre>
         </section>
 
-        <section data-background-iframe="/gatling/index.html">
+        <section data-transition="slide-in fade-out">
+            <h3>Gatling Report Summary</h3>
+            <img class="croissant" data-fragment-index="1" data-src="/img/gatling-global-charts.png">
+        </section>
+        <section data-transition="slide-in fade-out">
+            <h3>Gatling Report Summary</h3>
+            <img class="croissant" data-fragment-index="1" data-src="/img/gatling-global-table.png">
+        </section>
+        <section data-transition="slide-in fade-out">
+            <h3>Requests Summary</h3>
+            <img class="croissant" data-fragment-index="1" data-src="/img/gatling-requests-per-second.png">
+        </section>
+        <section data-transition="slide-in fade-out">
+            <h3>Responses Summary</h3>
+            <img class="croissant" data-fragment-index="1" data-src="/img/gatling-responses-per-second.png">
         </section>
         <section data-transition="slide-in fade-out">
             <h2>Real-time Reporting</h2>
@@ -375,30 +388,23 @@ grafana/grafana
         <section data-transition="slide-in fade-out">
             <h2>Real-time Reporting</h2>
             <p style="text-align: left;">2. Configure Gatling (e.g. with Maven)</p>
-    <pre><code><profile>
-    <id>availability-tests</id>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>io.gatling</groupId>
-                <artifactId>gatling-maven-plugin</artifactId>
-                <version>${gatlingMvnPluginVersion}</version>
-                <executions>
-                    <execution>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>execute</goal>
-                        </goals>
-                        <configuration>
-                            <configFolder>src/test/resources/conf</configFolder>
-                            <simulationsFolder>src/test/scala</simulationsFolder>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-</profile>
+    <pre><code><plugin>
+    <groupId>io.gatling</groupId>
+    <artifactId>gatling-maven-plugin</artifactId>
+    <version>${gatlingMvnPluginVersion}</version>
+    <executions>
+        <execution>
+            <phase>test</phase>
+            <goals>
+                <goal>execute</goal>
+            </goals>
+            <configuration>
+                <configFolder>src/test/resources/conf</configFolder>
+                <simulationsFolder>src/test/scala</simulationsFolder>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
 </code></pre>
         </section>
         <section data-transition="slide-in fade-out">
@@ -414,12 +420,13 @@ grafana/grafana
         </section>
         <section data-transition="slide-in fade-out">
             <h2>Real-time Reporting</h2>
-            <p style="text-align: left;">3. Run tests and monitor results</p>
-            <pre><code>mvn test -Dgatling.simulationClass=TestMdsClusterAvailability -P availability-tests
+            <p style="text-align: left;">4. Run tests and monitor results</p>
+            <pre><code>mvn test -Dgatling.simulationClass=TestMdsClusterAvailability
 </code></pre>
         </section>
-        <section data-transition="slide-in fade-out"
-                 data-background-iframe="http://pla01-t04-utl01:3000/dashboard/db/gatling">
+        <section data-transition="slide-in fade-out">
+            <h3>MDS Availability Test</h3>
+            <img class="croissant" data-fragment-index="1" data-src="img/grafana.png">
         </section>
     </section>
     <!--<section class="stack">
