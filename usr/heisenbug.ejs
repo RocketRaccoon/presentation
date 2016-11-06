@@ -1,0 +1,160 @@
+<div class="slides">
+
+    <!--
+    ## 3 - Много окружений -> один способ доставки
+    ## Дмитрий
+    ## Проблема: у разных сервисов разные требования к софту и способы установки;
+    ## Решение: используем Docker контейнеры;
+    ## Описание
+    Необходим единный способ развертывания сервисов во всех средах.
+    Плюс уменьшение парка SWE/HWE. Уменьшить нагрузку на devops. Иметь возможность быстро менять системные требования к софту.
+    -->
+    <section class="stack">
+
+        <section data-transition="slide-in fade-out">
+            <h2>Build once, Run anywhere</h2>
+            <ol style="text-align: left;">
+                <li class="fragment" data-fragment-index="1">VM + Package Manager</li>
+                <li class="fragment" data-fragment-index="2">Docker</li>
+            </ol>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>VM + Package Manager</h2>
+            <ol style="text-align: left;">
+                <li class="fragment" data-fragment-index="1">Проблемы?</li>
+                <li class="fragment" data-fragment-index="2">+</li>
+            </ol>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Docker</h2>
+            <ol style="text-align: left;">
+                <li class="fragment" data-fragment-index="1">Проблемы?</li>
+                <li class="fragment" data-fragment-index="2">+</li>
+            </ol>
+        </section>
+
+    </section>
+
+    <!--
+        ## 6
+        ## Дмитрий
+        ## Проблема: одна команда сделала изменение, которое должно попасть ко всем. После этого необходимо изменить xml шаблон,
+        ## а остальные должны самостоятельно из него обновиться.
+        ## Решение: Jenkins Pipeline, использование Job DSL, хранение конфигурации в репозитории проекта;
+        ## Описание
+        Как лучше организовать сборку?
+        Есть много билдеров, есть тест экзекуторы, много проектов и видов тестов, определенный набор ПО для слэйвов.
+        Приходится делать очень много слэйвов с разными конфигурациями
+        (когда это обслуживается отдельным отделом добавляются бюрократические сложности и тратится время на ожидание),
+        но все равно в определенный момент (перед релизом) появляется очередь на прогон тестов, сборок и т.п. (все подходящие слэйвы заняты).
+        При это много свободных, которые не подходят. Есть проблема как обновлять конфигурацию на слэйвах, так как это может сломать другие сборки.
+        Команда сама создает слэйв в контейнере с нужным конфигом под необходимое окружение.
+        Слэйвы в нужном количестве создаются на момент сборки, а потом удаляются при необходимости.
+        Конфигурация джобы хранится в проетке и версионируется. По запросу мы получаем доступ к необходимому количеству ресурсов.
+        Пайплайн позволяет это все интегрировать в единый цикл тестирования.
+     -->
+    <section class="stack">
+
+        <section data-transition="slide-in fade-out">
+            <h2>Delivery Pipeline as Code</h2>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Как мы работаем с Jenkins</h2>
+            <ol style="text-align: left;">
+                <li class="fragment" data-fragment-index="1">Для каждой команды отдельное окружение</li>
+                <li class="fragment" data-fragment-index="2">Для каждого окружения свой набор Job</li>
+                <li class="fragment" data-fragment-index="3">Job'ы создаются из темплейтов</li>
+            </ol>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Как этот подход работает с микросервисами?</h2>
+            <ol style="text-align: left;">
+                <li class="fragment" data-fragment-index="1">Для каждой команды отдельное окружение</li>
+                <li class="fragment" data-fragment-index="2">Для каждого сервиса свой набор Job</li>
+                <li class="fragment" data-fragment-index="3">Job'ы для каждого сервиса создаются из темплейтов</li>
+                <li class="fragment" data-fragment-index="4">Job'ы для каждого окружения создаются из темплейтов</li>
+            </ol>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Какие проблемы у этого подхода?</h2>
+            <ol style="text-align: left;">
+                <li class="fragment" data-fragment-index="1">Отсутствие версионирования</li>
+                <li class="fragment" data-fragment-index="2">Дублирование логики в job'ах</li>
+                <li class="fragment" data-fragment-index="3">Сложно вносить изменения</li>
+                <li class="fragment" data-fragment-index="4">Необходимо пересоздавать job'ы после изменения темплейтов</li>
+            </ol>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Pipeline as Code</h2>
+            <ol style="text-align: left;">
+                <li class="fragment" data-fragment-index="1">Job'ы создаются с помощью Groovy script</li>
+                <li class="fragment" data-fragment-index="2">Pipeline объявляется в Jenkinsfile и хранятся вместе с кодом</li>
+            </ol>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Manual steps in Pipeline</h2>
+            <ol style="text-align: left;">
+            </ol>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Stage View</h2>
+            <ol style="text-align: left;">
+                <li class="fragment" data-fragment-index="1">Каждый pipeline состоит из stage</li>
+                <li class="fragment" data-fragment-index="2">Каждый stage содержит 1 или более шагов (steps)</li>
+            </ol>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Docker Support</h2>
+            <!--
+            https://www.cloudbees.com/blog/orchestrating-workflows-jenkins-and-docker
+            http://www.slideshare.net/cloudbees/juc-europe-2015-from-virtual-machines-to-containers-achieving-continuous-integration-build-reproducibility-isolation-and-scalability?qid=da43606e-9da7-4d87-ba1e-64da35c76d8f&v=&b=&from_search=4
+            -->
+            <ol style="text-align: left;">
+            </ol>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Infrastructure as Code</h2>
+            <ol style="text-align: left;">
+            </ol>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Reuse Pipeline modules</h2>
+            <ol style="text-align: left;">
+            </ol>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Use Scripts in other languages</h2>
+            <ol style="text-align: left;">
+            </ol>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Example</h2>
+            <ol style="text-align: left;">
+            </ol>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Blue Ocean UI???</h2>
+            <ol style="text-align: left;">
+            </ol>
+        </section>
+
+
+
+    </section>
+
+
+</div>
