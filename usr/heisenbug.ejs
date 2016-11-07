@@ -179,6 +179,56 @@
     </section>
 
     <!--
+    ## 4 - Фрэймворк для момнолита плохо работает с микросервисами
+    ## Андрей
+    ## Проблема: любой монолитный тестовый фреймворк со временем превращается в кракена. Его становится тяжело обновлять, расширять и использовать в других проектах;
+    ## Решение: декомпозиция фреймворка на модули, принцип единой ответственности;
+    ## Описание
+    -->
+    <section class="stack">
+        <section data-transition="slide-in fade-out">
+            <h3>Фрэймворки и Кракены</h3>
+            <ul style="text-align: left;">
+                <li class="fragment">Базовый функционал для тестов</li>
+                <li class="fragment">Интеграция с внутренними системами</li>
+                <li class="fragment">Функционал предоставляется через наследование базового класса</li>
+                <li class="fragment">Разные модули жестко связаны между собой</li>
+            </ul>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h3>Фрэймворки и Кракены</h3>
+            <ul style="text-align: left;">
+                <li class="fragment">Лишние зависимости съедают ресурсы CI сервера</li>
+                <li class="fragment">Изменение во фрэймворке влияет на всю компанию</li>
+                <li class="fragment">В каждом проекте оброс отдельными доработками</li>
+                <li class="fragment">Сложно обновлять версии ключевых библиотек</li>
+                <li class="fragment">Увеличенный порог вхождения</li>
+            </ul>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Картинка с абстрактным кракеном</h2>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h3><span>Что делать?</span><span class="fragment"> Разделять</span></h3>
+            <ul style="text-align: left;">
+                <li class="fragment">Модули работают независимо</li>
+                <li class="fragment">Взаимодействуют через API</li>
+                <li class="fragment">Вместо костылей - вносите вклад в используемые проекты</li>
+                <li class="fragment">При тестировании сервиса подключается только то, что нужно</li>
+                <li class="fragment">Для каждой интеграции - своя библиотека</li>
+            </ul>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Картинка с Wonderful Testing Framework</h2>
+        </section>
+
+    </section>
+
+    <!--
         ## 6
         ## Дмитрий
         ## Проблема: одна команда сделала изменение, которое должно попасть ко всем. После этого необходимо изменить xml шаблон,
