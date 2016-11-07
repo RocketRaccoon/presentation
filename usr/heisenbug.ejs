@@ -12,7 +12,7 @@
     <section class="stack">
 
         <section data-transition="slide-in fade-out">
-            <h2>Build once, Run anywhere</h2>
+            <h2>Возможные способы дистрибьюции</h2>
             <ol style="text-align: left;">
                 <li class="fragment" data-fragment-index="1">VM + Package Manager</li>
                 <li class="fragment" data-fragment-index="2">Docker</li>
@@ -22,16 +22,22 @@
         <section data-transition="slide-in fade-out">
             <h2>VM + Package Manager</h2>
             <ol style="text-align: left;">
-                <li class="fragment" data-fragment-index="1">Проблемы?</li>
-                <li class="fragment" data-fragment-index="2">+</li>
+                <li class="fragment" data-fragment-index="1">Брольшой размер виртуальной машины</li>
+                <li class="fragment" data-fragment-index="2">Машина "долго" стартует</li>
+                <li class="fragment" data-fragment-index="3">Сложный процесс разработки SWE/HWE и деплоя приложения</li>
+                <li class="fragment" data-fragment-index="4">Сложно локально протестировать новую версию виртуальной машины</li>
+                <li class="fragment" data-fragment-index="5">Нет четкой связи между версией виртуальной машины и версией приложения</li>
             </ol>
         </section>
 
         <section data-transition="slide-in fade-out">
             <h2>Docker</h2>
+            <h3 class="fragment" >Build once, Run anywhere</h3>
             <ol style="text-align: left;">
-                <li class="fragment" data-fragment-index="1">Проблемы?</li>
-                <li class="fragment" data-fragment-index="2">+</li>
+                <li class="fragment" data-fragment-index="1">Меньший размер image'a (Microcontainers)</li>
+                <li class="fragment" data-fragment-index="2">Быстрый старт</li>
+                <li class="fragment" data-fragment-index="3">Окружение сервиса конфигурируется разработчиком</li>
+                <li class="fragment" data-fragment-index="4">Один и тот же контейнер на всех окружениях</li>
             </ol>
         </section>
 
@@ -67,6 +73,16 @@
                 <li class="fragment" data-fragment-index="1">Для каждой команды отдельное окружение</li>
                 <li class="fragment" data-fragment-index="2">Для каждого окружения свой набор Job</li>
                 <li class="fragment" data-fragment-index="3">Job'ы создаются из темплейтов</li>
+            </ol>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Platform - The Numbers</h2>
+            <ol style="text-align: left;">
+                <li class="fragment" data-fragment-index="1">Slaves?</li>
+                <li class="fragment" data-fragment-index="1">Jobs?</li>
+                <li class="fragment" data-fragment-index="1">Environments?</li>
+                <li class="fragment" data-fragment-index="1">Executions?</li>
             </ol>
         </section>
 
