@@ -1,5 +1,140 @@
 <div class="slides">
 
+
+    <section class="stack">
+        <section>
+            <h3>
+                <div>Полный цикл тестирования микросервисов</div>
+                <div> в Docker контейнерах</div>
+            </h3>
+        </section>
+    </section>
+
+    <!--
+    ## 1 - Монолит, Релизный цикл, Большая Регрессия, Сложное Окружение
+    ## Андрей
+    ## Проблема: команда работает с одним большим сервисом. Общая кодовая база и длинный релизный цикл, сложное окружение (трудно изолировать сервис для тестирования), много интеграционных тестов, регрессия выполняется долго;
+    ## Решение: разбиваем сервис на микросервисы;
+    ## Решение: пирамида тестирования - больше модульных и компонентных тестов;
+    ## Решение: на каждый коммит прогоняем тесты (юнит, компонентные, интеграционные)
+    ## Описание (Разбиваем на микросервисы -> рассказываем о плюшках для тестирования)
+    -->
+    <section class="stack">
+        <section data-transition="slide-in fade-out">
+            <h3>
+                <div class="fragment">Монолиты</div>
+                <div class="fragment">Релизы</div>
+                <div class="fragment">Регрессии</div>
+                <div class="fragment">Окружения</div>
+            </h3>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h3>Монолитный сервис</h3>
+            <ul>
+                <li class="fragment">Предоставляет API для облачной телефонии</li>
+                <li class="fragment">Размер проекта - 466,000 SLOC</li>
+                <li class="fragment">Интеграционных тестов - 229,000 SLOC</li>
+                <li class="fragment">Описание тестов - 200,000 LOC</li>
+            </ul>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h3>Релизный цикл</h3>
+            <ul>
+                <li class="fragment">Релиз каждые 3 месяца</li>
+                <li class="fragment">В проекте 7 команд</li>
+                <li class="fragment">Функционал разрабатывается в отдельных ветках</li>
+                <li class="fragment">В общую ветку код сливается после прохождения регрессии на эталонном окружении</li>
+            </ul>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h3>Регрессионное тестирование</h3>
+            <ul>
+                <li class="fragment">15,000 тестов за 75 минут</li>
+                <li class="fragment">Подготовка тестовых данных занимает 4 часа</li>
+                <li class="fragment">Даже для одной задачи требуется полный прогон</li>
+                <li class="fragment">Один день - одна команда</li>
+            </ul>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h3>Окружения</h3>
+            <ul>
+                <li class="fragment">Стандартное окружение - 70 VM, 120 vCPU, 160GB RAM</li>
+                <li class="fragment">Окружение для каждой команды</li>
+                <li class="fragment">4 общих окружения для проекта</li>
+                <li class="fragment">Выделенная команда для поддержки окружений</li>
+            </ul>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h3>Как микросервисы это меняют?</h3>
+            <ul>
+                <li class="fragment">Каждый сервис имеет отдельный релизный цикл</li>
+                <li class="fragment">Выпускаем меньше изменений за один раз</li>
+                <li class="fragment">Интеграционных тестов меньше</li>
+                <li class="fragment">Компонентных тестов больше</li>
+            </ul>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h3>Как микросервисы это меняют?</h3>
+            <ul>
+                <li class="fragment">На каждый коммит запускаются все виды тестов</li>
+                <li class="fragment">Тестовых заглушек меньше и они проще</li>
+                <li class="fragment">В микросервисе проще внедрять новые технологии</li>
+                <li class="fragment">Требуется меньше ресурсов CI сервера</li>
+            </ul>
+        </section>
+    </section>
+
+    <!--
+    ## 2 - Больше фич в один момент времени -> нужно больше окружений
+    ## Андрей
+    ## Дмитрий
+    ## Проблема: каждой команде необходимо свое окружение, а также общие окружения для интеграции. При этом окружения должны быть похожи на продакшн. Одновременная разработка нескольких версий сервиса.
+    ## Решение: система управления окружениями
+    -->
+    <section class="stack">
+        <section data-transition="slide-in fade-out">
+            <h3>Окружение разработки и тестирования</h3>
+            <ul>
+                <li class="fragment">Больше фич и команд - больше окружений необходимо</li>
+                <li class="fragment">Необходим котроль за состоянием окружений</li>
+                <li class="fragment">Единый механизм установки сервисов в DEV и PROD</li>
+            </ul>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h3>
+                <div>Система управления окружениями</div>
+                <div class="fragment">и конфигурациями</div>
+            </h3>
+            <ul>
+                <li class="fragment">Хранит артефакты для установки</li>
+                <li class="fragment">Хранит конфигурации окружений и управляет ими</li>
+                <li class="fragment">Развертывает окружения</li>
+                <li class="fragment">Используется абсолютно для всех окружений</li>
+                <li class="fragment">Способно эффективно управлять сотнями окружений</li>
+            </ul>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h3>
+                <div>Система управления окружениями</div>
+                <div>и конфигурациями</div>
+            </h3>
+            <ul>
+                <li class="fragment">Можно сделать из подручных средств и палок</li>
+                <li class="fragment">Артефакты для установки - Nexus, Docker Registry, FTP</li>
+                <li class="fragment">Хранилище конфигураций и деплоймент - Puppet, Chief, Ansible</li>
+                <li class="fragment">Управление ресурсами - VMware, Mesosphere</li>
+            </ul>
+        </section>
+    </section>
+
     <!--
     ## 3 - Много окружений -> один способ доставки
     ## Дмитрий
