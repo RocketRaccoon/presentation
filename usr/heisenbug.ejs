@@ -21,16 +21,16 @@
     -->
     <section class="stack">
         <section data-transition="slide-in fade-out">
-            <h3>
+            <h2>
                 <div class="fragment">Монолиты</div>
                 <div class="fragment">Релизы</div>
                 <div class="fragment">Регрессии</div>
                 <div class="fragment">Окружения</div>
-            </h3>
+            </h2>
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h3>Монолитный сервис</h3>
+            <h2>Монолитный сервис</h2>
             <ul>
                 <li class="fragment">Предоставляет API для облачной телефонии</li>
                 <li class="fragment">Размер проекта - 466,000 SLOC</li>
@@ -40,7 +40,7 @@
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h3>Релизный цикл</h3>
+            <h2>Релизный цикл</h2>
             <ul>
                 <li class="fragment">Релиз каждые 3 месяца</li>
                 <li class="fragment">В проекте 7 команд</li>
@@ -50,7 +50,7 @@
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h3>Регрессионное тестирование</h3>
+            <h2>Регрессионное тестирование</h2>
             <ul>
                 <li class="fragment">15,000 тестов за 75 минут</li>
                 <li class="fragment">Подготовка тестовых данных занимает 4 часа</li>
@@ -60,7 +60,7 @@
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h3>Окружения</h3>
+            <h2>Окружения</h2>
             <ul>
                 <li class="fragment">Стандартное окружение - 70 VM, 120 vCPU, 160GB RAM</li>
                 <li class="fragment">Окружение для каждой команды</li>
@@ -70,7 +70,7 @@
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h3>Как микросервисы это меняют?</h3>
+            <h2>Как микросервисы это меняют?</h2>
             <ul>
                 <li class="fragment">Каждый сервис имеет отдельный релизный цикл</li>
                 <li class="fragment">Выпускаем меньше изменений за один раз</li>
@@ -80,7 +80,7 @@
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h3>Как микросервисы это меняют?</h3>
+            <h2>Как микросервисы это меняют?</h2>
             <ul>
                 <li class="fragment">На каждый коммит запускаются все виды тестов</li>
                 <li class="fragment">Тестовых заглушек меньше и они проще</li>
@@ -99,7 +99,7 @@
     -->
     <section class="stack">
         <section data-transition="slide-in fade-out">
-            <h3>Окружение разработки и тестирования</h3>
+            <h2>Окружение разработки и тестирования</h2>
             <ul>
                 <li class="fragment">Больше фич и команд - больше окружений необходимо</li>
                 <li class="fragment">Необходим котроль за состоянием окружений</li>
@@ -108,24 +108,24 @@
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h3>
+            <h2>
                 <div>Система управления окружениями</div>
                 <div class="fragment">и конфигурациями</div>
-            </h3>
+            </h2>
             <ul>
                 <li class="fragment">Хранит артефакты для установки</li>
                 <li class="fragment">Хранит конфигурации окружений и управляет ими</li>
                 <li class="fragment">Развертывает окружения</li>
                 <li class="fragment">Используется абсолютно для всех окружений</li>
-                <li class="fragment">Способно эффективно управлять сотнями окружений</li>
+                <li class="fragment">Способна эффективно управлять сотнями окружений</li>
             </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h3>
+            <h2>
                 <div>Система управления окружениями</div>
                 <div>и конфигурациями</div>
-            </h3>
+            </h2>
             <ul>
                 <li class="fragment">Можно сделать из подручных средств и палок</li>
                 <li class="fragment">Артефакты для установки - Nexus, Docker Registry, FTP</li>
@@ -147,33 +147,33 @@
     <section class="stack">
 
         <section data-transition="slide-in fade-out">
-            <h2>Возможные способы дистрибьюции</h2>
-            <ol style="text-align: left;">
+            <h2>Возможные способы дистрибуции сервисов</h2>
+            <ul style="text-align: left;">
                 <li class="fragment" data-fragment-index="1">VM + Package Manager</li>
                 <li class="fragment" data-fragment-index="2">Docker</li>
-            </ol>
+            </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
             <h2>VM + Package Manager</h2>
-            <ol style="text-align: left;">
+            <ul style="text-align: left;">
                 <li class="fragment" data-fragment-index="1">Брольшой размер виртуальной машины</li>
                 <li class="fragment" data-fragment-index="2">Машина "долго" стартует</li>
                 <li class="fragment" data-fragment-index="3">Сложный процесс разработки SWE/HWE и деплоя приложения</li>
                 <li class="fragment" data-fragment-index="4">Сложно локально протестировать новую версию виртуальной машины</li>
                 <li class="fragment" data-fragment-index="5">Нет четкой связи между версией виртуальной машины и версией приложения</li>
-            </ol>
+            </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
             <h2>Docker</h2>
-            <h3 class="fragment" >Build once, Run anywhere</h3>
-            <ol style="text-align: left;">
+            <h3 class="fragment" data-fragment-index="0" >Build once, Run anywhere</h3>
+            <ul style="text-align: left;">
                 <li class="fragment" data-fragment-index="1">Меньший размер image'a (Microcontainers)</li>
                 <li class="fragment" data-fragment-index="2">Быстрый старт</li>
                 <li class="fragment" data-fragment-index="3">Окружение сервиса конфигурируется разработчиком</li>
                 <li class="fragment" data-fragment-index="4">Один и тот же контейнер на всех окружениях</li>
-            </ol>
+            </ul>
         </section>
 
     </section>
@@ -187,7 +187,7 @@
     -->
     <section class="stack">
         <section data-transition="slide-in fade-out">
-            <h3>Фрэймворки и Кракены</h3>
+            <h2>Фрэймворки и Кракены</h2>
             <ul style="text-align: left;">
                 <li class="fragment">Базовый функционал для тестов</li>
                 <li class="fragment">Интеграция с внутренними системами</li>
@@ -197,7 +197,7 @@
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h3>Фрэймворки и Кракены</h3>
+            <h2>Фрэймворки и Кракены</h2>
             <ul style="text-align: left;">
                 <li class="fragment">Лишние зависимости съедают ресурсы CI сервера</li>
                 <li class="fragment">Изменение во фрэймворке влияет на всю компанию</li>
@@ -212,21 +212,70 @@
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h3><span>Что делать?</span><span class="fragment"> Разделять</span></h3>
+            <h2>
+                <div>Что делать?</div>
+            </h2>
+            <div class="fragment">когда текущий тестовый фрэймворк <em>уже</em> не получился,</div>
+            <div class="fragment">а новый <em>ещё</em> не получился</div>
             <ul style="text-align: left;">
-                <li class="fragment">Модули работают независимо</li>
-                <li class="fragment">Взаимодействуют через API</li>
-                <li class="fragment">Вместо костылей - вносите вклад в используемые проекты</li>
-                <li class="fragment">При тестировании сервиса подключается только то, что нужно</li>
-                <li class="fragment">Для каждой интеграции - своя библиотека</li>
+                <li class="fragment">Разделить на независимые модули</li>
+                <li class="fragment">Сделать взаимодействие через API</li>
+                <li class="fragment">Вместо костылей - вносить вклад в используемые проекты</li>
+                <li class="fragment">При тестировании сервиса подключать только то, что нужно</li>
+                <li class="fragment">Тестировать</li>
             </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
             <h2>Картинка с Wonderful Testing Framework</h2>
         </section>
-
     </section>
+
+    <!--
+    ## 5
+    ## Андрей
+    ## Проблема: тесты запускаются параллельно на нескольких машинах, необходимо объединять все отчёты;
+    ## Решение: использование Allure Reports, Report Portal(?);
+    ## Описание
+    -->
+    <section class="stack">
+        <section data-transition="slide-in fade-out">
+            <h2>Отчеты по тестированию</h2>
+            <ul style="text-align: left;">
+                <li class="fragment">При тестировании множества сервисов необходимо объединять разные отчеты в один</li>
+                <li class="fragment">Стандартные отчеты плохо справляются с этой задачей</li>
+                <li class="fragment">При большом количестве данных производетельность отчета становится проблемой</li>
+                <li class="fragment">Приходится дорабатывать либо делать свое решение с нуля</li>
+            </ul>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Что надо?</h2>
+            <ul style="text-align: left;">
+                <li class="fragment">Собирать много отчетов в один</li>
+                <li class="fragment">Разные уровни детализации</li>
+                <li class="fragment">Показывать информацию из множества источников</li>
+                <li class="fragment">API для интеграции</li>
+                <li class="fragment">Результаты в реальном времени</li>
+            </ul>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h3 class="fragment">Yandex Allure Report</h3>
+            <ul style="text-align: left;">
+                <li class="fragment">Супер Фича</li>
+                <li class="fragment">Супер Фича</li>
+                <li class="fragment">Проблема</li>
+            </ul>
+            <h2 class="fragment">Epam Report Portal</h2>
+            <ul style="text-align: left;">
+                <li class="fragment">Супер Фича</li>
+                <li class="fragment">Супер Фича</li>
+                <li class="fragment">Проблема</li>
+            </ul>
+        </section>
+    </section>
+
 
     <!--
         ## 6
@@ -254,41 +303,41 @@
 
         <section data-transition="slide-in fade-out">
             <h2>Как мы работаем с Jenkins</h2>
-            <ol style="text-align: left;">
+            <ul style="text-align: left;">
                 <li class="fragment" data-fragment-index="1">Для каждой команды отдельное окружение</li>
                 <li class="fragment" data-fragment-index="2">Для каждого окружения свой набор Job</li>
                 <li class="fragment" data-fragment-index="3">Job'ы создаются из темплейтов</li>
-            </ol>
+            </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
             <h2>Platform - The Numbers</h2>
-            <ol style="text-align: left;">
+            <ul style="text-align: left;">
                 <li class="fragment" data-fragment-index="1">Slaves?</li>
                 <li class="fragment" data-fragment-index="1">Jobs?</li>
                 <li class="fragment" data-fragment-index="1">Environments?</li>
                 <li class="fragment" data-fragment-index="1">Executions?</li>
-            </ol>
+            </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
             <h2>Как этот подход работает с микросервисами?</h2>
-            <ol style="text-align: left;">
+            <ul style="text-align: left;">
                 <li class="fragment" data-fragment-index="1">Для каждой команды отдельное окружение</li>
                 <li class="fragment" data-fragment-index="2">Для каждого сервиса свой набор Job</li>
                 <li class="fragment" data-fragment-index="3">Job'ы для каждого сервиса создаются из темплейтов</li>
                 <li class="fragment" data-fragment-index="4">Job'ы для каждого окружения создаются из темплейтов</li>
-            </ol>
+            </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
             <h2>Какие проблемы у этого подхода?</h2>
-            <ol style="text-align: left;">
+            <ul style="text-align: left;">
                 <li class="fragment" data-fragment-index="1">Отсутствие версионирования</li>
                 <li class="fragment" data-fragment-index="2">Дублирование логики в job'ах</li>
                 <li class="fragment" data-fragment-index="3">Сложно вносить изменения</li>
                 <li class="fragment" data-fragment-index="4">Необходимо пересоздавать job'ы после изменения темплейтов</li>
-            </ol>
+            </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
@@ -307,10 +356,10 @@
 
         <section data-transition="slide-in fade-out">
             <h2>Stage View</h2>
-            <ol style="text-align: left;">
+            <ul style="text-align: left;">
                 <li class="fragment" data-fragment-index="1">Каждый pipeline состоит из stage</li>
                 <li class="fragment" data-fragment-index="2">Каждый stage содержит 1 или более шагов (steps)</li>
-            </ol>
+            </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
@@ -321,38 +370,43 @@
             https://github.com/maxfields2000/dockerjenkins_tutorial/tree/master/tutorial_07
             http://www.slideshare.net/SlawaGiterman/delivery-pipeline-as-code-using-jenkins-20-pipeline
             -->
-            <ol style="text-align: left;">
-            </ol>
+            <ul style="text-align: left;">
+            </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
             <h2>Infrastructure as Code</h2>
-            <ol style="text-align: left;">
-            </ol>
+            <ul style="text-align: left;">
+                <li class="fragment">Пример кода?</li>
+            </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
             <h2>Reuse Pipeline modules</h2>
-            <ol style="text-align: left;">
-            </ol>
+            <ul style="text-align: left;">
+                <li class="fragment">Пример кода?</li>
+            </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
             <h2>Use Scripts in other languages</h2>
-            <ol style="text-align: left;">
-            </ol>
+            <ul style="text-align: left;">
+                <li class="fragment">Пример кода?</li>
+            </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
             <h2>Example</h2>
-            <ol style="text-align: left;">
-            </ol>
+            <ul style="text-align: left;">
+                <li class="fragment">Пример полного пайплайна</li>
+            </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
             <h2>Blue Ocean UI???</h2>
-            <ol style="text-align: left;">
-            </ol>
+            <ul style="text-align: left;">
+                <li class="fragment">Ближайшее будущее, переосмысление UI</li>
+            </ul>
         </section>
 
 
