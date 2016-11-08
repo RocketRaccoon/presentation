@@ -10,6 +10,13 @@
         </section>
     </section>
 
+    <section class="stack">
+        <section>
+            <h4 >(Подумать над заголовками!)</h4>
+            <h4>(Не растягивать слайды)</h4>
+        </section>
+    </section>
+
     <!--
     ## 1 - Монолит, Релизный цикл, Большая Регрессия, Сложное Окружение
     ## Андрей
@@ -55,7 +62,7 @@
             <h2>Регрессионное тестирование</h2>
             <ul>
                 <li class="fragment">15,000 тестов за 75 минут</li>
-                <li class="fragment">Подготовка тестовых данных занимает 4 часа</li>
+                <li class="fragment">Подготовка тестовых данных (пояснить?) занимает 4 часа</li>
                 <li class="fragment">Даже для одной задачи требуется полный прогон</li>
                 <li class="fragment">Один день - одна команда</li>
             </ul>
@@ -72,12 +79,12 @@
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h2>Как микросервисы меняют тестирование?</h2>
+            <h2>Как микросервисы меняют тестирование? (подумать над заголовком!)</h2>
             <ul>
                 <li class="fragment">Каждый сервис имеет отдельный релизный цикл</li>
                 <li class="fragment">Выпускаем меньше изменений за один раз</li>
                 <li class="fragment">Интеграционных тестов меньше (интеграции?)</li>
-                <li class="fragment">Компонентных тестов больше</li>
+                <li class="fragment">Компонентных тестов (расшифровать?) больше</li>
             </ul>
         </section>
 
@@ -101,10 +108,10 @@
     -->
     <section class="stack">
         <section data-transition="slide-in fade-out">
-            <h2>Окружение разработки и тестирования</h2>
+            <h2>Окружения для разработки и тестирования</h2>
             <ul>
                 <li class="fragment">Больше фич и команд - больше окружений необходимо</li>
-                <li class="fragment">Необходим котроль за состоянием окружений</li>
+                <li class="fragment">Необходим контроль за состоянием окружений</li>
                 <li class="fragment">Единый механизм установки сервисов в DEV и PROD</li>
             </ul>
         </section>
@@ -131,7 +138,7 @@
             <ul>
                 <li class="fragment">Можно сделать из подручных средств и палок</li>
                 <li class="fragment">Артефакты для установки - Nexus, Docker Registry, FTP</li>
-                <li class="fragment">Хранилище конфигураций и деплоймент - Puppet, Chief, Ansible</li>
+                <li class="fragment">Хранилище конфигураций и деплоймент - Puppet, Chef, Ansible</li>
                 <li class="fragment">Управление ресурсами - VMware, Mesosphere</li>
             </ul>
         </section>
@@ -159,8 +166,8 @@
         <section data-transition="slide-in fade-out">
             <h2>VM + Package Manager</h2>
             <ul style="text-align: left;">
-                <li class="fragment" data-fragment-index="1">Брольшой размер виртуальной машины</li>
-                <li class="fragment" data-fragment-index="2">Машина "долго" стартует</li>
+                <li class="fragment" data-fragment-index="1">Большой размер виртуальной машины</li>
+                <li class="fragment" data-fragment-index="2">Машина долго стартует</li>
                 <li class="fragment" data-fragment-index="3">Сложный процесс разработки SWE/HWE и деплоя приложения (заменить!)</li>
                 <li class="fragment" data-fragment-index="4">Сложно локально протестировать новую версию виртуальной машины</li>
                 <li class="fragment" data-fragment-index="5">Нет четкой связи между версией виртуальной машины и версией приложения</li>
@@ -171,7 +178,7 @@
             <h2>Docker</h2>
             <h3 class="fragment" data-fragment-index="0" >Build once, Run anywhere</h3>
             <ul style="text-align: left;">
-                <li class="fragment" data-fragment-index="1">Меньший размер image'a (Microcontainers)</li>
+                <li class="fragment" data-fragment-index="1">Меньший размер образа</li>
                 <li class="fragment" data-fragment-index="2">Быстрый старт</li>
                 <li class="fragment" data-fragment-index="3">Окружение сервиса конфигурируется разработчиком</li>
                 <li class="fragment" data-fragment-index="4">Один и тот же контейнер на всех окружениях</li>
@@ -189,7 +196,7 @@
     -->
     <section class="stack">
         <section data-transition="slide-in fade-out">
-            <h2>Фрэймворки и Кракены</h2>
+            <h2>Фрэймворки и Кракены (в две колонки, шрифты?)</h2>
             <ul style="text-align: left;">
                 <li class="fragment">Монолитному сервису - монолитный фрэимворк</li>
                 <li class="fragment">Базовый функционал для тестов (?)</li>
@@ -200,7 +207,7 @@
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h2>Фрэймворки и Кракены</h2>
+            <h2>Фрэймворки и Кракены (в две колонки, шрифты?)</h2>
             <ul style="text-align: left;">
                 <li class="fragment">Лишние зависимости съедают ресурсы CI сервера</li>
                 <li class="fragment">Изменение во фрэймворке влияет на всю компанию (кол-во команд или людей!)</li>
@@ -222,7 +229,7 @@
             <div class="fragment">а новый <em>ещё</em> не получился</div>
             <ul style="text-align: left;">
                 <li class="fragment">Разделить на независимые модули</li>
-                <li class="fragment">Сделать взаимодействие через API</li>
+                <li class="fragment">Сделать взаимодействие через API (пояснить!)</li>
                 <li class="fragment">Вместо костылей - вносить вклад в используемые проекты</li>
                 <li class="fragment">При тестировании сервиса подключать только то, что нужно</li>
                 <li class="fragment">Тестировать</li>
@@ -247,7 +254,7 @@
             <ul style="text-align: left;">
                 <li class="fragment">При тестировании множества сервисов необходимо объединять разные отчеты в один</li>
                 <li class="fragment">Стандартные отчеты плохо (как именно?) справляются с этой задачей</li>
-                <li class="fragment">При большом количестве данных производительность отчета становится проблемой</li>
+                <li class="fragment">При большом количестве данных производительность отчета становится проблемой (то же что и второе, переделать?)</li>
                 <li class="fragment">Приходится дорабатывать либо делать свое решение с нуля</li>
             </ul>
         </section>
