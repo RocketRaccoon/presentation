@@ -33,6 +33,8 @@
             <h2>Монолитный сервис</h2>
             <ul>
                 <li class="fragment">Предоставляет API для облачной телефонии</li>
+                <li class="fragment">Часть большой инфраструктуры</li>
+                <li class="fragment">В процессе декомпозиции на микросервисы</li>
                 <li class="fragment">Размер проекта - 466,000 SLOC</li>
                 <li class="fragment">Интеграционных тестов - 229,000 SLOC</li>
                 <li class="fragment">Описание тестов - 200,000 LOC</li>
@@ -70,21 +72,21 @@
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h2>Как микросервисы это меняют?</h2>
+            <h2>Как микросервисы меняют тестирование?</h2>
             <ul>
                 <li class="fragment">Каждый сервис имеет отдельный релизный цикл</li>
                 <li class="fragment">Выпускаем меньше изменений за один раз</li>
-                <li class="fragment">Интеграционных тестов меньше</li>
+                <li class="fragment">Интеграционных тестов меньше (интеграции?)</li>
                 <li class="fragment">Компонентных тестов больше</li>
             </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h2>Как микросервисы это меняют?</h2>
+            <h2>Как микросервисы меняют тестирование?</h2>
             <ul>
                 <li class="fragment">На каждый коммит запускаются все виды тестов</li>
-                <li class="fragment">Тестовых заглушек меньше и они проще</li>
-                <li class="fragment">В микросервисе проще внедрять новые технологии</li>
+                <li class="fragment">Тестовых заглушек меньше и они проще (интеграции?)</li>
+                <li class="fragment">В микросервисе проще (факты?) внедрять новые подходы к тестированию</li>
                 <li class="fragment">Требуется меньше ресурсов CI сервера</li>
             </ul>
         </section>
@@ -159,7 +161,7 @@
             <ul style="text-align: left;">
                 <li class="fragment" data-fragment-index="1">Брольшой размер виртуальной машины</li>
                 <li class="fragment" data-fragment-index="2">Машина "долго" стартует</li>
-                <li class="fragment" data-fragment-index="3">Сложный процесс разработки SWE/HWE и деплоя приложения</li>
+                <li class="fragment" data-fragment-index="3">Сложный процесс разработки SWE/HWE и деплоя приложения (заменить!)</li>
                 <li class="fragment" data-fragment-index="4">Сложно локально протестировать новую версию виртуальной машины</li>
                 <li class="fragment" data-fragment-index="5">Нет четкой связи между версией виртуальной машины и версией приложения</li>
             </ul>
@@ -189,7 +191,8 @@
         <section data-transition="slide-in fade-out">
             <h2>Фрэймворки и Кракены</h2>
             <ul style="text-align: left;">
-                <li class="fragment">Базовый функционал для тестов</li>
+                <li class="fragment">Монолитному сервису - монолитный фрэимворк</li>
+                <li class="fragment">Базовый функционал для тестов (?)</li>
                 <li class="fragment">Интеграция с внутренними системами</li>
                 <li class="fragment">Функционал предоставляется через наследование базового класса</li>
                 <li class="fragment">Разные модули жестко связаны между собой</li>
@@ -200,7 +203,7 @@
             <h2>Фрэймворки и Кракены</h2>
             <ul style="text-align: left;">
                 <li class="fragment">Лишние зависимости съедают ресурсы CI сервера</li>
-                <li class="fragment">Изменение во фрэймворке влияет на всю компанию</li>
+                <li class="fragment">Изменение во фрэймворке влияет на всю компанию (кол-во команд или людей!)</li>
                 <li class="fragment">В каждом проекте оброс отдельными доработками</li>
                 <li class="fragment">Сложно обновлять версии ключевых библиотек</li>
                 <li class="fragment">Увеличенный порог вхождения</li>
@@ -243,8 +246,8 @@
             <h2>Отчеты по тестированию</h2>
             <ul style="text-align: left;">
                 <li class="fragment">При тестировании множества сервисов необходимо объединять разные отчеты в один</li>
-                <li class="fragment">Стандартные отчеты плохо справляются с этой задачей</li>
-                <li class="fragment">При большом количестве данных производетельность отчета становится проблемой</li>
+                <li class="fragment">Стандартные отчеты плохо (как именно?) справляются с этой задачей</li>
+                <li class="fragment">При большом количестве данных производительность отчета становится проблемой</li>
                 <li class="fragment">Приходится дорабатывать либо делать свое решение с нуля</li>
             </ul>
         </section>
@@ -252,15 +255,16 @@
         <section data-transition="slide-in fade-out">
             <h2>Что надо?</h2>
             <ul style="text-align: left;">
-                <li class="fragment">Собирать много отчетов в один</li>
-                <li class="fragment">Разные уровни детализации</li>
-                <li class="fragment">Показывать информацию из множества источников</li>
+                <li class="fragment">Собирать много отчетов в один (объеденить с 3!)</li>
+                <li class="fragment">Разные уровни детализации (какие?)</li>
+                <li class="fragment">Показывать информацию из множества источников (каких?)</li>
                 <li class="fragment">API для интеграции</li>
                 <li class="fragment">Результаты в реальном времени</li>
             </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
+            <p>(расскажем об опыте использование, какие рекомендации для себя вынесли)</p>
             <h3 class="fragment">Yandex Allure Report</h3>
             <ul style="text-align: left;">
                 <li class="fragment">Супер Фича</li>
@@ -299,6 +303,7 @@
 
         <section data-transition="slide-in fade-out">
             <h2>Delivery Pipeline as Code</h2>
+            <p>Поменять местами с репортингом</p>
         </section>
 
         <section data-transition="slide-in fade-out">
@@ -413,5 +418,11 @@
 
     </section>
 
+    <section class="stack">
+
+        <section data-transition="slide-in fade-out">
+            <h2>Чем закончить?</h2>
+        </section>
+    </section>
 
 </div>
