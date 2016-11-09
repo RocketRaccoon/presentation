@@ -12,8 +12,8 @@
 
     <section class="stack">
         <section>
-            <h4 >(Подумать над заголовками!)</h4>
-            <h4>(Не растягивать слайды)</h4>
+            <div><font color="#dc143c">(Подумать над заголовками!)</font></div>
+            <div><font color="#dc143c">(Не растягивать слайды)</font></div>
         </section>
     </section>
 
@@ -62,7 +62,7 @@
             <h2>Регрессионное тестирование</h2>
             <ul>
                 <li class="fragment">15,000 тестов за 75 минут</li>
-                <li class="fragment">Подготовка тестовых данных (пояснить?) занимает 4 часа</li>
+                <li class="fragment">Подготовка тестовых данных <font color="#dc143c">(пояснить?)</font> занимает 4 часа</li>
                 <li class="fragment">Даже для одной задачи требуется полный прогон</li>
                 <li class="fragment">Один день - одна команда</li>
             </ul>
@@ -79,12 +79,13 @@
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h2>Как микросервисы меняют тестирование? (подумать над заголовком!)</h2>
+            <h2>Как микросервисы меняют тестирование?</h2>
+            <font color="#dc143c">(подумать над заголовком!)</font>
             <ul>
                 <li class="fragment">Каждый сервис имеет отдельный релизный цикл</li>
                 <li class="fragment">Выпускаем меньше изменений за один раз</li>
-                <li class="fragment">Интеграционных тестов меньше (интеграции?)</li>
-                <li class="fragment">Компонентных тестов (расшифровать?) больше</li>
+                <li class="fragment">Интеграционных тестов меньше <font color="#dc143c">(интеграции?)</font></li>
+                <li class="fragment">Компонентных тестов <font color="#dc143c">(расшифровать?)</font> больше</li>
             </ul>
         </section>
 
@@ -92,8 +93,8 @@
             <h2>Как микросервисы меняют тестирование?</h2>
             <ul>
                 <li class="fragment">На каждый коммит запускаются все виды тестов</li>
-                <li class="fragment">Тестовых заглушек меньше и они проще (интеграции?)</li>
-                <li class="fragment">В микросервисе проще (факты?) внедрять новые подходы к тестированию</li>
+                <li class="fragment">Тестовых заглушек меньше и они проще <font color="#dc143c">(интеграции?)</font></li>
+                <li class="fragment">В микросервисе проще <font color="#dc143c">(факты?)</font> внедрять новые подходы к тестированию</li>
                 <li class="fragment">Требуется меньше ресурсов CI сервера</li>
             </ul>
         </section>
@@ -112,7 +113,7 @@
             <ul>
                 <li class="fragment">Больше фич и команд - больше окружений необходимо</li>
                 <li class="fragment">Необходим контроль за состоянием окружений</li>
-                <li class="fragment">Единый механизм установки сервисов в DEV и PROD</li>
+                <li class="fragment">Единый механизм установки сервисов в <font color="#dc143c">DEV и PROD</font></li>
             </ul>
         </section>
 
@@ -168,7 +169,7 @@
             <ul style="text-align: left;">
                 <li class="fragment" data-fragment-index="1">Большой размер виртуальной машины</li>
                 <li class="fragment" data-fragment-index="2">Машина долго стартует</li>
-                <li class="fragment" data-fragment-index="3">Сложный процесс разработки SWE/HWE и деплоя приложения (заменить!)</li>
+                <li class="fragment" data-fragment-index="3">Сложный процесс разработки SWE/HWE и деплоя приложения <font color="#dc143c">(заменить!)</font></li>
                 <li class="fragment" data-fragment-index="4">Сложно локально протестировать новую версию виртуальной машины</li>
                 <li class="fragment" data-fragment-index="5">Нет четкой связи между версией виртуальной машины и версией приложения</li>
             </ul>
@@ -188,7 +189,7 @@
     </section>
 
     <!--
-    ## 4 - Фрэймворк для момнолита плохо работает с микросервисами
+    ## 4 - Фреймворк для момнолита плохо работает с микросервисами
     ## Андрей
     ## Проблема: любой монолитный тестовый фреймворк со временем превращается в кракена. Его становится тяжело обновлять, расширять и использовать в других проектах;
     ## Решение: декомпозиция фреймворка на модули, принцип единой ответственности;
@@ -196,10 +197,11 @@
     -->
     <section class="stack">
         <section data-transition="slide-in fade-out">
-            <h2>Фрэймворки и Кракены (в две колонки, шрифты?)</h2>
+            <h2>Фреймворки и Кракены </h2>
+            <div><font color="#dc143c">(в две колонки или поменять название слайда)</font></div>
             <ul style="text-align: left;">
-                <li class="fragment">Монолитному сервису - монолитный фрэимворк</li>
-                <li class="fragment">Базовый функционал для тестов (?)</li>
+                <li class="fragment">Монолитному сервису - монолитный фреймворк</li>
+                <li class="fragment">Базовый функционал для тестов <font color="#dc143c">(?)</font></li>
                 <li class="fragment">Интеграция с внутренними системами</li>
                 <li class="fragment">Функционал предоставляется через наследование базового класса</li>
                 <li class="fragment">Разные модули жестко связаны между собой</li>
@@ -207,10 +209,11 @@
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h2>Фрэймворки и Кракены (в две колонки, шрифты?)</h2>
+            <h2>Фреймворки и Кракены</h2>
+            <div><font color="#dc143c">(в две колонки или поменять название слайда)</font></div>
             <ul style="text-align: left;">
                 <li class="fragment">Лишние зависимости съедают ресурсы CI сервера</li>
-                <li class="fragment">Изменение во фрэймворке влияет на всю компанию (кол-во команд или людей!)</li>
+                <li class="fragment">Изменение во фреймворке влияет на всю компанию <font color="#dc143c">(кол-во команд или людей!)</font></li>
                 <li class="fragment">В каждом проекте оброс отдельными доработками</li>
                 <li class="fragment">Сложно обновлять версии ключевых библиотек</li>
                 <li class="fragment">Увеличенный порог вхождения</li>
@@ -229,7 +232,7 @@
             <div class="fragment">а новый <em>ещё</em> не получился</div>
             <ul style="text-align: left;">
                 <li class="fragment">Разделить на независимые модули</li>
-                <li class="fragment">Сделать взаимодействие через API (пояснить!)</li>
+                <li class="fragment">Сделать взаимодействие через API <font color="#dc143c">(пояснить!)</font></li>
                 <li class="fragment">Вместо костылей - вносить вклад в используемые проекты</li>
                 <li class="fragment">При тестировании сервиса подключать только то, что нужно</li>
                 <li class="fragment">Тестировать</li>
@@ -253,8 +256,8 @@
             <h2>Отчеты по тестированию</h2>
             <ul style="text-align: left;">
                 <li class="fragment">При тестировании множества сервисов необходимо объединять разные отчеты в один</li>
-                <li class="fragment">Стандартные отчеты плохо (как именно?) справляются с этой задачей</li>
-                <li class="fragment">При большом количестве данных производительность отчета становится проблемой (то же что и второе, переделать?)</li>
+                <li class="fragment">Стандартные отчеты плохо <font color="#dc143c">(как именно?)</font> справляются с этой задачей</li>
+                <li class="fragment">При большом количестве данных производительность отчета становится проблемой <font color="#dc143c">(то же что и второе, переделать?)</font></li>
                 <li class="fragment">Приходится дорабатывать либо делать свое решение с нуля</li>
             </ul>
         </section>
@@ -262,27 +265,27 @@
         <section data-transition="slide-in fade-out">
             <h2>Что надо?</h2>
             <ul style="text-align: left;">
-                <li class="fragment">Собирать много отчетов в один (объеденить с 3!)</li>
-                <li class="fragment">Разные уровни детализации (какие?)</li>
-                <li class="fragment">Показывать информацию из множества источников (каких?)</li>
+                <li class="fragment">Собирать много отчетов в один <font color="#dc143c">(объеденить с 3!)</font></li>
+                <li class="fragment">Разные уровни детализации <font color="#dc143c">(какие?)</font></li>
+                <li class="fragment">Показывать информацию из множества источников <font color="#dc143c">(каких?)</font></li>
                 <li class="fragment">API для интеграции</li>
                 <li class="fragment">Результаты в реальном времени</li>
             </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
-            <p>(расскажем об опыте использование, какие рекомендации для себя вынесли)</p>
+            <p><font color="#dc143c">(расскажем об опыте использование, какие рекомендации для себя вынесли)</font></p>
             <h3 class="fragment">Yandex Allure Report</h3>
             <ul style="text-align: left;">
-                <li class="fragment">Супер Фича</li>
-                <li class="fragment">Супер Фича</li>
-                <li class="fragment">Проблема</li>
+                <li class="fragment"><font color="#dc143c">Супер Фича</font></li>
+                <li class="fragment"><font color="#dc143c">Супер Фича</font></li>
+                <li class="fragment"><font color="#dc143c">Проблема</font></li>
             </ul>
             <h2 class="fragment">Epam Report Portal</h2>
             <ul style="text-align: left;">
-                <li class="fragment">Супер Фича</li>
-                <li class="fragment">Супер Фича</li>
-                <li class="fragment">Проблема</li>
+                <li class="fragment"><font color="#dc143c">Супер Фича</font></li>
+                <li class="fragment"><font color="#dc143c">Супер Фича</font></li>
+                <li class="fragment"><font color="#dc143c">Проблема</font></li>
             </ul>
         </section>
     </section>
@@ -310,7 +313,8 @@
 
         <section data-transition="slide-in fade-out">
             <h2>Delivery Pipeline as Code</h2>
-            <p>Поменять местами с репортингом</p>
+            <p><font color="#dc143c">Поменять местами с репортингом</font></p>
+            <p><font color="#dc143c">Секция вызывает много вопросов, надо рефакторить</font></p>
         </section>
 
         <section data-transition="slide-in fade-out">
@@ -354,16 +358,16 @@
 
         <section data-transition="slide-in fade-out">
             <h2>Pipeline as Code</h2>
-            <ol style="text-align: left;">
+            <ul style="text-align: left;">
                 <li class="fragment" data-fragment-index="1">Job'ы создаются с помощью Groovy script</li>
                 <li class="fragment" data-fragment-index="2">Pipeline объявляется в Jenkinsfile и хранятся вместе с кодом</li>
-            </ol>
+            </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
             <h2>Manual steps in Pipeline</h2>
-            <ol style="text-align: left;">
-            </ol>
+            <ul style="text-align: left;">
+            </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
@@ -428,7 +432,7 @@
     <section class="stack">
 
         <section data-transition="slide-in fade-out">
-            <h2>Чем закончить?</h2>
+            <h2><font color="#dc143c">Чем закончить?</font></h2>
         </section>
     </section>
 
