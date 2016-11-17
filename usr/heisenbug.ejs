@@ -72,6 +72,7 @@
 
         <section data-transition="slide-in fade-out">
             <h2>Монолитный сервис</h2>
+            <div><font color="#dc143c">(переделать цифры, а то ни хера не понятно)</font></div>
             <div>
                 <div class="fragment" style="float: left; width: 33%; border-right: dotted">
                     <div>проект</div>
@@ -107,6 +108,7 @@
             <h2>Релизный цикл</h2>
             <div><font color="#dc143c">(зафиксировать заголовок)</font></div>
             <div><font color="#dc143c">(список в блоки, добавить картинки)</font></div>
+            <div><font color="#dc143c">(вы наверное слышали про CD, у нас не так)</font></div>
             <ul>
                 <li class="fragment">Функционал разрабатывается в отдельных ветках</li>
                 <li class="fragment">В общую ветку код сливается после прохождения регрессии на эталонном окружении</li>
@@ -118,15 +120,16 @@
             <ul>
                 <li class="fragment">15,000 тестов за 75 минут</li>
                 <li class="fragment">Подготовка тестовых данных <font color="#dc143c">(пояснить?)</font> занимает 4 часа</li>
-                <li class="fragment">Даже для одной задачи требуется полный прогон</li>
-                <li class="fragment">Один день - одна команда</li>
+                <li class="fragment">Даже для одной задачи требуется полный прогон <font color="#dc143c">(перефразировать)</font></li>
+                <div><font color="#dc143c">(прогон нужен чтобы просто попасть в релизнцю ветку, даже если потом будут еще изменения)</font></div>
+                <li class="fragment">Один день - одна команда <font color="#dc143c">(перефразировать)</font></li>
             </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
             <h2>Окружения</h2>
             <ul>
-                <li class="fragment">Стандартное окружение - 70 VM, 120 vCPU, 160GB RAM</li>
+                <li class="fragment">Стандартное окружение - 70 VM, 120 vCPU, 160GB RAM <font color="#dc143c">(почему такое? нужна картинка, окружение нормального человека)</font></li>
                 <li class="fragment">Окружение для каждой команды</li>
                 <li class="fragment">4 общих окружения для проекта</li>
                 <li class="fragment">Выделенная команда для поддержки окружений</li>
@@ -147,10 +150,9 @@
         <section data-transition="slide-in fade-out">
             <h2>Как микросервисы меняют тестирование?</h2>
             <ul>
-                <li class="fragment">На каждый коммит запускаются все виды тестов</li>
+                <li class="fragment">На каждый коммит запускаются все виды тестов <font color="#dc143c">(повторение!)</font></li>
                 <li class="fragment">Тестовых заглушек меньше и они проще <font color="#dc143c">(интеграции?)</font></li>
                 <li class="fragment">В микросервисе проще <font color="#dc143c">(факты?)</font> внедрять новые подходы к тестированию</li>
-                <li class="fragment">Требуется меньше ресурсов CI сервера</li>
             </ul>
         </section>
     </section>
@@ -178,6 +180,7 @@
                 <div>Система управления окружениями</div>
                 <div class="fragment">и конфигурациями</div>
             </h2>
+            <div><font color="#dc143c">(Слайд очевидный, надо убрать и перефразировать)</font></div>
             <ul>
                 <li class="fragment">Хранит артефакты для установки</li>
                 <li class="fragment">Хранит конфигурации окружений и управляет ими</li>
@@ -192,6 +195,7 @@
                 <div>Система управления окружениями</div>
                 <div>и конфигурациями</div>
             </h2>
+            <div><font color="#dc143c">(Слайд очевидный, надо убрать и перефразировать)</font></div>
             <ul>
                 <li class="fragment">Можно сделать из подручных средств и палок</li>
                 <li class="fragment">Артефакты для установки - Nexus, Docker Registry, FTP</li>
@@ -218,6 +222,7 @@
                 <li class="fragment" data-fragment-index="1">VM + Package Manager</li>
                 <li class="fragment" data-fragment-index="2">Docker</li>
             </ul>
+            <div><font color="#dc143c">(сделать одим слайдом сравнение подходов)</font></div>
         </section>
 
         <section data-transition="slide-in fade-out">
@@ -256,6 +261,7 @@
         <section data-transition="slide-in fade-out">
             <h2>Фреймворки и Кракены </h2>
             <div><font color="#dc143c">(в две колонки или поменять название слайда)</font></div>
+            <div><font color="#dc143c">(переделать, смотри заметки в ноуте)</font></div>
             <ul style="text-align: left;">
                 <li class="fragment">Монолитному сервису - монолитный фреймворк</li>
                 <li class="fragment">Базовый функционал для тестов <font color="#dc143c">(?)</font></li>
@@ -485,6 +491,7 @@
 
         <section data-transition="slide-in fade-out">
             <h2><font color="#dc143c">Чем закончить? Коротко - что было и что стало</font></h2>
+            <h2><font color="#dc143c">ссылка на пример!</font></h2>
         </section>
     </section>
 
