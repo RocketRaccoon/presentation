@@ -44,75 +44,163 @@
             <div><font color="#dc143c">Как было, как становится, как будет, рассказать как сейчас идет процесс, пограничное состояние</font></div>
         </section>
 
-
         <section data-transition="slide-in fade-out">
             <h2>Монолитный сервис</h2>
             <div>Предоставляет API для облачной телефонии</div>
-            <div><font color="#dc143c">(зафиксировать заголовок)</font></div>
-            <div><font color="#dc143c">(картинка сервиса для API)</font></div>
-            <div><font color="#dc143c">(рассказать немного про сервер)</font></div>
-            <img class="croissant fragment" data-fragment-index="1" data-src="img/banana.png">
+            <div style="padding-top: 1em; display: flex; justify-content: space-between" >
+            <div class="fragment fade-up" style="float: left; width: 23%">
+                <div class="circle">
+                    <div class="circle__inner">
+                        <div class="circle__wrapper">
+                            <div class="circle__content">
+                                <img class="croissant" style="max-height: 50%; max-height: 50%;" data-src="img/overview_2.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p style="font-size: 70%">CRM Integration</p>
+            </div>
+            <div class="fragment fade-up" style="float: left; width: 23%">
+                <div class="circle">
+                    <div class="circle__inner">
+                        <div class="circle__wrapper">
+                            <div class="circle__content">
+                                <img class="croissant" style="max-height: 50%; max-height: 50%;" data-src="img/smsfax.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p style="font-size: 70%">SMS and Fax</p>
+            </div>
+            <div class="fragment fade-up" style="float: left; width: 23%">
+                <div class="circle">
+                    <div class="circle__inner">
+                        <div class="circle__wrapper">
+                            <div class="circle__content">
+                                <img class="croissant" style="max-height: 50%; max-height: 50%;" data-src="img/click-to-dial.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p style="font-size: 70%">Click to Dial</p>
+            </div>
+            <div class="fragment fade-up" style="float: left; width: 23%;">
+                <div class="circle">
+                    <div class="circle__inner">
+                        <div class="circle__wrapper">
+                            <div class="circle__content">
+                                <img class="croissant" style="max-height: 45%; max-height: 45%;" data-src="img/call-reporting.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p style="font-size: 70%">Reports</p>
+            </div>
+            </div>
         </section>
 
         <section data-transition="slide-in fade-out">
             <h2>Монолитный сервис</h2>
-            <div>Часть большой инфраструктуры</div>
-            <div><font color="#dc143c">(зафиксировать заголовок)</font></div>
+            <div>Один сервис обслуживает большую часть API</div>
             <div><font color="#dc143c">(картинка сервиса как части целого)</font></div>
-            <img class="croissant fragment" data-fragment-index="1" data-src="img/banana.png">
+            <img class="croissant fragment fade-out" data-fragment-index="0" style="position:absolute; top: 110%; left: 35%;" data-src="img/monolith.gif">
+            <img class="croissant fragment fade-in" data-fragment-index="0" style="position:absolute; top: 110%; left: 40%;" data-src="img/banana.png">
+        </section>
+
+
+        <section data-transition="slide-in fade-out">
+            <h2>Монолитный сервис</h2>
+            <div>Часть большой инфраструктуры</div>
+            <div><font color="#dc143c">(картинка сервиса как части целого)</font></div>
+            <img class="croissant fragment fade-out" data-fragment-index="0" style="position:absolute; top: 110%; left: 30%;" data-src="img/soa.gif">
+            <img class="croissant fragment fade-in" data-fragment-index="0" style="position:absolute; top: 110%; left: 40%;" data-src="img/banana.png">
         </section>
 
         <section data-transition="slide-in fade-out">
             <h2>Монолитный сервис</h2>
             <div>В процессе декомпозиции на микросервисы</div>
-            <div><font color="#dc143c">(зафиксировать заголовок)</font></div>
             <div><font color="#dc143c">(картинка разеделения сервис)</font></div>
-            <img class="croissant fragment" data-fragment-index="1" data-src="img/banana.png">
+            <img class="croissant fragment fade-out" data-fragment-index="0" style="position:absolute; top: 110%; left: 30%;" data-src="img/microservices.gif">
+            <img class="croissant fragment fade-in" data-fragment-index="0" style="position:absolute; top: 110%; left: 40%;" data-src="img/banana.png">
         </section>
 
         <section data-transition="slide-in fade-out">
             <h2>Монолитный сервис</h2>
-            <div><font color="#dc143c">(переделать цифры, а то ни хера не понятно)</font></div>
-            <div>
-                <div class="fragment" style="float: left; width: 33%; border-right: dotted">
-                    <div>проект</div>
-                    <p>466,000 SLOC</p>
+            <div style="padding-top: 1em; display: flex; justify-content: space-between">
+            <div class="fragment fade-up" style="float: left; width: 28%;">
+                    <div class="circle">
+                        <div class="circle__inner">
+                            <div class="circle__wrapper">
+                                <div class="circle__content">
+                                    <div>сервис</div>
+                                    <p>237,000 SLOC</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="fragment" style="float: left; width: 34%; border-right: dotted">
-                    <div>тесты</div>
-                    <p>229,000 SLOC</p>
+                <div class="fragment fade-up" style="float: left; width: 28%;">
+                    <div class="circle">
+                        <div class="circle__inner">
+                            <div class="circle__wrapper">
+                                <div class="circle__content">
+                                    <div>тесты</div>
+                                    <p>229,000 SLOC</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="fragment" style="float: left; width: 33%">
-                    <div>комментарии</div>
-                    <p>200,000 LOC</p>
+                <div class="fragment fade-up" style="float: left; width: 28%;">
+                    <div class="circle">
+                        <div class="circle__inner">
+                            <div class="circle__wrapper">
+                                <div class="circle__content">
+                                    <div>комментарии</div>
+                                    <p>200,000 LOC</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Релизный цикл</h2>
+            <div style="padding-top: 1em; display: flex; justify-content: space-around">
+                <div class="fragment" style="float: left; width: 30%">
+                    <div class="circle">
+                        <div class="circle__inner">
+                            <div class="circle__wrapper">
+                                <div class="circle__content">
+                                    <div>3</div>
+                                    <p>месяца</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fragment" style="float: left; width: 30%">
+                    <div class="circle">
+                        <div class="circle__inner">
+                            <div class="circle__wrapper">
+                                <div class="circle__content">
+                                    <div>7</div>
+                                    <p>команд</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section data-transition="slide-in fade-out">
             <h2>Релизный цикл</h2>
-            <div><font color="#dc143c">(зафиксировать заголовок)</font></div>
-            <div>
-                <div class="fragment" style="float: left; width: 50%; border-right: dotted">
-                    <div>3</div>
-                    <p>месяца</p>
-                </div>
-                <div class="fragment" style="float: left; width: 50%">
-                    <div>7</div>
-                    <p>команд</p>
-                </div>
-            </div>
-        </section>
-
-        <section data-transition="slide-in fade-out">
-            <h2>Релизный цикл</h2>
-            <div><font color="#dc143c">(зафиксировать заголовок)</font></div>
-            <div><font color="#dc143c">(список в блоки, добавить картинки)</font></div>
-            <div><font color="#dc143c">(вы наверное слышали про CD, у нас не так)</font></div>
-            <ul>
-                <li class="fragment">Функционал разрабатывается в отдельных ветках</li>
-                <li class="fragment">В общую ветку код сливается после прохождения регрессии на эталонном окружении</li>
-            </ul>
+            <p class="fragment"><em>уже</em> Continuous Integration</p>
+            <p class="fragment"><em>почти</em> Continuous Delivery</p>
+            <p class="fragment"><em>хотим</em> Continuous Deployment</p>
         </section>
 
         <section data-transition="slide-in fade-out">
@@ -120,6 +208,8 @@
             <ul>
                 <li class="fragment">15,000 тестов за 75 минут</li>
                 <li class="fragment">Подготовка тестовых данных <font color="#dc143c">(пояснить?)</font> занимает 4 часа</li>
+                <li class="fragment">Функционал разрабатывается в отдельных ветках</li>
+                <li class="fragment">В общую ветку код сливается после прохождения регрессии на эталонном окружении</li>
                 <li class="fragment">Даже для одной задачи требуется полный прогон <font color="#dc143c">(перефразировать)</font></li>
                 <div><font color="#dc143c">(прогон нужен чтобы просто попасть в релизнцю ветку, даже если потом будут еще изменения)</font></div>
                 <li class="fragment">Один день - одна команда <font color="#dc143c">(перефразировать)</font></li>
@@ -515,4 +605,7 @@
         </section>
     </section>
 
+
 </div>
+
+
