@@ -23,17 +23,33 @@
         </section>
     </section>
 
-    <!--
-    ## 1 - Монолит, Релизный цикл, Большая Регрессия, Сложное Окружение
-    ## Андрей
-    ## Проблема: команда работает с одним большим сервисом. Общая кодовая база и длинный релизный цикл, сложное окружение (трудно изолировать сервис для тестирования), много интеграционных тестов, регрессия выполняется долго;
-    ## Решение: разбиваем сервис на микросервисы;
-    ## Решение: пирамида тестирования - больше модульных и компонентных тестов;
-    ## Решение: на каждый коммит прогоняем тесты (юнит, компонентные, интеграционные)
-    ## Описание (Разбиваем на микросервисы -> рассказываем о плюшках для тестирования)
-    -->
+    <section class="stack">
+        <section>
+            <h2>Вступление</h2>
+            <div><font color="#dc143c">УБРАТЬ ЭТОТ СЛАЙД!!!</font></div>
+            <div>Вопросы залу</div>
+            <div class="fragment">Кто вовлечен в выпуск релизов? У кого SOA? У кого MS?</div>
+            <div class="fragment">У кого черт сломит ногу в архитектурной диаграмме?</div>
+            <div class="fragment">Кто повелся на слово Docker в названии доклада?</div>
+            <div class="fragment">Кто может по логу в тестовом отчете назвать точную причину падения? (картинка assertTrue(false))</div>
+            <div class="fragment">Кто использовал хоть раз sleep(15)?</div>
+        </section>
+
+        <section>
+            <h2>Вступление</h2>
+            <div><font color="#dc143c">УБРАТЬ ЭТОТ СЛАЙД!!!</font></div>
+            <div>Вопросы залу</div>
+            <div class="fragment">Кому уже недостаточно запускать тесты параллельно?</div>
+            <div class="fragment">У кого в компании есть свой тестовый фрэймворк? А кого он устраивает?</div>
+            <div class="fragment">Кто использует Jenkins, шаблоны, jod-dsl, pipeline, больше 3-х экзекуторов?</div>
+            <div class="fragment">Кто понимает что надо что-то менять?</div>
+        </section>
+    </section>
+
+    <!--Монолиты, Релизы, Регрессии, Окружения-->
     <section class="stack">
         <section data-transition="slide-in fade-out">
+            <div><font color="#dc143c">УБРАТЬ ЭТОТ СЛАЙД!!!</font></div>
             <h2>
                 <div class="fragment fade-up">Монолиты</div>
                 <div class="fragment fade-up">Релизы</div>
@@ -49,57 +65,128 @@
         </section>
 
         <section data-transition="slide-in fade-out">
+            <h2>Релизный цикл</h2>
+            <div style="padding-top: 1em; display: flex; justify-content: space-around">
+                <div class="fragment" style="float: left; width: 30%">
+                    <div class="circle">
+                        <div class="circle__inner">
+                            <div class="circle__wrapper">
+                                <div class="circle__content">
+                                    <div>3</div>
+                                    <p>месяца</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fragment" style="float: left; width: 30%">
+                    <div class="circle">
+                        <div class="circle__inner">
+                            <div class="circle__wrapper">
+                                <div class="circle__content">
+                                    <div>7</div>
+                                    <p>команд</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Релизный цикл</h2>
+            <div style="padding-top: 1em; display: flex; justify-content: space-around">
+            <div class="fragment" style="float: left; width: 30%">
+                <div class="circle">
+                    <div class="circle__inner">
+                        <div class="circle__wrapper">
+                            <div class="circle__content">
+                                <div><em>уже</em></div>
+                                <p>
+                                    <div>Continuous</div>
+                                    <div>Integration</div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fragment" style="float: left; width: 30%">
+                <div class="circle">
+                    <div class="circle__inner">
+                        <div class="circle__wrapper">
+                            <div class="circle__content">
+                                <div><em>хотим</em></div>
+                                <p>
+                                    <div>Continuous</div>
+                                    <div>Deployment</div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                </div>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Релизный цикл</h2>
+            <div></div>
+        </section>
+
+        <section data-transition="slide-in fade-out">
             <h2>Монолитный сервис</h2>
             <div>Предоставляет API для облачной телефонии</div>
             <div style="padding-top: 1em; display: flex; justify-content: space-between" >
-            <div class="fragment fade-up" style="float: left; width: 23%">
-                <div class="circle">
-                    <div class="circle__inner">
-                        <div class="circle__wrapper">
-                            <div class="circle__content">
-                                <img class="croissant" style="max-height: 50%; max-height: 50%;" data-src="img/overview_2.png">
+                <div class="fragment fade-up" style="float: left; width: 23%">
+                    <div class="circle">
+                        <div class="circle__inner">
+                            <div class="circle__wrapper">
+                                <div class="circle__content">
+                                    <img class="croissant" style="max-height: 50%; max-height: 50%;" data-src="img/overview_2.png">
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <p style="font-size: 70%">CRM Integration</p>
                 </div>
-                <p style="font-size: 70%">CRM Integration</p>
-            </div>
-            <div class="fragment fade-up" style="float: left; width: 23%">
-                <div class="circle">
-                    <div class="circle__inner">
-                        <div class="circle__wrapper">
-                            <div class="circle__content">
-                                <img class="croissant" style="max-height: 50%; max-height: 50%;" data-src="img/smsfax.png">
+                <div class="fragment fade-up" style="float: left; width: 23%">
+                    <div class="circle">
+                        <div class="circle__inner">
+                            <div class="circle__wrapper">
+                                <div class="circle__content">
+                                    <img class="croissant" style="max-height: 50%; max-height: 50%;" data-src="img/smsfax.png">
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <p style="font-size: 70%">SMS and Fax</p>
                 </div>
-                <p style="font-size: 70%">SMS and Fax</p>
-            </div>
-            <div class="fragment fade-up" style="float: left; width: 23%">
-                <div class="circle">
-                    <div class="circle__inner">
-                        <div class="circle__wrapper">
-                            <div class="circle__content">
-                                <img class="croissant" style="max-height: 50%; max-height: 50%;" data-src="img/click-to-dial.png">
+                <div class="fragment fade-up" style="float: left; width: 23%">
+                    <div class="circle">
+                        <div class="circle__inner">
+                            <div class="circle__wrapper">
+                                <div class="circle__content">
+                                    <img class="croissant" style="max-height: 50%; max-height: 50%;" data-src="img/click-to-dial.png">
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <p style="font-size: 70%">Click to Dial</p>
                 </div>
-                <p style="font-size: 70%">Click to Dial</p>
-            </div>
-            <div class="fragment fade-up" style="float: left; width: 23%;">
-                <div class="circle">
-                    <div class="circle__inner">
-                        <div class="circle__wrapper">
-                            <div class="circle__content">
-                                <img class="croissant" style="max-height: 45%; max-height: 45%;" data-src="img/call-reporting.png">
+                <div class="fragment fade-up" style="float: left; width: 23%;">
+                    <div class="circle">
+                        <div class="circle__inner">
+                            <div class="circle__wrapper">
+                                <div class="circle__content">
+                                    <img class="croissant" style="max-height: 45%; max-height: 45%;" data-src="img/call-reporting.png">
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <p style="font-size: 70%">Reports</p>
                 </div>
-                <p style="font-size: 70%">Reports</p>
-            </div>
             </div>
         </section>
 
@@ -131,7 +218,7 @@
         <section data-transition="slide-in fade-out">
             <h2>Монолитный сервис</h2>
             <div style="padding-top: 1em; display: flex; justify-content: space-between">
-            <div class="fragment fade-up" style="float: left; width: 28%;">
+                <div class="fragment fade-up" style="float: left; width: 28%;">
                     <div class="circle">
                         <div class="circle__inner">
                             <div class="circle__wrapper">
@@ -167,50 +254,14 @@
                         </div>
                     </div>
                 </div>
-                </div>
-        </section>
-
-        <section data-transition="slide-in fade-out">
-            <h2>Релизный цикл</h2>
-            <div style="padding-top: 1em; display: flex; justify-content: space-around">
-                <div class="fragment" style="float: left; width: 30%">
-                    <div class="circle">
-                        <div class="circle__inner">
-                            <div class="circle__wrapper">
-                                <div class="circle__content">
-                                    <div>3</div>
-                                    <p>месяца</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="fragment" style="float: left; width: 30%">
-                    <div class="circle">
-                        <div class="circle__inner">
-                            <div class="circle__wrapper">
-                                <div class="circle__content">
-                                    <div>7</div>
-                                    <p>команд</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h2>Релизный цикл</h2>
-            <p class="fragment"><em>уже</em> Continuous Integration</p>
-            <p class="fragment"><em>почти</em> Continuous Delivery</p>
-            <p class="fragment"><em>хотим</em> Continuous Deployment</p>
-        </section>
-
-        <section data-transition="slide-in fade-out">
             <h2>Регрессионное тестирование</h2>
+            <div><font color="#dc143c">(переделать слайд!)</font></div>
             <ul>
-                <li class="fragment">15,000 тестов за 75 минут</li>
+                <li class="fragment">15,000 тестов за 90 минут</li>
                 <li class="fragment">Подготовка тестовых данных <font color="#dc143c">(пояснить?)</font> занимает 4 часа</li>
                 <li class="fragment">Функционал разрабатывается в отдельных ветках</li>
                 <li class="fragment">В общую ветку код сливается после прохождения регрессии на эталонном окружении</li>
@@ -218,6 +269,12 @@
                 <div><font color="#dc143c">(прогон нужен чтобы просто попасть в релизнцю ветку, даже если потом будут еще изменения)</font></div>
                 <li class="fragment">Один день - одна команда <font color="#dc143c">(перефразировать)</font></li>
             </ul>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Окружения</h2>
+            <div class="fragment" data-fragment-index="0">Тестовое окружение нормального человека</div>
+            <img class="croissant fragment fade-in" style="padding-top: 1em;" data-fragment-index="0" data-src="img/upad.png">
         </section>
 
         <section data-transition="slide-in fade-out">
@@ -230,38 +287,38 @@
             </ul>
         </section>
 
+
         <section data-transition="slide-in fade-out">
-            <h2>Как микросервисы меняют тестирование?</h2>
-            <font color="#dc143c">(подумать над заголовком!)</font>
+            <h2>Какие проблемы у нас есть?</h2>
+            <div><font color="#dc143c">(переделать буллиты!)</font></div>
+            <div>Тратим много времени на</div>
             <ul>
-                <li class="fragment">Каждый сервис имеет отдельный релизный цикл</li>
-                <li class="fragment">Выпускаем меньше изменений за один раз</li>
-                <li class="fragment">Интеграционных тестов меньше <font color="#dc143c">(интеграции?)</font></li>
-                <li class="fragment">Компонентных тестов <font color="#dc143c">(расшифровать?)</font> больше</li>
+                <li class="fragment">подготовку релиза</li>
+                <li class="fragment">поддержку окружений</li>
+                <li class="fragment">разбор регрессии</li>
+                <li class="fragment"><font color="#dc143c">поддержка</font> кракена</li>
+                <li class="fragment"><font color="#dc143c">поддержка</font> CI сервера</li>
             </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h2>Как микросервисы меняют тестирование?</h2>
-            <ul>
-                <li class="fragment">На каждый коммит запускаются все виды тестов <font color="#dc143c">(повторение!)</font></li>
-                <li class="fragment">Тестовых заглушек меньше и они проще <font color="#dc143c">(интеграции?)</font></li>
-                <li class="fragment">В микросервисе проще <font color="#dc143c">(факты?)</font> внедрять новые подходы к тестированию</li>
-            </ul>
+            <h2>Как микросервисы это меняют?</h2>
+            <div><font color="#dc143c">(переделать слайд!)</font></div>
+            <div>Все становится еще хуже</div>
+            <div>Нужно поддерживать больше релизов</div>
+            <div>Окружение становится больше</div>
+            <div>Поддержка кракенов</div>
+            <div>Поддержка CI-сервиса превращается в адъ</div>
+            <div>Растет очередь на регрессию</div>
+            <div><font color="#dc143c">Написать еще еплохое про регрессию</font></div>
         </section>
     </section>
 
-    <!--
-    ## 2 - Больше фич в один момент времени -> нужно больше окружений
-    ## Андрей
-    ## Дмитрий
-    ## Проблема: каждой команде необходимо свое окружение, а также общие окружения для интеграции. При этом окружения должны быть похожи на продакшн. Одновременная разработка нескольких версий сервиса.
-    ## Решение: система управления окружениями
-    -->
+    <!--Окружения для тестирования-->
     <section class="stack">
         <section data-transition="slide-in fade-out">
-            <h2>Окружения для разработки и тестирования</h2>
-            <div><font color="#dc143c">(Слайд очевидный, надо убрать и перефразировать)</font></div>
+            <h2>Окружение как услуга</h2>
+            <div><font color="#dc143c">(Слайд очевидный, надо убрать или перефразировать)</font></div>
             <ul>
                 <li class="fragment">Больше фич и команд - больше окружений необходимо</li>
                 <li class="fragment">Необходим контроль за состоянием окружений</li>
@@ -297,18 +354,6 @@
                 <li class="fragment">Управление ресурсами - VMware, Mesos</li>
             </ul>
         </section>
-    </section>
-
-    <!--
-    ## 3 - Много окружений -> один способ доставки
-    ## Дмитрий
-    ## Проблема: у разных сервисов разные требования к софту и способы установки;
-    ## Решение: используем Docker контейнеры;
-    ## Описание
-    Необходим единный способ развертывания сервисов во всех средах.
-    Плюс уменьшение парка SWE/HWE. Уменьшить нагрузку на devops. Иметь возможность быстро менять системные требования к софту.
-    -->
-    <section class="stack">
 
         <section data-transition="slide-in fade-out">
             <h2>Возможные способы дистрибуции сервисов</h2>
@@ -341,7 +386,6 @@
                 <li class="fragment" data-fragment-index="4">Один и тот же контейнер на всех окружениях</li>
             </ul>
         </section>
-
     </section>
 
     <!--
@@ -602,10 +646,18 @@
     </section>
 
     <section class="stack">
+        <h2>Что получаем в результате</h2>
+        <div><font color="#dc143c">Переделать</font></div>
+<div>Просто нажми на кнопку</div>
+<div>Адаптивный TF</div>
+<div>Удобные отчеты</div>
+    </section>
+
+
+    <section class="stack">
 
         <section data-transition="slide-in fade-out">
-            <h2><font color="#dc143c">Чем закончить? Коротко - что было и что стало</font></h2>
-            <h2><font color="#dc143c">ссылка на пример!</font></h2>
+            <h2><font color="#dc143c">Занимайтесь тестированием, а не войной</font></h2>
         </section>
     </section>
 
