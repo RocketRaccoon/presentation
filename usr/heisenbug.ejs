@@ -13,12 +13,8 @@
     <section class="stack">
         <section>
             <div><font color="#dc143c">(Подумать над заголовками!)</font></div>
-            <div><font color="#dc143c">(Не растягивать слайды!)</font></div>
             <div><font color="#dc143c">(Орфография и переносы текста, формат 16:9!)</font></div>
             <div><font color="#dc143c">(Нужен пример который будет проходить через все секции доклада!)</font></div>
-            <div><font color="#dc143c">(Микросервис - окружения - докер - тесты - jenkins - отчет)</font></div>
-            <div><font color="#dc143c">(Где все хостить???)</font></div>
-            <div><font color="#dc143c">(На каждую секцию хотя бы одна картинка, график)</font></div>
             <div><font color="#dc143c">(Нумерация слайдов)</font></div>
         </section>
     </section>
@@ -28,42 +24,32 @@
             <h2>Вступление</h2>
             <div><font color="#dc143c">УБРАТЬ ЭТОТ СЛАЙД!!!</font></div>
             <div>Вопросы залу</div>
-            <div class="fragment">Кто вовлечен в выпуск релизов? У кого SOA? У кого MS?</div>
-            <div class="fragment">У кого черт сломит ногу в архитектурной диаграмме?</div>
-            <div class="fragment">Кто повелся на слово Docker в названии доклада?</div>
-            <div class="fragment">Кто может по логу в тестовом отчете назвать точную причину падения? (картинка assertTrue(false))</div>
-            <div class="fragment">Кто использовал хоть раз sleep(15)?</div>
+            <div>У кого продукт имеет сервис-ориентированую инфраструктру? Кто использует микросервисы?</div>
+            <div>У кого черт ногу сломит в архитектурной диаграмме?</div>
+            <div>Кто повелся на слово Docker в названии доклада?</div>
+            <div>Кто может по логу в тестовом отчете назвать точную причину падения? (картинка assertTrue(false))</div>
+            <div>Кто использовал хоть раз sleep(15)?</div>
         </section>
 
         <section>
             <h2>Вступление</h2>
             <div><font color="#dc143c">УБРАТЬ ЭТОТ СЛАЙД!!!</font></div>
             <div>Вопросы залу</div>
-            <div class="fragment">Кому уже недостаточно запускать тесты параллельно?</div>
-            <div class="fragment">У кого в компании есть свой тестовый фрэймворк? А кого он устраивает?</div>
-            <div class="fragment">Кто использует Jenkins, шаблоны, jod-dsl, pipeline, больше 3-х экзекуторов?</div>
-            <div class="fragment">Кто понимает что надо что-то менять?</div>
+            <div>У кого в компании есть свой тестовый фрэймворк? А кого он превратился в кракена?</div>
+            <div>Кому уже недостаточно запускать тесты параллельно?</div>
+            <div>Кто использует Jenkins, шаблоны, jod-dsl, pipeline, больше 3-х экзекуторов?</div>
+            <div>Кто вовлечен в выпуск релизов? Кто из вас задерживался до ночи? понедельника? среды?</div>
+            <div>Кто понимает что надо что-то менять?</div>
+        </section>
+
+        <section>
+            <h2>Частые релизы весело и просто</h2>
+            <div><font color="#dc143c">УБРАТЬ ЭТОТ СЛАЙД!!!</font></div>
         </section>
     </section>
 
     <!--Монолиты, Релизы, Регрессии, Окружения-->
     <section class="stack">
-        <section data-transition="slide-in fade-out">
-            <div><font color="#dc143c">УБРАТЬ ЭТОТ СЛАЙД!!!</font></div>
-            <h2>
-                <div class="fragment fade-up">Монолиты</div>
-                <div class="fragment fade-up">Релизы</div>
-                <div class="fragment fade-up">Регрессии</div>
-                <div class="fragment fade-up">Окружения</div>
-            </h2>
-            <div class="fragment">
-                <div><font color="#dc143c">Нужна картинка, подумать как показать что это монолит и часть большой
-                        системы</font></div>
-                <div><font color="#dc143c">Как было, как становится, как будет, рассказать как сейчас идет процесс,
-                        пограничное состояние</font></div>
-            </div>
-        </section>
-
         <section data-transition="slide-in fade-out">
             <h2>Релизный цикл</h2>
             <div style="padding-top: 1em; display: flex; justify-content: space-around">
@@ -120,7 +106,7 @@
                                 <div><em>хотим</em></div>
                                 <p>
                                     <div>Continuous</div>
-                                    <div>Deployment</div>
+                                    <div>Delivery</div>
                                 </p>
                             </div>
                         </div>
@@ -131,13 +117,9 @@
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h2>Релизный цикл</h2>
-            <div></div>
-        </section>
-
-        <section data-transition="slide-in fade-out">
             <h2>Монолитный сервис</h2>
             <div>Предоставляет API для облачной телефонии</div>
+            <div><font color="#dc143c">ПЕРЕДЕЛАТЬ!!! не понятно о чем речь</font></div>
             <div style="padding-top: 1em; display: flex; justify-content: space-between" >
                 <div class="fragment fade-up" style="float: left; width: 23%">
                     <div class="circle">
@@ -198,23 +180,6 @@
             <img class="croissant fragment fade-in" data-fragment-index="0" style="position:absolute; top: 110%; left: 40%;" data-src="img/banana.png">
         </section>
 
-
-        <section data-transition="slide-in fade-out">
-            <h2>Монолитный сервис</h2>
-            <div>Часть большой инфраструктуры</div>
-            <div><font color="#dc143c">(картинка сервиса как части целого)</font></div>
-            <img class="croissant fragment fade-out" data-fragment-index="0" style="position:absolute; top: 110%; left: 30%;" data-src="img/soa.gif">
-            <img class="croissant fragment fade-in" data-fragment-index="0" style="position:absolute; top: 110%; left: 40%;" data-src="img/banana.png">
-        </section>
-
-        <section data-transition="slide-in fade-out">
-            <h2>Монолитный сервис</h2>
-            <div>В процессе декомпозиции на микросервисы</div>
-            <div><font color="#dc143c">(картинка разеделения сервис)</font></div>
-            <img class="croissant fragment fade-out" data-fragment-index="0" style="position:absolute; top: 110%; left: 30%;" data-src="img/microservices.gif">
-            <img class="croissant fragment fade-in" data-fragment-index="0" style="position:absolute; top: 110%; left: 40%;" data-src="img/banana.png">
-        </section>
-
         <section data-transition="slide-in fade-out">
             <h2>Монолитный сервис</h2>
             <div style="padding-top: 1em; display: flex; justify-content: space-between">
@@ -258,6 +223,22 @@
         </section>
 
         <section data-transition="slide-in fade-out">
+            <h2>Монолитный сервис</h2>
+            <div>Часть большой инфраструктуры</div>
+            <div><font color="#dc143c">(картинка сервиса как части целого)</font></div>
+            <img class="croissant fragment fade-out" data-fragment-index="0" style="position:absolute; top: 110%; left: 30%;" data-src="img/soa.gif">
+            <img class="croissant fragment fade-in" data-fragment-index="0" style="position:absolute; top: 110%; left: 40%;" data-src="img/banana.png">
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Монолитный сервис</h2>
+            <div>В процессе декомпозиции на микросервисы</div>
+            <div><font color="#dc143c">(картинка разеделения сервис)</font></div>
+            <img class="croissant fragment fade-out" data-fragment-index="0" style="position:absolute; top: 110%; left: 30%;" data-src="img/microservices.gif">
+            <img class="croissant fragment fade-in" data-fragment-index="0" style="position:absolute; top: 110%; left: 40%;" data-src="img/banana.png">
+        </section>
+
+        <section data-transition="slide-in fade-out">
             <h2>Регрессионное тестирование</h2>
             <div><font color="#dc143c">(переделать слайд!)</font></div>
             <ul>
@@ -265,33 +246,29 @@
                 <li class="fragment">Подготовка тестовых данных <font color="#dc143c">(пояснить?)</font> занимает 4 часа</li>
                 <li class="fragment">Функционал разрабатывается в отдельных ветках</li>
                 <li class="fragment">В общую ветку код сливается после прохождения регрессии на эталонном окружении</li>
-                <li class="fragment">Даже для одной задачи требуется полный прогон <font color="#dc143c">(перефразировать)</font></li>
-                <div><font color="#dc143c">(прогон нужен чтобы просто попасть в релизнцю ветку, даже если потом будут еще изменения)</font></div>
                 <li class="fragment">Один день - одна команда <font color="#dc143c">(перефразировать)</font></li>
             </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h2>Окружения</h2>
-            <div class="fragment" data-fragment-index="0">Тестовое окружение нормального человека</div>
+            <h2><div>Окружение</div>нормального человека</h2>
             <img class="croissant fragment fade-in" style="padding-top: 1em;" data-fragment-index="0" data-src="img/upad.png">
         </section>
 
         <section data-transition="slide-in fade-out">
             <h2>Окружения</h2>
             <ul>
-                <li class="fragment">Стандартное окружение - 70 VM, 120 vCPU, 160GB RAM <font color="#dc143c">(почему такое? нужна картинка, окружение нормального человека)</font></li>
+                <li class="fragment">Стандартное окружение - 70 VM, 120 vCPU, 160GB RAM <font color="#dc143c">(почему такое?)</font></li>
                 <li class="fragment">Окружение для каждой команды</li>
                 <li class="fragment">4 общих окружения для проекта</li>
                 <li class="fragment">Выделенная команда для поддержки окружений</li>
             </ul>
         </section>
 
-
         <section data-transition="slide-in fade-out">
             <h2>Какие проблемы у нас есть?</h2>
-            <div><font color="#dc143c">(переделать буллиты!)</font></div>
-            <div>Тратим много времени на</div>
+            <div><font color="#dc143c">(переделать слайд!)</font></div>
+            <div>Тратим много времени на:</div>
             <ul>
                 <li class="fragment">подготовку релиза</li>
                 <li class="fragment">поддержку окружений</li>
@@ -304,13 +281,12 @@
         <section data-transition="slide-in fade-out">
             <h2>Как микросервисы это меняют?</h2>
             <div><font color="#dc143c">(переделать слайд!)</font></div>
-            <div>Все становится еще хуже</div>
             <div>Нужно поддерживать больше релизов</div>
-            <div>Окружение становится больше</div>
+            <div>Окружения становится больше</div>
             <div>Поддержка кракенов</div>
             <div>Поддержка CI-сервиса превращается в адъ</div>
             <div>Растет очередь на регрессию</div>
-            <div><font color="#dc143c">Написать еще еплохое про регрессию</font></div>
+            <div>Все становится еще хуже</div>
         </section>
     </section>
 
@@ -417,27 +393,13 @@
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h2>Фреймворки и Кракены </h2>
-            <div><font color="#dc143c">(в две колонки или поменять название слайда)</font></div>
-            <div><font color="#dc143c">(переделать, смотри заметки в ноуте)</font></div>
+            <h2>Тестирование и Кракен</h2>
+            <div><font color="#dc143c">(переделать)</font></div>
             <ul style="text-align: left;">
-                <li class="fragment">Монолитному сервису - монолитный фреймворк</li>
-                <li class="fragment">Базовый функционал для тестов <font color="#dc143c">(?)</font></li>
-                <li class="fragment">Интеграция с внутренними системами</li>
-                <li class="fragment">Функционал предоставляется через наследование базового класса</li>
-                <li class="fragment">Разные модули жестко связаны между собой</li>
-            </ul>
-        </section>
-
-        <section data-transition="slide-in fade-out">
-            <h2>Фреймворки и Кракены</h2>
-            <div><font color="#dc143c">(в две колонки или поменять название слайда)</font></div>
-            <ul style="text-align: left;">
-                <li class="fragment">Лишние зависимости съедают ресурсы CI сервера</li>
-                <li class="fragment">Изменение во фреймворке влияет на всю компанию <font color="#dc143c">(кол-во команд или людей!)</font></li>
-                <li class="fragment">В каждом проекте оброс отдельными доработками</li>
+                <li class="fragment">Монолитный сервис - монолитный фреймворк</li>
+                <li class="fragment">Разные модули жестко связаны между собой<font color="#dc143c">(пример REST Assured)</font></li>
+                <li class="fragment">Оброс костылями</li>
                 <li class="fragment">Сложно обновлять версии ключевых библиотек</li>
-                <li class="fragment">Увеличенный порог вхождения</li>
             </ul>
         </section>
 
@@ -449,14 +411,14 @@
             <h2>
                 <div>Что делать?</div>
             </h2>
+            <div><font color="#dc143c">(переделать)</font></div>
             <div class="fragment">когда текущий тестовый фрэймворк <em>уже</em> не получился,</div>
             <div class="fragment">а новый <em>ещё</em> не получился</div>
             <ul style="text-align: left;">
                 <li class="fragment">Разделить на независимые модули</li>
-                <li class="fragment">Сделать взаимодействие через API <font color="#dc143c">(пояснить!)</font></li>
-                <li class="fragment">Вместо костылей - вносить вклад в используемые <font color="#dc143c">(open-source)</font> проекты</li>
-                <li class="fragment">При тестировании сервиса подключать только то, что нужно</li>
-                <li class="fragment">Тестировать</li>
+                <li class="fragment">Не должно быть жесткой связности<font color="#dc143c">(пояснить!)</font></li>
+                <li class="fragment">Вместо костылей - вносить вклад open-source</li>
+                <li class="fragment">Повышать квалификацию специалистов</li>
             </ul>
         </section>
 
@@ -465,24 +427,6 @@
         </section>
     </section>
 
-    <!--
-      ## 6
-      ## Дмитрий
-      ## Проблема: одна команда сделала изменение, которое должно попасть ко всем. После этого необходимо изменить xml шаблон,
-      ## а остальные должны самостоятельно из него обновиться.
-      ## Решение: Jenkins Pipeline, использование Job DSL, хранение конфигурации в репозитории проекта;
-      ## Описание
-      Как лучше организовать сборку?
-      Есть много билдеров, есть тест экзекуторы, много проектов и видов тестов, определенный набор ПО для слэйвов.
-      Приходится делать очень много слэйвов с разными конфигурациями
-      (когда это обслуживается отдельным отделом добавляются бюрократические сложности и тратится время на ожидание),
-      но все равно в определенный момент (перед релизом) появляется очередь на прогон тестов, сборок и т.п. (все подходящие слэйвы заняты).
-      При это много свободных, которые не подходят. Есть проблема как обновлять конфигурацию на слэйвах, так как это может сломать другие сборки.
-      Команда сама создает слэйв в контейнере с нужным конфигом под необходимое окружение.
-      Слэйвы в нужном количестве создаются на момент сборки, а потом удаляются при необходимости.
-      Конфигурация джобы хранится в проетке и версионируется. По запросу мы получаем доступ к необходимому количеству ресурсов.
-      Пайплайн позволяет это все интегрировать в единый цикл тестирования.
-   -->
     <section class="stack">
 
         <section data-transition="slide-in fade-out">
@@ -610,9 +554,9 @@
         <section data-transition="slide-in fade-out">
             <h2>Отчеты по тестированию</h2>
             <ul style="text-align: left;">
-                <li class="fragment">При тестировании множества сервисов необходимо объединять разные отчеты в один</li>
-                <li class="fragment">Стандартные отчеты плохо <font color="#dc143c">(как именно?)</font> справляются с этой задачей</li>
-                <li class="fragment">При большом количестве данных производительность отчета становится проблемой <font color="#dc143c">(то же что и второе, переделать?)</font></li>
+                <li class="fragment">При тестировании множества сервисов необходимо эффективные инструменты</li>
+                <li class="fragment">Стандартные отчеты не подходят</li>
+                <li class="fragment">Нужна производительность</li>
                 <li class="fragment">Приходится дорабатывать либо делать свое решение с нуля</li>
             </ul>
         </section>
@@ -620,47 +564,37 @@
         <section data-transition="slide-in fade-out">
             <h2>Что надо?</h2>
             <ul style="text-align: left;">
-                <li class="fragment">Собирать много отчетов в один <font color="#dc143c">(объеденить с 3!)</font></li>
-                <li class="fragment">Разные уровни детализации <font color="#dc143c">(какие?)</font></li>
-                <li class="fragment">Показывать информацию из множества источников <font color="#dc143c">(каких?)</font></li>
+                <li class="fragment">Собирать много данных в один отчет</li>
+                <li class="fragment">Разные уровни детализации <font color="#dc143c">(сервис-сьют-тест)</font></li>
                 <li class="fragment">API для интеграции</li>
                 <li class="fragment">Результаты в реальном времени</li>
             </ul>
         </section>
 
         <section data-transition="slide-in fade-out">
-            <p><font color="#dc143c">(расскажем об опыте использование, какие рекомендации для себя вынесли)</font></p>
             <h3 class="fragment">Yandex Allure Report</h3>
             <ul style="text-align: left;">
-                <li class="fragment"><font color="#dc143c">Супер Фича</font></li>
-                <li class="fragment"><font color="#dc143c">Супер Фича</font></li>
-                <li class="fragment"><font color="#dc143c">Проблема</font></li>
+                <li class="fragment"><font color="#dc143c">Удобный</font></li>
+                <li class="fragment"><font color="#dc143c">Кастомизируемый</font></li>
+                <li class="fragment"><font color="#dc143c">Нет истории</font></li>
             </ul>
             <h2 class="fragment">Epam Report Portal</h2>
             <ul style="text-align: left;">
-                <li class="fragment"><font color="#dc143c">Супер Фича</font></li>
-                <li class="fragment"><font color="#dc143c">Супер Фича</font></li>
-                <li class="fragment"><font color="#dc143c">Проблема</font></li>
+                <li class="fragment"><font color="#dc143c">Результат в реальном времени</font></li>
+                <li class="fragment"><font color="#dc143c">Хранит историю</font></li>
+                <li class="fragment"><font color="#dc143c">Есть API</font></li>
+                <li class="fragment"><font color="#dc143c">Требует ресурсов</font></li>
             </ul>
         </section>
     </section>
 
     <section class="stack">
         <h2>Что получаем в результате</h2>
-        <div><font color="#dc143c">Переделать</font></div>
-<div>Просто нажми на кнопку</div>
-<div>Адаптивный TF</div>
-<div>Удобные отчеты</div>
+            <div class="fragment">Сервис знает как себя протестировать и развернуть</div>
+            <div class="fragment">Тестировый фрэймворк адаптирован для множества сервисов</div>
+            <div class="fragment">Удобные отчеты</div>
+            <div class="fragment">Релизить стало просто, нам теперь весело</div>
     </section>
-
-
-    <section class="stack">
-
-        <section data-transition="slide-in fade-out">
-            <h2><font color="#dc143c">Занимайтесь тестированием, а не войной</font></h2>
-        </section>
-    </section>
-
 
 </div>
 
