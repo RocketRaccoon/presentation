@@ -11,7 +11,7 @@ class NT.Guest
 			center: true
 			keyboard: false
 			touch: false
-			slideNumber: false
+			slideNumber: true
 		}
 
 		$(document).keyup (e) =>
