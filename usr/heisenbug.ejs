@@ -4,7 +4,7 @@
     <section class="stack">
         <section>
             <h3>
-                <font color="#dc143c">(Возможно стоит расказать про то что основной тезис: Релизы это просто!)</font>
+                <font color="#dc143c">(Возможно стоит расказать про то что основной тезис: Релизы это просто и весело!)</font>
                 <div>Полный цикл тестирования микросервисов</div>
                 <div> в Docker контейнерах</div>
             </h3>
@@ -26,23 +26,18 @@
             <h2>Вступление</h2>
             <div><font color="#dc143c">УБРАТЬ ЭТОТ СЛАЙД!!!</font></div>
             <div>Вопросы залу</div>
-            <div>Кто вовлечен в выпуск релизов? Кто из вас задерживался до ночи? понедельника? среды?</div>
             <div>У кого в компании используется SOA? У кого Micro Services?</div>
-            <div>У кого черт ногу сломит в архитектурной диаграмме?</div>
-            <!--<div>Кто повелся на слово Docker в названии доклада?</div>-->
-            <!--<div>Кто может по логу в тестовом отчете назвать точную причину падения? (картинка assertTrue(false))</div>-->
-            <!--<div>Кто хоть раз использовал sleep(15)?</div>-->
+            <div>Кто вовлечен в выпуск релизов? Кто из вас задерживался до ночи? понедельника? среды?</div>
+            <div>Кто понимает что надо что-то менять?</div>
         </section>
 
         <section>
-            <h2>Вступление</h2>
+            <h2>Вопросы в секциях</h2>
             <div><font color="#dc143c">УБРАТЬ ЭТОТ СЛАЙД!!!</font></div>
-            <div>Вопросы залу</div>
+
             <div>У кого в компании есть свой тестовый фрэймворк? А кого он превратился в кракена?</div>
             <div>Кому уже недостаточно запускать тесты параллельно?</div>
             <div>Кто использует Jenkins, шаблоны, jod-dsl, pipeline, больше 3-х экзекуторов?</div>
-            <div>Кто вовлечен в выпуск релизов? Кто из вас задерживался до ночи? понедельника? среды?</div>
-            <div>Кто понимает что надо что-то менять?</div>
         </section>
 
         <section>
@@ -51,71 +46,205 @@
         </section>
     </section>
 
+
+
     <!--Основная часть-->
-    <section class="stack">
 
         <!--Положение дел на сегодня-->
         <section class="stack">
+            <section data-transition="slide-in fade-out">
+                <h2>Релизный цикл</h2>
+                <div style="padding-top: 1em; display: flex; justify-content: space-around">
+                    <div class="fragment" style="float: left; width: 30%">
+                        <div class="circle">
+                            <div class="circle__inner">
+                                <div class="circle__wrapper">
+                                    <div class="circle__content">
+                                        <div>3</div>
+                                        <p>месяца</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fragment" style="float: left; width: 30%">
+                        <div class="circle">
+                            <div class="circle__inner">
+                                <div class="circle__wrapper">
+                                    <div class="circle__content">
+                                        <div>7</div>
+                                        <p>команд</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        </section>
+            <section data-transition="slide-in fade-out">
+                <h2>Сервис</h2>
+                <div><font color="#dc143c">У кого черт ногу сломит в архитектурной диаграмме?</font></div>
+                <div>Обслуживает большую часть API</div>
+                <div><font color="#dc143c">(жирный сервис)</font></div>
+                <img class="croissant fragment fade-out" data-fragment-index="0"
+                     style="position:absolute; top: 110%; left: 35%;" data-src="img/monolith.gif">
+                <img class="croissant fragment fade-in" data-fragment-index="0"
+                     style="position:absolute; top: 110%; left: 40%;" data-src="img/banana.png">
+            </section>
 
-        <!--Последствия бездействия-->
-        <section class="stack">
+            <section data-transition="slide-in fade-out">
+                <h2>
+                    <div>Окружение</div>
+                    нормального человека
+                </h2>
+                <div><font color="#dc143c">Кому для тестового окружения нужен дата центр?</font></div>
+                <img class="croissant fragment fade-in" style="padding-top: 1em;" data-fragment-index="0"
+                     data-src="img/upad.png">
+            </section>
+
+            <section data-transition="slide-in fade-out">
+                <h2>Окружение</h2>
+                <div><font color="#dc143c">(переделать буллиты!)</font></div>
+                <ul>
+                    <li class="fragment">Минимальное окружение - 70 VM, 120 vCPU, 160GB RAM</li>
+                    <li class="fragment">Окружение для каждой команды</li>
+                    <li class="fragment">4 общих окружения для проекта</li>
+                    <li class="fragment">Выделенная команда для поддержки окружений</li>
+                </ul>
+            </section>
+
+
+            <section data-transition="slide-in fade-out">
+                <div><font color="#dc143c">У кого надо записываться на мерж в дефолт за 3 месяца?</font></div>
+                <div><font color="#dc143c">Кто может по логу в тестовом отчете назвать точную причину падения? (картинка assertTrue(false))</font></div>
+                <div><font color="#dc143c">Кто хоть раз использовал sleep(15)?</font></div>
+                <div><font color="#dc143c">У кого в регрессии 1000 тестов? 10000? 50000?</font></div>
+            </section>
+            <section data-transition="slide-in fade-out">
+                <h2>Регрессионное тестирование</h2>
+                <div><font color="#dc143c">(переделать буллиты!)</font></div>
+                <ul>
+                    <li class="fragment">15,000 тестов за 90 минут</li>
+                    <li class="fragment">Подготовка тестовых данных занимает 4 часа</li>
+                    <li class="fragment">В общую ветку код сливается после прохождения регрессии на эталонном окружении <font color="#dc143c">(перефразировать)</font>
+                    </li>
+                    <li class="fragment">Один день - одна команда <font color="#dc143c">(перефразировать)</font></li>
+                    <li class="fragment">Тестовый отчет часто бывает не информативен</li>
+                </ul>
+            </section>
+
+            <!--Последствия бездействия-->
+            <section data-transition="slide-in fade-out">
+                <h2>Как микросервисы это меняют?</h2>
+                <div><font color="#dc143c">(переделать слайд!)</font></div>
+                <ul>
+                    <li>Нужно поддерживать больше релизов</li>
+                    <li>Растет очередь на регрессию</li>
+                    <li>Окружения становится больше</li>
+                    <li>Проявляются все промахи тестового фреймворка</li>
+                    <li>Поддержка CI-сервера усложняется</li>
+                    <li>Все становится еще хуже</li>
+                </ul>
+            </section>
 
         </section>
 
         <!--Варианты действий-->
+
+        <!--Сокращаем размер регрессии-->
         <section class="stack">
-
-            <!--Сокращаем размер регрессии-->
-            <section class="stack">
-                <!--Переход на микросервисы-->
-                <!--1. Больше тестов с заглушками для отдельных сервисов-->
-                <!--2. Меньше тестов в общей регрессии-->
-                <!--Большинству команд не нужно огромное окружение, тестов в общей регрессии меньше и они проходят быстрее-->
-            </section>
-
-            <!--Избавляемся от кракена-->
-            <section class="stack">
-                <!--Вопросы залу про тестовый фреймворк-->
-                <!--Расказываем что делать и как дальше жить-->
-            </section>
-
-            <!--Делаем понятные тестовые отчеты-->
-            <section class="stack">
-                <!--Вопросы залу про отчеты-->
-                <!--Расказываем что делать и как дальше жить-->
-            </section>
-
-            <!--Переходим на Continuous Deployment(Delivery)-->
-            <section class="stack">
-                <!--Вопросы залу про то как они выпускают релизы-->
-                <!--Расказ про то что выпускать маленькие релизы проще и удобнее-->
-                <!--Расказ про то это все очень просто сделать на базе Jenkins Pipeline-->
-            </section>
-
-            <!--Используем Docker как способ дистрибьюции-->
-            <section class="stack">
-                <!--Вопросы залу про способ дистрибьюции-->
-                <!--Расказ какие Docker дает приемущества-->
-                <!--1. Имеем поленостью рабочий артефакт который можно запустить везде и всегда-->
-            </section>
-
+            <h2>Переход на микросервисы</h2>
+            <div><font color="#dc143c">(переделать слайд)</font></div>
+            <ul>
+                <li>Больше тестов с заглушками для отдельных сервисов</li>
+                <li>Меньше тестов в общей регрессии</li>
+                <li>Большинству команд не нужно огромное окружение, тестов в общей регрессии меньше и они проходят быстрее</li>
+            </ul>
         </section>
 
-        <!--Приемущества-->
         <section class="stack">
-            <!--Подводим итог того что мы получили:-->
-            <!--1. У нас меньше размер регрессии и она не увеличивается лавинообразно при добавлении новых сервисов-->
-            <!--2. Наш тестовый фреймворк наконец то можно использовать и не плодить костыли в каждом репозитории-->
-            <!--3. По нашим отчетам наконец то можно понять что сломалось, где, когда и кто виноват-->
-            <!--4. Наши сервисы сами умеют себя собирать, деплоить и тестировать-->
-            <!--5. Мы имеем артефакт который можно развернуть где угодно, из них можно собрать любую конфигурацию окружения и у нас единый способ доставки артефактов-->
+            <h2>Используем Docker как способ дистрибьюции</h2>
+            <div><font color="#dc143c">(переделать слайд)</font></div>
+            <div>Кто повелся на слово Docker в названии доклада?</div>
+            <div>Кто еще использует виртуалки? Кто уже контейнеры?</div>
+            <ul>
+                <li>Расказ какие Docker дает приемущества</li>
+                <li>Имеем поленостью рабочий артефакт который можно запустить везде и всегда</li>
+            </ul>
+        </section>
+
+        <section class="stack">
+            <section data-transition="slide-in fade-out">
+                <h2>Дайте мне пример!</h2>
+                <div><font color="#dc143c">(тралала)</font></div>
+            </section>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Окружение как услуга</h2>
+            <div><font color="#dc143c">(переделать слайд)</font></div>
+            <ul>
+                <li class="fragment">Необходим контроль за состоянием окружений</li>
+                <li class="fragment">Единый механизм установки сервисов</li>
+            </ul>
+        </section>
+
+        <section class="stack">
+            <h2>Избавляемся от кракен</h2>
+            <div>Вопросы залу про тестовый фреймворк</div>
+            <div>Расказываем что делать и как дальше жить</div>
+        </section>
+
+        <section class="stack">
+            <h2>Continuous Deployment(Delivery)</h2>
+            <div>Вопросы залу про то как они выпускают релизы</div>
+            <div>Рассказ про то что выпускать маленькие релизы проще и удобнее</div>
+            <div>Рассказ про то что все очень просто сделать на базе Jenkins Pipeline</div>
+        </section>
+
+    <section class="stack">
+            <h2>Дайте мне пример!</h2>
+            <div><font color="#dc143c">(тралала)</font></div>
+    </section>
+
+
+
+        <section class="stack">
+            <h2>Делаем понятные тестовые отчеты</h2>
+            <div>Вопросы залу про отчеты</div>
+                <div>Расказываем что делать и как дальше жить</div>
+        </section>
+
+    <section class="stack">
+        <h2>Дайте мне пример!</h2>
+        <div><font color="#dc143c">(тралала)</font></div>
+    </section>
+
+
+    <!--Приемущества-->
+    <section class="stack">
+        <section class="stack">
+            <h2>Подводим итог:</h2>
+            <ul>
+            <li>У нас меньше размер регрессии и она не увеличивается лавинообразно при добавлении новых сервисов</li>
+            <li>Наш тестовый фреймворк наконец то можно использовать и не плодить костыли в каждом репозитории</li>
+                <li>По нашим отчетам наконец то можно понять что сломалось, где, когда и кто виноват</li>
+            </ul>
+        </section>
+
+        <section class="stack">
+            <h2>Подводим итог:</h2>
+            <ul>
+
+                <li>Наши сервисы сами умеют себя собирать, деплоить и тестировать</li>
+                <li>Мы имеем артефакт который можно развернуть где угодно, из них можно собрать любую конфигурацию окружения и у нас единый способ доставки артефактов</li>
+            </ul>
         </section>
 
         <!--Кульминация-->
         <section class="stack">
-            <!--Наконец то наши релизы стали простыми и веселыми-->
+            <h2>Наконец то наши релизы стали простыми и веселыми</h2>
             <!--Мы больше не тратим кучу времени на их выпуск и поддержку-->
             <!--Мы можем спокойно заниматься тестированием-->
         </section>
@@ -124,40 +253,13 @@
 
     <!--Заключение-->
     <section class="stack">
+        <div>сслыка на пример</div>
         <!--Нужно подвести к кульминации и повторить основную мысль доклада-->
     </section>
 
     <!--&lt;!&ndash;Монолиты, Релизы, Регрессии, Окружения&ndash;&gt;-->
     <!--<section class="stack">-->
-        <!--<section data-transition="slide-in fade-out">-->
-            <!--<h2>Релизный цикл</h2>-->
-            <!--<div style="padding-top: 1em; display: flex; justify-content: space-around">-->
-                <!--<div class="fragment" style="float: left; width: 30%">-->
-                    <!--<div class="circle">-->
-                        <!--<div class="circle__inner">-->
-                            <!--<div class="circle__wrapper">-->
-                                <!--<div class="circle__content">-->
-                                    <!--<div>3</div>-->
-                                    <!--<p>месяца</p>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="fragment" style="float: left; width: 30%">-->
-                    <!--<div class="circle">-->
-                        <!--<div class="circle__inner">-->
-                            <!--<div class="circle__wrapper">-->
-                                <!--<div class="circle__content">-->
-                                    <!--<div>7</div>-->
-                                    <!--<p>команд</p>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</section>-->
+
 
         <!--<section data-transition="slide-in fade-out">-->
             <!--<h2>Релизный цикл</h2>-->
@@ -251,13 +353,7 @@
             <!--</div>-->
         <!--</section>-->
 
-        <!--<section data-transition="slide-in fade-out">-->
-            <!--<h2>Монолитный сервис</h2>-->
-            <!--<div>Один сервис обслуживает большую часть API</div>-->
-            <!--<div><font color="#dc143c">(картинка сервиса как части целого)</font></div>-->
-            <!--<img class="croissant fragment fade-out" data-fragment-index="0" style="position:absolute; top: 110%; left: 35%;" data-src="img/monolith.gif">-->
-            <!--<img class="croissant fragment fade-in" data-fragment-index="0" style="position:absolute; top: 110%; left: 40%;" data-src="img/banana.png">-->
-        <!--</section>-->
+
 
         <!--<section data-transition="slide-in fade-out">-->
             <!--<h2>Монолитный сервис</h2>-->
@@ -317,56 +413,24 @@
             <!--<img class="croissant fragment fade-in" data-fragment-index="0" style="position:absolute; top: 110%; left: 40%;" data-src="img/banana.png">-->
         <!--</section>-->
 
-        <!--<section data-transition="slide-in fade-out">-->
-            <!--<h2>Регрессионное тестирование</h2>-->
-            <!--<div><font color="#dc143c">(переделать слайд!)</font></div>-->
-            <!--<ul>-->
-                <!--<li class="fragment">15,000 тестов за 90 минут</li>-->
-                <!--<li class="fragment">Подготовка тестовых данных <font color="#dc143c">(пояснить?)</font> занимает 4 часа</li>-->
-                <!--<li class="fragment">Функционал разрабатывается в отдельных ветках</li>-->
-                <!--<li class="fragment">В общую ветку код сливается после прохождения регрессии на эталонном окружении</li>-->
-                <!--<li class="fragment">Один день - одна команда <font color="#dc143c">(перефразировать)</font></li>-->
-            <!--</ul>-->
-        <!--</section>-->
 
-        <!--<section data-transition="slide-in fade-out">-->
-            <!--<h2><div>Окружение</div>нормального человека</h2>-->
-            <!--<img class="croissant fragment fade-in" style="padding-top: 1em;" data-fragment-index="0" data-src="img/upad.png">-->
-        <!--</section>-->
 
-        <!--<section data-transition="slide-in fade-out">-->
-            <!--<h2>Окружения</h2>-->
-            <!--<ul>-->
-                <!--<li class="fragment">Стандартное окружение - 70 VM, 120 vCPU, 160GB RAM <font color="#dc143c">(почему такое?)</font></li>-->
-                <!--<li class="fragment">Окружение для каждой команды</li>-->
-                <!--<li class="fragment">4 общих окружения для проекта</li>-->
-                <!--<li class="fragment">Выделенная команда для поддержки окружений</li>-->
-            <!--</ul>-->
-        <!--</section>-->
+    <!--<section data-transition="slide-in fade-out">-->
+    <!--<h2>Какие проблемы у нас есть?</h2>-->
+    <!--<div><font color="#dc143c">(переделать буллиты!)</font></div>-->
+    <!--<div>Тратим много времени на:</div>-->
+    <!--<ul>-->
+    <!--<li class="fragment">подготовку релиза</li>-->
+    <!--<li class="fragment">поддержку окружений</li>-->
+    <!--<li class="fragment">разбор регрессии</li>-->
+    <!--<li class="fragment"><font color="#dc143c">поддержка</font> кракена</li>-->
+    <!--<li class="fragment"><font color="#dc143c">поддержка</font> CI сервера</li>-->
+    <!--</ul>-->
+    <!--</section>-->
 
-        <!--<section data-transition="slide-in fade-out">-->
-            <!--<h2>Какие проблемы у нас есть?</h2>-->
-            <!--<div><font color="#dc143c">(переделать слайд!)</font></div>-->
-            <!--<div>Тратим много времени на:</div>-->
-            <!--<ul>-->
-                <!--<li class="fragment">подготовку релиза</li>-->
-                <!--<li class="fragment">поддержку окружений</li>-->
-                <!--<li class="fragment">разбор регрессии</li>-->
-                <!--<li class="fragment"><font color="#dc143c">поддержка</font> кракена</li>-->
-                <!--<li class="fragment"><font color="#dc143c">поддержка</font> CI сервера</li>-->
-            <!--</ul>-->
-        <!--</section>-->
 
-        <!--<section data-transition="slide-in fade-out">-->
-            <!--<h2>Как микросервисы это меняют?</h2>-->
-            <!--<div><font color="#dc143c">(переделать слайд!)</font></div>-->
-            <!--<div>Нужно поддерживать больше релизов</div>-->
-            <!--<div>Окружения становится больше</div>-->
-            <!--<div>Поддержка кракенов</div>-->
-            <!--<div>Поддержка CI-сервиса превращается в адъ</div>-->
-            <!--<div>Растет очередь на регрессию</div>-->
-            <!--<div>Все становится еще хуже</div>-->
-        <!--</section>-->
+
+
     <!--</section>-->
 
     <!--&lt;!&ndash;Окружения для тестирования&ndash;&gt;-->
