@@ -10,6 +10,6 @@ NB.conf = {
 
 	token: 'abc'
 
-	default: 'usr/demo_ppt'
+	default: 'usr/heisenbug'
 
 }

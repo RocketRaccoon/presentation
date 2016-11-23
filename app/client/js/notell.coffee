@@ -47,6 +47,7 @@ class NT.Notell
 			history: true
 			keyboard: true
 			touch: true
+			slideNumber: true
 
 			theme: Reveal.getQueryHash().theme
 			transition: Reveal.getQueryHash().transition or 'default'
