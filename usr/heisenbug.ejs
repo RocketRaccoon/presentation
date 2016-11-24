@@ -10,6 +10,15 @@
         </section>
     </section>
 
+    <section class="stack">
+        <section>
+            <h2>Куда писать</h2>
+            <div>DINS</div>
+            <div>Андрей Смирнов - почта, твиттер</div>
+            <div>Дмитрий Красильников - почта, твиттер</div>
+        </section>
+    </section>
+
 <!--    <section class="stack">
         <section>
             <div><font color="#dc143c">(Подумать над заголовками!)</font></div>
@@ -37,6 +46,11 @@
             <div>Предоставим пример реализации</div>
             <div>Сейчас мы вас научим</div>
             <div>Как сделать тестирование микросервисов веселым и простым</div>
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>План</h2>
+            <div><font color="#dc143c">УБРАТЬ ЭТОТ СЛАЙД???</font></div>
         </section>
 
         <!--<section>-->
@@ -71,39 +85,76 @@
             </section>
 
             <section data-transition="slide-in fade-out">
-                <h2>Cервис</h2>
-                <div style="padding-top: 1em; display: flex; justify-content: space-between">
-                    <div class="fragment fade-up" style="float: left; width: 28%;">
+                <h2>Статистика</h2>
+                <!--сравнение с войной и миром-->
+                <div style="padding-top: 1em; display: flex; justify-content: space-around">
+                    <div class="fragment fade-up" style="float: left; width: 35%;">
                         <div class="circle">
                             <div class="circle__inner">
                                 <div class="circle__wrapper">
                                     <div class="circle__content">
                                         <div>сервис</div>
-                                        <p>237,000 SLOC</p>
+                                        <div>237,000 SLOC</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="fragment fade-up" style="float: left; width: 28%;">
+                    <div class="fragment fade-up" style="float: left; width: 35%;">
                         <div class="circle">
                             <div class="circle__inner">
                                 <div class="circle__wrapper">
                                     <div class="circle__content">
                                         <div>тесты</div>
-                                        <p>229,000 SLOC</p>
+                                        <div>229,000 SLOC</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="fragment fade-up" style="float: left; width: 28%;">
+                </div>
+            </section>
+
+            <section data-transition="slide-in fade-out">
+                <h2>Статистика</h2>
+                <div><font color="#dc143c">(переделать слайд!)</font></div>
+                <div><font color="#dc143c">(нужна нормальная картинка!)</font></div>
+                <!--сравнение с войной и миром-->
+                <div style="padding-top: 1em; display: flex; justify-content: space-between">
+                    <div class="fragment fade-up" style="float: left; width: 30%;">
                         <div class="circle">
                             <div class="circle__inner">
                                 <div class="circle__wrapper">
                                     <div class="circle__content">
-                                        <div>комментарии к тестам</div>
-                                        <p>200,000 LOC</p>
+                                        <div>война</div>
+                                        <div>и мир</div>
+                                        <div>1 500 страниц</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fragment fade-up" style="float: left; width: 30%;">
+                        <div class="circle">
+                            <div class="circle__inner">
+                                <div class="circle__wrapper">
+                                    <div class="circle__content">
+                                        <div>песнь льда</div>
+                                        <div>и пламени</div>
+                                        <div>4 800 страниц</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fragment fade-up" style="float: left; width: 30%;">
+                        <div class="circle">
+                            <div class="circle__inner">
+                                <div class="circle__wrapper">
+                                    <div class="circle__content">
+                                        <div>описание тестов</div>
+                                        <div>6 200 страниц</div>
+                                        <!--<div>200,000 LOC</div>-->
                                     </div>
                                 </div>
                             </div>
@@ -119,8 +170,8 @@
             </section>
 
             <section data-transition="slide-in fade-out">
-                <h2>Cервис</h2>
-                <div>Часть большой инфраструктуры</div>
+                <h2>Система</h2>
+                <div>облачной телефонии</div>
                 <div><font color="#dc143c">(картинка сервиса как части целого/что за банан?)</font></div>
                 <img class="croissant fragment fade-out" data-fragment-index="0"
                      style="position:absolute; top: 110%; left: 30%;" data-src="img/soa.gif">
@@ -129,30 +180,58 @@
             </section>
 
             <section data-transition="slide-in fade-out">
-                <h2>Вопрос</h2>
-                <div><font color="#dc143c">УБРАТЬ ЭТОТ СЛАЙД!!!</font></div>
-                <div>Кому для тестового окружения нужен дата центр?</div>
-            </section>
-
-            <section data-transition="slide-in fade-out">
                 <h2>
                     <div>Окружение</div>
-                    нормального человека
+                    <div>нормального человека</div>
                 </h2>
                 <img class="croissant" style="padding-top: 1em;" data-fragment-index="0"
                      data-src="img/upad.png">
             </section>
 
             <section data-transition="slide-in fade-out">
-                <h2>Тестовое окружение</h2>
-                <div><font color="#dc143c">(переделать буллиты!)</font></div>
-                <ul>
-                    <li class="fragment">Минимальное окружение - 70 VM, 120 vCPU, 160GB RAM</li>
-                    <li class="fragment">Окружение для каждой команды</li>
-                    <li class="fragment">4 общих окружения для проекта</li>
-                    <li class="fragment">Выделенная команда для поддержки окружений</li>
-                    <li class="fragment"><font color="#dc143c">Добавляет и настраивает компоненты, деплоит окружения</font></li>
-                </ul>
+                <h2>Вопрос</h2>
+                <div><font color="#dc143c">УБРАТЬ ЭТОТ СЛАЙД!!!</font></div>
+                <div>Кому для тестовых окружений нужен дата центр?</div>
+            </section>
+
+            <section data-transition="slide-in fade-out">
+                <h2>Тестовые окружения</h2>
+                <h3 class="fragment fade-up" data-fragment-index="4">11 окружений</h3>
+                <div style="padding-top: 1em; display: flex; justify-content: space-between">
+                    <div class="fragment fade-up" style="float: left; width: 30%;" data-fragment-index="1">
+                        <div class="circle">
+                            <div class="circle__inner">
+                                <div class="circle__wrapper">
+                                    <div class="circle__content">
+                                        <div>+70 VM</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fragment fade-up" style="float: left; width: 30%;" data-fragment-index="2">
+                        <div class="circle">
+                            <div class="circle__inner">
+                                <div class="circle__wrapper">
+                                    <div class="circle__content">
+                                        <div>160GB RAM</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fragment fade-up" style="float: left; width: 30%;" data-fragment-index="3">
+                        <div class="circle">
+                            <div class="circle__inner">
+                                <div class="circle__wrapper">
+                                    <div class="circle__content">
+                                        <div>120 vCPU</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section data-transition="slide-in fade-out">
@@ -163,29 +242,54 @@
 
             <section data-transition="slide-in fade-out">
                 <h2>Процесс релиза</h2>
-                <div><font color="#dc143c">(нужна картинка, перефразировать)</font></div>
+                <div><font color="#dc143c">(перефразировать)</font></div>
                 <div>7 команд работают с одним репозиторием</div>
                 <div>В общую ветку код сливается после прохождения регрессии на эталонном окружении
                     <font color="#dc143c">(перефразировать)</font>
                 </div>
                 <div>Один день - одна команда<font color="#dc143c">(тратим время на разбор результатов, проблемы тестов или окружения)</font></div>
                 <div>В реальности на подготовку релиза уходит 1 месяц</div>
+                <img class="croissant fragment fade-in" data-fragment-index="0"
+                     style="position:absolute; top: 110%; left: 40%;" data-src="img/banana.png">
                 <!--подход не маштабируется, уходит 1 месяц на мерж-->
             </section>
 
             <section data-transition="slide-in fade-out">
                 <h2>Регрессионное тестирование</h2>
-                <div><font color="#dc143c">(переделать буллиты!)</font></div>
-                <ul>
-                    <li class="fragment">15,000 тестов за 1,5 часа <font color="#dc143c">(проверяем реальные интеграции, мокаем только внешние сервисы)</font></li>
-                    <li class="fragment">3 часа на подготовку окружения <font color="#dc143c">(создаем аккаунты для тестирования, приводим окружение в порядок)</font></li>
-                </ul>
+                <div style="padding-top: 1em; display: flex; justify-content: space-around">
+                    <div class="fragment fade-up" style="float: left; width: 35%;">
+                        <div class="circle">
+                            <div class="circle__inner">
+                                <div class="circle__wrapper">
+                                    <div class="circle__content">
+                                        <div>15,000</div>
+                                        <div>тестов</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fragment fade-up" style="float: left; width: 35%;">
+                        <div class="circle">
+                            <div class="circle__inner">
+                                <div class="circle__wrapper">
+                                    <div class="circle__content">
+                                        <div>1,5 + 3</div>
+                                        <div>часа</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--(проверяем реальные интеграции, мокаем только внешние сервисы)-->
+                <!--(создаем аккаунты для тестирования, приводим окружение в порядок)-->
             </section>
 
             <section data-transition="slide-in fade-out">
                 <h2>Микросервисы</h2>
-                <div>В процессе декомпозиции</div>
-                <div><font color="#dc143c">(картинка разеделения сервис)</font></div>
+                <div>в процессе декомпозиции</div>
+                <div><font color="#dc143c">(картинка разделения сервиса?)</font></div>
                 <img class="croissant fragment fade-out" data-fragment-index="0"
                      style="position:absolute; top: 110%; left: 30%;" data-src="img/microservices.gif">
             </section>
@@ -202,7 +306,7 @@
                 <div><font color="#dc143c">(переделать слайд!)</font></div>
                 <ul>
                     <li>50 человек перестанут работать в одном репозитории</li>
-                    <li>Архитектураня диаграмма станет больше</li>
+                    <li>Архитектурная диаграмма станет сложнее</li>
                     <li>Релизы станут длиннее</li>
                     <li>Нам потребуется новый тестовый фрэймворк</li>
                     <li>Поддержка CI-сервера усложняется</li>
@@ -212,7 +316,7 @@
 
             <section data-transition="slide-in fade-out">
                 <h2>CHALLENGE ACCEPTED</h2>
-                <div><font color="#dc143c">(переделать слайд!)</font></div>
+                <div><font color="#dc143c">(отредактировать картинку)</font></div>
                 <img class="croissant" data-fragment-index="0"
                      data-src="img/Challenge-Accepted-Meme.jpg">
             </section>
@@ -417,11 +521,16 @@
 
     </section>
 
-    <!--Заключение-->
     <section class="stack">
-        <div>контакты</div>
-        <div>сслыка на пример</div>
-        <!--Нужно подвести к кульминации и повторить основную мысль доклада-->
+        <section>
+            <h2>Ссылки</h2>
+        </section>
+    </section>
+
+    <section class="stack">
+        <section>
+            <h2>Вопросы</h2>
+        </section>
     </section>
 </div>
 
