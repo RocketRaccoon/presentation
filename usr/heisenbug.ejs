@@ -57,7 +57,7 @@
             <!--<h2>Вопросы в секциях</h2>-->
             <!--<div><font color="#dc143c">УБРАТЬ ЭТОТ СЛАЙД!!!</font></div>-->
             <!--<div>У кого в компании используется SOA? У кого Micro Services?</div>-->
-            <!--<div>У кого в компании есть свой тестовый фрэймворк? А кого он превратился в кракена?</div>-->
+            <!--<div>У кого в компании есть свой тестовый фреймворк? А кого он превратился в кракена?</div>-->
             <!--<div>Кому уже недостаточно запускать тесты параллельно?</div>-->
             <!--<div>Кто использует Jenkins, шаблоны, jod-dsl, pipeline, больше 3-х экзекуторов?</div>-->
         <!--</section>-->
@@ -172,11 +172,15 @@
             <section data-transition="slide-in fade-out">
                 <h2>Система</h2>
                 <div>облачной телефонии</div>
-                <div><font color="#dc143c">(картинка сервиса как части целого/что за банан?)</font></div>
-                <img class="croissant fragment fade-out" data-fragment-index="0"
-                     style="position:absolute; top: 110%; left: 30%;" data-src="img/soa.gif">
-                <img class="croissant fragment fade-in" data-fragment-index="0"
-                     style="position:absolute; top: 110%; left: 40%;" data-src="img/banana.png">
+                <img class="croissant" style="padding-top: 2em" 
+                     data-src="img/soa.png">
+            </section>
+
+            <section data-transition="fade-in">
+                <h2>Система</h2>
+                <div>облачной телефонии</div>
+                <img class="croissant fade-in"
+                     data-src="img/banana.png">
             </section>
 
             <section data-transition="slide-in fade-out">
@@ -306,7 +310,7 @@
                 <div class="fragment" style="padding-top: 15px; position: relative; left: 20%">50 человек перестанут работать <div class="fragment" style="display: inline-block; color: #dc143c">в одном репозитории</div></div>
                 <div class="fragment" style="padding-top: 15px; position: relative; left: -10%">Архитектурная диаграмма станет <div class="fragment" style="display: inline-block; color: #dc143c">сложнее</div></div>
                 <div class="fragment" style="padding-top: 15px; position: relative; left: 30%">Релизы станут <div class="fragment" style="display: inline-block; color: #dc143c">длиннее</div></div>
-                <div class="fragment" style="padding-top: 15px; position: relative; left: 0%">Потребуется <div class="fragment" style="display: inline-block; color: #dc143c">новый тестовый фрэймворк</div></div>
+                <div class="fragment" style="padding-top: 15px; position: relative; left: 0%">Потребуется <div class="fragment" style="display: inline-block; color: #dc143c">новый тестовый фреймворк</div></div>
                 <div class="fragment" style="padding-top: 15px; position: relative; left: -30%">Поддержка CI-сервера <div class="fragment" style="display: inline-block; color: #dc143c">усложняется</div></div>
                 <div class="fragment" style="padding-top: 15px; position: relative; left: 0%">Становится <div class="fragment" style="display: inline-block; color: #dc143c">не весело</div></div>
             </section>
@@ -330,17 +334,46 @@
         <div>Кто повелся на слово Docker в названии доклада?</div>
     </section>
 
-        <section class="stack">
-            <h2>Используем Docker как способ дистрибьюции</h2>
-            <div><font color="#dc143c">(переделать слайд)</font></div>
-            <ul>
-                <li>При использовании VM окружения будут различаться</li>
-                <li>Имеем полностью рабочий артефакт который можно запустить везде и всегда</li>
-                <li>Храним всю конфигурацию в самом сервисе</li>
-            </ul>
-            <img class="croissant fragment fade-in" data-fragment-index="0"
-                 style="position:absolute; top: 110%; left: 40%;" data-src="img/banana.png">
+    <section class="stack">
+        <section data-transition="slide-in fade-out">
+            <h2>Дистрибуция</h2>
+            <div class="fragment fade-in" data-fragment-index="0">При использовании VM окружения будут различаться</div>
+            <img class="croissant fragment fade-in" data-fragment-index="1" style="padding-top: 2em" 
+                 data-src="img/docker.png">
         </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Используем Docker</h2>
+                <div style="padding-top: 1em; display: flex; justify-content: space-around">
+                    <div class="fragment fade-up" style="float: left; width: 35%;">
+                        <div class="circle">
+                            <div class="circle__inner">
+                                <div class="circle__wrapper">
+                                    <div class="circle__content">
+                                        <div>работает</div>
+                                        <div>везде</div>
+                                        <div>и всегда</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fragment fade-up" style="float: left; width: 35%;">
+                        <div class="circle">
+                            <div class="circle__inner">
+                                <div class="circle__wrapper">
+                                    <div class="circle__content">
+                                        <div>сервис</div>
+                                        <div>хранит всю</div>
+                                        <div>конфигурацию</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </section>
 
         <section class="stack">
             <h2>Меняем подход к тестированию</h2>
@@ -379,7 +412,7 @@
     <section data-transition="slide-in fade-out">
         <h2>Вопрос</h2>
         <div><font color="#dc143c">УБРАТЬ ЭТОТ СЛАЙД!!!</font></div>
-        <div>Вопрос к тем кто еще не тестирует микросервисы: сможет ли ваш тестовый фрэймворк?</div>
+        <div>Вопрос к тем кто еще не тестирует микросервисы: сможет ли ваш тестовый фреймворк?</div>
     </section>
 
         <section class="stack">
@@ -399,7 +432,7 @@
                 <div>Что делать?</div>
             </h2>
             <div><font color="#dc143c">(переделать)</font></div>
-            <div class="fragment">когда текущий тестовый фрэймворк <em>уже</em> не получился</div>
+            <div class="fragment">когда текущий тестовый фреймворк <em>уже</em> не получился</div>
             <div class="fragment">а новый <em>ещё</em> не получился</div>
             <ul style="text-align: left;">
                 <li class="fragment">Разделить на независимые модули</li>
