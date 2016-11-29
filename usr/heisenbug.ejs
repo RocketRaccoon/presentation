@@ -48,8 +48,8 @@
 
         <section data-transition="slide-in fade-out">
             <h2>Сервис</h2>
-            <div>Обслуживает большую часть API</div>
-            <img class="croissant fragment" data-fragment-index="0"
+            <div>обслуживает большую часть API</div>
+            <img class="croissant fragment fade-up" data-fragment-index="0"
                  style="background: none; max-height: 65%; max-width: 65%" data-src="img/service.png">
         </section>
 
@@ -119,7 +119,7 @@
         <section data-transition="slide-in fade-out">
             <h2>Система</h2>
             <div>облачной телефонии</div>
-            <img class="croissant" style="background: none; padding-top: 50px"
+            <img class="croissant fragment fade-up" style="background: none; padding-top: 50px"
                  data-src="img/soa.png">
         </section>
 
@@ -189,8 +189,14 @@
 
         <section data-transition="slide-in fade-out">
             <h2>Процесс релиза</h2>
+            <div>7 команд  и 1 репозиторий</div>
+            <img class="croissant fragment fade-up" style="background: none; max-height: 68%; max-width: 68%; padding-top: 1em"
+                 data-src="img/seven_teams.png">
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Процесс релиза</h2>
             <div><font color="#dc143c">(перефразировать)</font></div>
-            <div>7 команд работают с одним репозиторием</div>
             <div>В общую ветку код сливается после прохождения регрессии на эталонном окружении
                 <font color="#dc143c">(перефразировать)</font>
             </div>
@@ -234,7 +240,7 @@
             <!--(создаем аккаунты для тестирования, приводим окружение в порядок)-->
         </section>
 
-        <section data-transition="slide-in fade-out" data-background-image="img/microservices.png">
+        <section data-transition="slide-in fade-out" data-background-image="img/microservices.png" data-background-transition="slide">
             <div style="position: fixed; top: -200px; left: 0px; right: 0px;">в процессе декомпозиции на</div>
             <h2 style="position: fixed; top: -160px; left: 0px; right: 0px;">Микросервисы</h2>
         </section>
@@ -284,7 +290,7 @@
         <section data-transition="slide-in fade-out">
             <h2>Дистрибуция</h2>
             <div class="fragment fade-in" data-fragment-index="0">при использовании VM окружения будут различаться</div>
-            <img class="croissant fragment fade-in" data-fragment-index="1" style="background: none; padding-top: 2em"
+            <img class="croissant fragment fade-up" data-fragment-index="1" style="background: none; padding-top: 2em"
                  data-src="img/docker.png">
         </section>
 
@@ -322,49 +328,50 @@
     </section>
 
     <section class="stack">
-        <h2>Меняем подход к тестированию</h2>
-        <div><font color="#dc143c">(переделать слайд)</font></div>
-        <div style="padding-top: 1em; display: flex; justify-content: space-around">
-            <div class="fragment fade-up" style="float: left; width: 28%;">
-                <div class="circle">
-                    <div class="circle__inner">
-                        <div class="circle__wrapper">
-                            <div class="circle__content">
-                                <div>используем</div>
-                                <div>заглушки</div>
-                                <div>и моки</div>
+        <section>
+            <h2>Меняем подход к тестированию</h2>
+            <div style="padding-top: 1em; display: flex; justify-content: space-around">
+                <div class="fragment fade-up" style="float: left; width: 28%;">
+                    <div class="circle">
+                        <div class="circle__inner">
+                            <div class="circle__wrapper">
+                                <div class="circle__content">
+                                    <div>используем</div>
+                                    <div>заглушки</div>
+                                    <div>и моки</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fragment fade-up" style="float: left; width: 28%;">
+                    <div class="circle">
+                        <div class="circle__inner">
+                            <div class="circle__wrapper">
+                                <div class="circle__content">
+                                    <div>уменьшаем</div>
+                                    <div>общую</div>
+                                    <div>регрессию</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fragment fade-up" style="float: left; width: 28%;">
+                    <div class="circle">
+                        <div class="circle__inner">
+                            <div class="circle__wrapper">
+                                <div class="circle__content">
+                                    <div>делаем</div>
+                                    <div>окружение</div>
+                                    <div>меньше</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="fragment fade-up" style="float: left; width: 28%;">
-                <div class="circle">
-                    <div class="circle__inner">
-                        <div class="circle__wrapper">
-                            <div class="circle__content">
-                                <div>уменьшаем</div>
-                                <div>общую</div>
-                                <div>регрессию</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="fragment fade-up" style="float: left; width: 28%;">
-                <div class="circle">
-                    <div class="circle__inner">
-                        <div class="circle__wrapper">
-                            <div class="circle__content">
-                                <div>делаем</div>
-                                <div>окружение</div>
-                                <div>меньше</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </section>
     </section>
 
     <section>
@@ -413,14 +420,12 @@
             <blockquote> — легендарное мифическое морское чудовище гигантских размеров, головоногий моллюск, известный
                 по описаниям исландских моряков, из языка которых и происходит его название.
             </blockquote>
-            <div>то есть - кракен</div>
-            <div><font color="#dc143c">плавая на большом корабле, все было ок, но мы пересели на лодки и нам стало
-                    стремно</font></div>
+            <div>то есть
+                кракен</div>
         </section>
-        <section data-transition="slide-in fade-out">
-            <h2>Картинка с абстрактным кракеном</h2>
-            <img class="croissant fragment fade-in" data-fragment-index="0"
-                 style="position:absolute; top: 110%; left: 40%;" data-src="img/banana.png">
+        <section data-transition="slide-in fade-out" section data-background-image="img/kraken.png"
+                 data-background-transition="slide">
+            <h2 style="position: fixed; top: -300px; left: 0px; right: 0px;">Кракен</h2>
         </section>
         <section data-transition="slide-in fade-out">
             <h2>
@@ -551,6 +556,12 @@
     <section class="stack">
         <section>
             <h2>Ссылки</h2>
+        </section>
+        <section>
+            <h2>Куда писать</h2>
+            <div>DINS</div>
+            <div>Андрей Смирнов - почта, твиттер</div>
+            <div>Дмитрий Красильников - почта, твиттер</div>
         </section>
     </section>
 
