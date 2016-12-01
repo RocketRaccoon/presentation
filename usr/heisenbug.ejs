@@ -478,7 +478,26 @@
             </aside>
         </section>
 
-        <section data-background-transition="slide" data-background-image="img/wtf.png">
+        <!--<section data-background-transition="slide" data-background-image="img/wtf.png">-->
+        <section>
+            <div class="fragment wtf_row" style="flex-direction: row; flex-wrap: nowrap">
+                <div class="wtf_header_item" ><p>External systems  </p></div>
+                <div class="wtf_row" style="flex-wrap: wrap" >
+                    <div class="wtf_cell_item wtf_external"><p>Issue Tracker</p></div>
+                    <div class="wtf_cell_item wtf_external"><p>Testcase Manager</p></div>
+                    <div class="wtf_cell_item wtf_external"><p>Dashboards</p></div>
+                    <div class="wtf_cell_item wtf_external"><p>Test Data Sources</p></div>
+                    <div class="wtf_cell_item wtf_external"><p>Code Analysis</p></div>
+                    <div class="wtf_cell_item wtf_external"><p>Centralized Log Storage</p></div>
+                    <div class="wtf_cell_item wtf_external"><p>CI Server</p></div>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: stretch">
+                <div class="wtf_header_item">4</div>
+                <div class="wtf_cell_item" style="background-color: #222222">5</div>
+                <div class="wtf_cell_item" style="background-color: #222222">6</div>
+                <div class="wtf_cell_item" style="background-color: #222222">7</div>
+            </div>
             <aside class="notes">
                 Вопрос залу - кто уже использует Jenkins Pipeline?
             </aside>
@@ -497,9 +516,9 @@
 
         <section data-background-transition="slide" data-background-image="img/jenkins3.png">
             <div style="position: fixed; top: -250px; left: 0; right:0">
-                <div class="fragment fade-up" data-fragment-index="0">make</div>
+                <h3 class="fragment fade-up" data-fragment-index="0">make</h3>
                 <h2>Jenkins Pipeline</h2>
-                <div class="fragment fade-up" data-fragment-index="1">great again</div>
+                <h3 class="fragment fade-up" data-fragment-index="1">great again</h3>
             </div>
         </section>
     </section>
@@ -529,43 +548,78 @@
 
     <section class="stack">
         <section data-transition="slide-in fade-out">
-            <h2>Делаем понятные тестовые отчеты</h2>
-            <div><font color="#dc143c">переделать)</font></div>
-            <ul style="text-align: left;">
-                <li class="fragment">Собирать много данных в один отчет</li>
-                <li class="fragment">Разные уровни детализации <font color="#dc143c">(сервис-сьют-тест)</font></li>
-                <li class="fragment">API для интеграции</li>
-                <li class="fragment">Результаты в реальном времени</li>
-            </ul>
+            <h2>Отчет по тестированию</h2>
+            <div style="padding-top: 1em; display: flex; justify-content: space-around">
+                <div class="fragment fade-up" style="float: left; width: 28%;">
+                    <div class="circle">
+                        <div class="circle__inner">
+                            <div class="circle__wrapper">
+                                <div class="circle__content">
+                                    <div>разные</div>
+                                    <div>уровни</div>
+                                    <div>детализации</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fragment fade-up" style="float: left; width: 28%;">
+                    <div class="circle">
+                        <div class="circle__inner">
+                            <div class="circle__wrapper">
+                                <div class="circle__content">
+                                    <div>API</div>
+                                    <div>для</div>
+                                    <div>интеграции</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fragment fade-up" style="float: left; width: 28%;">
+                    <div class="circle">
+                        <div class="circle__inner">
+                            <div class="circle__wrapper">
+                                <div class="circle__content">
+                                    <div>результаты</div>
+                                    <div>в реальном</div>
+                                    <div>времени</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <aside class="notes">
+                Собирать много данных в один отчет, сервис-сьют-тест
+            </aside>
         </section>
 
-        <section data-transition="slide-in fade-out">
-            <h2>Инструменты</h2>
-            <img class="croissant fragment fade-in" data-fragment-index="0"
-                 style="position:absolute; top: 110%; left: 40%;" data-src="img/banana.png">
+        <section>
+                <div style="display: flex;
+    flex-direction: column;
+justify-content: space-between">
+                    <img class="croissant fragment grow"
+                         data-src="img/reportng.png">
+                    <img class="croissant fragment grow"
+                         data-src="img/allure.png">
+                    <img class="croissant fragment grow"
+                         data-src="img/extent.png">
+                    <img class="croissant fragment grow"
+                         data-src="img/reportportal.png">
+                </div>
+            <aside class="notes">
+                Yandex Allure Report - Удобный, Кастомизируемый, Нет истории
+                Epam Report Portal - Хранит историю, есть API
+            </aside>
         </section>
-
-        <section data-transition="slide-in fade-out">
-            <h2>Yandex Allure Report</h2>
-            <div><font color="#dc143c">Переделать слайд</font></div>
-            <ul style="text-align: left;">
-                <li class="fragment"><font color="#dc143c">Удобный</font></li>
-                <li class="fragment"><font color="#dc143c">Кастомизируемый</font></li>
-                <li class="fragment"><font color="#dc143c">Нет истории</font></li>
-            </ul>
-            <h2 class="fragment">Epam Report Portal</h2>
-            <ul style="text-align: left;">
-                <li class="fragment"><font color="#dc143c">Результат в реальном времени</font></li>
-                <li class="fragment"><font color="#dc143c">Хранит историю</font></li>
-                <li class="fragment"><font color="#dc143c">Есть API</font></li>
-            </ul>
-        </section>
-
 
     </section>
 
     <section class="stack">
-        <h2>нужен <font color="#428bca">пример</font></h2>
+        <section>
+            <h2>нужен <font color="#428bca">пример</font></h2>
+        </section>
     </section>
 
 
@@ -610,6 +664,7 @@
         <section>
             <h2>Ссылки</h2>
             <div><font color="#dc143c">(переделать слайд!)</font></div>
+            <div><font color="#dc143c">(ссылки на репорты)</font></div>
         </section>
         <section>
             <h2>Куда писать</h2>
