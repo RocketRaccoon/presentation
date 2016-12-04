@@ -16,11 +16,20 @@
     <!--Вступление-->
     <section class="stack">
         <section data-transition="slide-in fade-out">
-            <h2>План</h2>
-            <div><font color="#dc143c">здесь должны быть пункты доклада и технологии!!!</font></div>
-            <div>Дадим рецепты как построить CD для микросервисов</div>
-            <div>Как сделать тестирование микросервисов веселым и простым</div>
-            <div>Предоставим пример реализации</div>
+            <h2>Что будет?</h2>
+            <ul>
+                <li class="fragment">Запустим микросервисы с использованием Docker</li>
+                <li class="fragment">Протестируем с помощью Gradle и WireMock</li>
+                <li class="fragment">Настроим Jenkins Pipeline</li>
+                <li class="fragment">Соберем отчеты в Report Portal и Allure Report</li>
+            </ul>
+            <div class="fragment" style="padding-top: 1em">
+                <a class="btn btn-block btn-social btn-lg btn-github" href="https://github.com/dins-heisenbug-2016"
+                style="color: #383d3d">
+                    <i class="fa fa-github"></i>
+                    dins-heisenbug-2016
+                </a>
+            </div>
 
             <aside class="notes">
                 Переходим к положению дел на сегодня в нашей компании
@@ -88,7 +97,7 @@
                 <div class="fragment fade-up" style="float: left; width: 30%;">
                     <div>6 200 страниц</div>
                     <img class="croissant" src="img/test_cases.png">
-                    <div>наши тест кейсы</div>
+                    <div>наши тест-кейсы</div>
                 </div>
             </div>
 
@@ -258,22 +267,20 @@
         <!--Последствия бездействия-->
         <section data-transition="slide-in fade-out">
             <h2>Что изменится?</h2>
-            <div class="fragment" style="padding-top: 15px; position: relative; left: 20%">50 человек перестанут
-                работать
+            <div class="fragment" style="padding-top: 15px; position: relative; left: 20%">50 человек перестанут работать
                 <div class="fragment" style="display: inline-block; color: #dc143c">в одном репозитории</div>
             </div>
-            <div class="fragment" style="padding-top: 15px; position: relative; left: -10%">Архитектурная диаграмма
-                станет
+            <div class="fragment" style="padding-top: 15px; position: relative; left: -10%">Интеграций станет
                 <div class="fragment" style="display: inline-block; color: #dc143c">больше</div>
             </div>
-            <div class="fragment" style="padding-top: 15px; position: relative; left: 30%">Релизы станут
+            <div class="fragment" style="padding-top: 15px; position: relative; left: 30%">Общая регрессия будет
                 <div class="fragment" style="display: inline-block; color: #dc143c">длиннее</div>
             </div>
-            <div class="fragment" style="padding-top: 15px; position: relative; left: 0%">Потребуется
-                <div class="fragment" style="display: inline-block; color: #dc143c">новый тестовый фреймворк</div>
+            <div class="fragment" style="padding-top: 15px; position: relative; left: 0%">Тестовый фреймворк потребует
+                <div class="fragment" style="display: inline-block; color: #dc143c">новых костылей</div>
             </div>
             <div class="fragment" style="padding-top: 15px; position: relative; left: -30%">Поддержка CI-сервера
-                <div class="fragment" style="display: inline-block; color: #dc143c">усложняется</div>
+                <div class="fragment" style="display: inline-block; color: #dc143c">усложнится</div>
             </div>
             <div class="fragment" style="padding-top: 15px; position: relative; left: 0%">Печаль.
                 <div class="fragment" style="display: inline-block; color: #dc143c">Беда.</div>
@@ -478,26 +485,20 @@
             </aside>
         </section>
 
-        <!--<section data-background-transition="slide" data-background-image="img/wtf.png">-->
         <section>
-            <div class="fragment wtf_row" style="flex-direction: row; flex-wrap: nowrap">
-                <div class="wtf_header_item" ><p>Integration with External systems</p></div>
-                <div class="wtf_row" style="flex-wrap: wrap" >
-                    <div class="wtf_cell_item wtf_external"><p>Issue Tracker</p></div>
-                    <div class="wtf_cell_item wtf_external"><p>Testcase Manager</p></div>
-                    <div class="wtf_cell_item wtf_external"><p>Dashboards</p></div>
-                    <div class="wtf_cell_item wtf_external"><p>Test Data Sources</p></div>
-                    <div class="wtf_cell_item wtf_external"><p>Code Analysis</p></div>
-                    <div class="wtf_cell_item wtf_external"><p>Centralized Log Storage</p></div>
-                    <div class="wtf_cell_item wtf_external"><p>CI Server</p></div>
-                </div>
-            </div>
-            <div style="display: flex; justify-content: space-between; align-items: stretch">
-                <div class="wtf_header_item">4</div>
-                <div class="wtf_cell_item" style="background-color: #222222">5</div>
-                <div class="wtf_cell_item" style="background-color: #222222">6</div>
-                <div class="wtf_cell_item" style="background-color: #222222">7</div>
-            </div>
+            <h2>Wonderful Testing Framework</h2>
+            <dl>
+                <dt class="fragment" data-fragment-index="1">DSL</dt>
+                <dd class="fragment" data-fragment-index="1">Технический, бизнес</dd>
+                <dt class="fragment" data-fragment-index="2">Выходные данные</dt>
+                <dd class="fragment" data-fragment-index="2">Отчеты, логирование, дашборды</dd>
+                <dt class="fragment" data-fragment-index="3">Окружение</dt>
+                <dd class="fragment" data-fragment-index="3">Конфигурация, моки</dd>
+                <dt class="fragment" data-fragment-index="4">Аналитика</dt>
+                <dd class="fragment" data-fragment-index="4">Статистика прогона, ошибки</dd>
+                <dt class="fragment" data-fragment-index="5">Интеграции</dt>
+                <dd class="fragment" data-fragment-index="5">Трекер задач, менеджер тест-кейсов, источники данных, CI сервер, хранилище логов</dd>
+            </dl>
         </section>
     </section>
 
@@ -508,7 +509,7 @@
             <div>Integration & Delivery</div>
             <aside class="notes">
                 Вопрос залу - кто уже использует Jenkins Pipeline?
-                Выпускать маленькие релизы проще и быстрее, pipeline - это просто! (как два пальца)
+                Выпускать маленькие релизы проще и быстрее, pipeline - это просто! (как два пальца, об асфальт, и всё, сука, в крови, открытый перелом, врача! врача! позовите врача!)
             </aside>
         </section>
 
@@ -524,7 +525,6 @@
     <section class="stack">
         <section>
             <h2>нужен <font color="#428bca">пример</font></h2>
-
         </section>
     </section>
 
@@ -593,26 +593,22 @@
                 Собирать много данных в один отчет, сервис-сьют-тест
             </aside>
         </section>
-
-        <section>
-                <div style="display: flex;
-    flex-direction: column;
-justify-content: space-between">
-                    <img class="croissant fragment grow"
-                         data-src="img/reportng.png">
-                    <img class="croissant fragment grow"
-                         data-src="img/allure.png">
-                    <img class="croissant fragment grow"
-                         data-src="img/extent.png">
-                    <img class="croissant fragment grow"
-                         data-src="img/reportportal.png">
-                </div>
+        <section><h2>ReportNG</h2></section>
+        <section data-background-transition="slide" data-background-image="img/reportng_base.png"></section>
+        <section><h2>Allure Report</h2></section>
+        <section data-background-transition="slide" data-background-image="img/allure_base.png">
             <aside class="notes">
                 Yandex Allure Report - Удобный, Кастомизируемый, Нет истории
+            </aside>
+        </section>
+        <section><h2>Extent Report</h2></section>
+        <section data-background-transition="slide" data-background-image="img/extent_base.png"></section>
+        <section><h2>Report Portal</h2></section>
+        <section data-background-transition="slide" data-background-image="img/portal_base.png">
+            <aside class="notes">
                 Epam Report Portal - Хранит историю, есть API
             </aside>
         </section>
-
     </section>
 
     <section class="stack">
@@ -624,32 +620,30 @@ justify-content: space-between">
 
     <!--Приемущества-->
     <section class="stack">
-        <section>
-            <h2>Делаем</h2>
-            <div><font color="#dc143c">(переделать слайд!)</font></div>
+<!--        <section>
+            <h2>Что делаем</h2>
+            <div><font color="#dc143c">(переделать)</font></div>
             <ul>
                 <li>Уменьшаем и контролируем размер регрессии при добавлении новых сервисов</li>
-                <li>Используем тестовый фреймворк для всех сервисов</li>
+                <li>Переводим микросервисы на новый тестовый фреймворк</li>
                 <li>Не плодим костыли в каждом репозитории</li>
-                <li>Понимаем по отчетам что сломалось, где, когда и кто виноват</li>
+                <li>Внедряем новые инструменты для отчетов</li>
             </ul>
-        </section>
+        </section>-->
 
         <section>
-            <h2>Получаем</h2>
-            <div><font color="#dc143c">(переделать слайд!)</font></div>
+            <h2>Что получили:</h2>
             <ul>
-                <li>Сервисы сами умеют себя собирать, деплоить и тестировать</li>
-                <li>Имеем артефакт, который можно развернуть где угодно</li>
-                <li>Собираем любую конфигурацию окружения</li>
-                <li>Получаем единый способ доставки</li>
+                <li>Артефакты, которые можно развернуть где угодно</li>
+                <li>Вся конфигурация хранится с кодом сервиса</li>
+                <li>Удобные инструменты для отчетов</li>
+                <li>и самое главное...</li>
             </ul>
         </section>
 
         <!--Кульминация-->
         <section>
-            <h2><font color="#dc143c">Вот как тестирование микросервисов может быть простым и непринужденным</font></h2>
-            <div><font color="#dc143c">(переделать слайд!)</font></div>
+            <h2>Сервисы умеют себя собирать, деплоить и тестировать</h2>
             <div><font color="#dc143c">(Картинка с поняшами)</font></div>
 
             <aside class="notes">
@@ -662,7 +656,8 @@ justify-content: space-between">
     <section class="stack">
         <section>
             <h2>Ссылки</h2>
-            <div><font color="#dc143c">(переделать слайд!)</font></div>
+            <div><font color="#dc143c">(ссылки на репу)</font></div>
+            <div><font color="#dc143c">(ссылки на игру)</font></div>
             <div><font color="#dc143c">(ссылки на репорты)</font></div>
         </section>
         <section>
@@ -677,7 +672,6 @@ justify-content: space-between">
     <section class="stack">
         <section>
             <h2>Вопросы</h2>
-            <div><font color="#dc143c">(переделать слайд!)</font></div>
         </section>
     </section>
 </div>
