@@ -1,5 +1,12 @@
 <div class="slides">
 
+    <div id="myLogo" style="background: url(img/logo.svg);
+                        background-repeat: no-repeat;
+                        position: relative;
+                        bottom: 0%;
+                        left: 100%;
+                        width: 100px;
+                        height: 100px;"></div>
 
     <section class="stack">
         <section>
@@ -24,10 +31,10 @@
                 <li class="fragment">Соберем отчеты в Report Portal и Allure Report</li>
             </ul>
             <div class="fragment" style="padding-top: 1em">
-                <a class="btn btn-block btn-social btn-lg btn-github" href="https://github.com/dins-heisenbug-2016"
+                <a class="btn-github" href="https://github.com/dins-heisenbug-2016"
                 style="color: #383d3d">
                     <i class="fa fa-github"></i>
-                    dins-heisenbug-2016
+                    github.com/dins-heisenbug-2016
                 </a>
             </div>
 
@@ -265,7 +272,7 @@
         </section>
 
         <!--Последствия бездействия-->
-        <section data-transition="slide-in fade-out">
+        <section data-transition="slide-in fade-out" data-background-image="img/hatty.png" data-background-transition="fade-out">
             <h2>Что изменится?</h2>
             <div class="fragment" style="padding-top: 15px; position: relative; left: 20%">50 человек перестанут работать
                 <div class="fragment" style="display: inline-block; color: #dc143c">в одном репозитории</div>
@@ -279,7 +286,7 @@
             <div class="fragment" style="padding-top: 15px; position: relative; left: 0%">Тестовый фреймворк потребует
                 <div class="fragment" style="display: inline-block; color: #dc143c">новых костылей</div>
             </div>
-            <div class="fragment" style="padding-top: 15px; position: relative; left: -30%">Поддержка CI-сервера
+            <div class="fragment" style="padding-top: 15px; position: relative; left: 0%">Поддержка CI-сервера
                 <div class="fragment" style="display: inline-block; color: #dc143c">усложнится</div>
             </div>
             <div class="fragment" style="padding-top: 15px; position: relative; left: 0%">Печаль.
@@ -530,15 +537,15 @@
 
     <section class="stack">
         <section>
-            <img class="croissant fragment fade-up current-visible" style="background: none; position: absolute; left: 0; right: 0;
+            <img class="croissant fragment zoom-in current-visible" style="background: none; position: absolute; left: 0; right: 0;
             min-height: 95%; min-width: 95%; max-width: 100% !important; max-height: 400px !important;"
-                 data-src="img/assert_true.png">
-            <img class="croissant fragment" style="background: none; position: absolute; left: 0; right: 0; top: 100px;
-            min-height: 95%; min-width: 95%; max-width: 100% !important; max-height: 400px !important;"
-                 data-src="img/true.png">
+                 data-src="img/expected.png">
             <img class="croissant fragment" style="background: none; position: absolute; left: 0; right: 0;
             min-height: 95%; min-width: 95%; max-width: 100% !important; max-height: 400px !important;"
-                 data-src="img/true2.png">
+                 data-src="img/expected2.png">
+            <img class="croissant fragment" style="background: none; position: absolute; left: 0; right: 0;
+            min-height: 95%; min-width: 95%; max-width: 100% !important; max-height: 400px !important;"
+                 data-src="img/expected3.png">
             <aside class="notes">
                 Вопрос залу - кто может по логу в тестовом отчете назвать точную причину падения?
             </aside>
@@ -642,10 +649,8 @@
         </section>
 
         <!--Кульминация-->
-        <section>
-            <h2>Сервисы умеют себя собирать, деплоить и тестировать</h2>
-            <div><font color="#dc143c">(Картинка с поняшами)</font></div>
-
+        <section data-background-transition="slide" data-background-image="img/final.png">
+            <h3>Сервисы умеют себя собирать, деплоить и тестировать</h3>
             <aside class="notes">
                 Не тратим время на выпуск релиза, можем спокойно заниматься тестированием и улучшениями
             </aside>
@@ -655,17 +660,44 @@
 
     <section class="stack">
         <section>
-            <h2>Ссылки</h2>
-            <div><font color="#dc143c">(ссылки на репу)</font></div>
-            <div><font color="#dc143c">(ссылки на игру)</font></div>
-            <div><font color="#dc143c">(ссылки на репорты)</font></div>
+            <div>
+                <a href="https://github.com/dins-heisenbug-2016"
+                   style="color: #383d3d">
+                    <i class="fa-github"></i>
+                    github.com/dins-heisenbug-2016
+                </a>
+            </div>
+            <div>
+                <a href="http://www.battleblocktheater.com"
+                   style="color: #383d3d">
+                    <i class="fa-link"W></i>
+                    battleblocktheater.com
+                </a>
+            </div>
         </section>
         <section>
-            <h2>Куда писать</h2>
-            <div><font color="#dc143c">(переделать слайд!)</font></div>
-            <div>DINS</div>
-            <div>Андрей Смирнов - почта, твиттер</div>
-            <div>Дмитрий Красильников - почта, твиттер</div>
+            <div style="display: flex; flex-direction: row; justify-content: center">
+                <div style="display: flex; flex-direction: column; align-items: flex-end">
+                    <!--<a style="color: #383d3d" href="http://www.dins.ru/?p=vacancies">dins.ru <i class="fa-window-maximize"></i></a>-->
+                    <a style="color: #383d3d" href="mailto:andrey.smirnov@nordigy.ru">andrey.smirnov <i class="fa-envelope-o"></i></a>
+                    <a style="color: #383d3d" href="mailto:dmitry.krasilnikov@nordigy.ru">dmitry.krasilnikov <i class="fa-envelope-o"></i></a>
+                </div>
+
+                <div style="width: 40px">
+                </div>
+
+                <div style="display: flex; flex-direction: column; align-items: flex-start">
+                    <!--<a href="https://www.instagram.com/dino_systems/" style="color: #383d3d">-->
+                        <!--dino_systems <i class="fa-instagram"></i>-->
+                    <!--</a>-->
+                    <a href="https://twitter.com/andreich" style="color: #383d3d">
+                        andreich <i class="fa-twitter-square"></i>
+                    </a>
+                    <a href="https://twitter.com/kr_dmitry" style="color: #383d3d">
+                        kr_dmitry <i class="fa-twitter-square"></i>
+                    </a>
+                </div>
+            </div>
         </section>
     </section>
 
