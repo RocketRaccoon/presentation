@@ -3,8 +3,8 @@
     <div id="myLogo" style="background: url(img/logo.svg);
                         background-repeat: no-repeat;
                         position: relative;
-                        bottom: 0%;
-                        left: 100%;
+                        bottom: 3%;
+                        left: 110%;
                         width: 100px;
                         height: 100px;"></div>
 
@@ -54,7 +54,7 @@
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h2>Platform</h2>
+            <h2>API Platform</h2>
             <img class="croissant fade-up" data-fragment-index="0" style="background: none;"
                  data-src="img/service_structure.png">
         </section>
@@ -114,12 +114,40 @@
 
         <section data-transition="slide-in fade-out">
             <h2>Система</h2>
-            <div>облачной телефонии</div>
+            <div>облачной коммуникации</div>
             <img class="croissant fragment fade-up" style="background: none; padding-top: 50px"
                  data-src="img/soa.png">
         </section>
 
-        <section data-background-image="img/arch_diagram.png" data-background-transition="slide">
+        <section data-transition="slide-in fade-out">
+            <h2>Статистика</h2>
+            <div class="fragment">компонентов</div>
+            <div style="padding-top: 1em; display: flex; justify-content: space-around">
+                <div class="fragment fade-up" style="float: left; width: 35%;">
+                    <div class="circle">
+                        <div class="circle__inner">
+                            <div class="circle__wrapper">
+                                <div class="circle__content">
+                                    <div>API Platform</div>
+                                    <div>30</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fragment fade-up" style="float: left; width: 35%;">
+                    <div class="circle">
+                        <div class="circle__inner">
+                            <div class="circle__wrapper">
+                                <div class="circle__content">
+                                    <div>всего</div>
+                                    <div>310</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section data-transition="slide-in fade-out">
@@ -149,23 +177,23 @@
                         </div>
                     </div>
                 </div>
-                <div class="fragment fade-up" style="float: left; width: 30%;" data-fragment-index="2">
-                    <div class="circle">
-                        <div class="circle__inner">
-                            <div class="circle__wrapper">
-                                <div class="circle__content">
-                                    <div>160GB RAM</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="fragment fade-up" style="float: left; width: 30%;" data-fragment-index="3">
                     <div class="circle">
                         <div class="circle__inner">
                             <div class="circle__wrapper">
                                 <div class="circle__content">
                                     <div>120 vCPU</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fragment fade-up" style="float: left; width: 30%;" data-fragment-index="2">
+                    <div class="circle">
+                        <div class="circle__inner">
+                            <div class="circle__wrapper">
+                                <div class="circle__content">
+                                    <div>160GB RAM</div>
                                 </div>
                             </div>
                         </div>
@@ -272,17 +300,15 @@
 
         <!--Последствия бездействия-->
         <section data-transition="slide-in fade-out" data-background-image="img/hatty.png" data-background-transition="fade-out">
-            <h2>Что изменится?</h2>
-            <div class="fragment" style="padding-top: 15px; position: relative; left: 20%">50 человек перестанут работать
-                <div class="fragment" style="display: inline-block; color: #dc143c">в одном репозитории</div>
-            </div>
+            <h2 style="margin-bottom: 0px">А что если</h2>
+            <div class="fragment">сервис сам декомпозировался</div>
             <div class="fragment" style="padding-top: 15px; position: relative; left: -10%">Интеграций станет
                 <div class="fragment" style="display: inline-block; color: #dc143c">больше</div>
             </div>
             <div class="fragment" style="padding-top: 15px; position: relative; left: 30%">Общая регрессия будет
                 <div class="fragment" style="display: inline-block; color: #dc143c">длиннее</div>
             </div>
-            <div class="fragment" style="padding-top: 15px; position: relative; left: 0%">Тестовый фреймворк потребует
+            <div class="fragment" style="padding-top: 15px; position: relative; left: -10%">Тестовый фреймворк потребует
                 <div class="fragment" style="display: inline-block; color: #dc143c">новых костылей</div>
             </div>
             <div class="fragment" style="padding-top: 15px; position: relative; left: 0%">Поддержка CI-сервера
@@ -387,6 +413,18 @@
                 </div>
             </div>
         </section>
+        <section>
+            <pre>test task triggers compose in gradle<code>dockerCompose {
+    useComposeFiles = [new File(getProjectDir(), 'docker-compose.yml')]
+    stopContainers = true
+    removeContainers = false
+    removeVolumes = false
+    waitForHealthyStateTimeout = Duration.ofMinutes(1)
+    waitForTcpPortsTimeout = Duration.ofMinutes(3)
+}
+
+dockerCompose.isRequiredBy(test)</code></pre>
+        </section>
     </section>
 
     <section>
@@ -415,6 +453,16 @@
                 <div>оркестрация, управление ресурсами,</div>
                 <div>балансировка, service discovery</div>
             </div>
+        </section>
+
+        <section>
+            <pre style="width: 50%">docker-compose<code style="font-size: 24px">version: '2'
+services:
+    auth-service:
+        build: auth-service
+
+    account-service:
+        build: mock-service</code></pre>
         </section>
 
         <section>
@@ -519,6 +567,9 @@
             </aside>
         </section>
 
+        <section data-background-transition="slide" data-background-image="img/jenkinsci.png">
+        </section>
+
         <section data-background-transition="slide" data-background-image="img/jenkins3.png">
             <div style="position: fixed; top: -250px; left: 0; right:0">
                 <h3 class="fragment fade-up" data-fragment-index="0">make</h3>
@@ -528,7 +579,17 @@
         </section>
 
         <section>
-            		<pre><code data-trim contenteditable style="font-size: 24px; margin-top: 20px;">
+            		<pre>generate allure report<code data-trim style="font-size: 24px; ">
+def allureBuilder =
+        docker.build('allure_builder', 'jenkins/allure-builder')
+
+allureBuilder.inside() {
+    sh "allure generate results -o reports"
+}</code></pre>
+        </section>
+
+        <section>
+            		<pre>parallel project build<code data-trim style="font-size: 24px;">
 for (int i = 0; i < projects.size(); i++) {
     def project = projects[i]
     builds["Build ${project}"] = {
@@ -542,19 +603,7 @@ for (int i = 0; i < projects.size(); i++) {
 
 stage('Build') {
     parallel builds
-}
-		</code></pre>
-        </section>
-        <section>
-            		<pre><code data-trim contenteditable style="font-size: 24px; margin-top: 20px;">
-def allureBuilder =
-        docker.build('allure_builder', 'jenkins/allure-builder')
-
-allureBuilder.inside() {
-    sh "allure generate ${pwd()}/build/allure-results
-        -o ${pwd()}/build/allure-reports"
-}
-		</code></pre>
+}</code></pre>
         </section>
     </section>
 
@@ -629,17 +678,25 @@ allureBuilder.inside() {
                 Собирать много данных в один отчет, сервис-сьют-тест
             </aside>
         </section>
-        <section><h2>ReportNG</h2></section>
+        <section><h2>ReportNG</h2><h2><i class="fa-times-circle-o fragment" style="color: #9f191f"></i></h2></section>
         <section data-background-transition="slide" data-background-image="img/reportng_base.png"></section>
-        <section><h2>Allure Report</h2></section>
+        <section><h2>Allure Report</h2><h2><i class="fa-check-circle-o fragment" style="color: #3c763d;"></i></h2></section>
         <section data-background-transition="slide" data-background-image="img/allure_base.png">
             <aside class="notes">
                 Yandex Allure Report - Удобный, Кастомизируемый, Нет истории
             </aside>
         </section>
-        <section><h2>Extent Report</h2></section>
+        <section>
+            <pre>integrate allure<code>@Step("{0}")
+private void logInfo(String s) {
+    log.info(s);
+}
+
+logInfo("Prepare account");</code></pre>
+        </section>
+        <section><h2>Extent Report</h2><h2><i class="fa-times-circle-o fragment" style="color: #9f191f"></i></h2></section>
         <section data-background-transition="slide" data-background-image="img/extent_base.png"></section>
-        <section><h2>Report Portal</h2></section>
+        <section><h2>Report Portal</h2><h2><i class="fa-check-circle-o fragment" style="color: #3c763d;"></i></h2></section>
         <section data-background-transition="slide" data-background-image="img/portal_base.png">
             <aside class="notes">
                 Epam Report Portal - Хранит историю, есть API
@@ -700,11 +757,15 @@ allureBuilder.inside() {
         </section>
         <section>
             <h3 style="margin-bottom: 0px">Почта</h3>
+
             <div>
-                <a style="color: #383d3d" href="mailto:andrey.smirnov@nordigy.ru">andrey.smirnov@nordigy.ru</a>
+                <a style="color: #383d3d" href="mailto:info@dins.ru">info@dins.ru</a>
             </div>
             <div>
-                <a style="color: #383d3d" href="mailto:dmitry.krasilnikov@nordigy.ru">dmitry.krasilnikov@nordigy.ru</a>
+                <a style="color: #383d3d" href="mailto:andrey.smirnov@nordigy.ru">andrey.smirnov@dins.ru</a>
+            </div>
+            <div>
+                <a style="color: #383d3d" href="mailto:dmitry.krasilnikov@nordigy.ru">dmitry.krasilnikov@dins.ru</a>
             </div>
 
             <h3 style="padding-top: 40px; margin-bottom: 0px">Твиттер</h3>
