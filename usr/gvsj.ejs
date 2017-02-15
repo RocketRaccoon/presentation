@@ -26,7 +26,7 @@
         </section>
 
         <section data-transition="slide-in fade-out">
-            <pre style="width: 120%; margin-left: -10%;">C# Request Declaration<code data-trim data-noescape class="csharp">
+            <pre>C# Request Declaration<code data-trim data-noescape class="csharp">
 [TestMethod]
 [TestCategory("v1.0/account/~/extension/~; GET; GetExtensionInfo; Default")]
 public void ExtensionInfoFlow_GetExtension()
@@ -208,7 +208,7 @@ class Top20Simulation extends Simulation {
 
     <section class="stack">
         <section data-transition="slide-in fade-out">
-            <h2>JMeter</h2>
+            <h2>JMeter Issues</h2>
         </section>
 
         <section data-background="img/jmeter_gui.png"
@@ -217,12 +217,33 @@ class Top20Simulation extends Simulation {
         </section>
 
         <section data-transition="slide-in fade-out">
-            <h2>Issues</h2>
+            <h2>Managing tests</h2>
             <ul>
                 <li>To run test method the jar file have to be added to classpath before start</li>
                 <li>Validates test methods success or failure <em>not</em> request and responses</li>
-                <li>Request Declaration + Load Profile provides xml file with ~6000 lines (e.g. Glip tests)</li>
+                <li>For PAS with 10 tests Request Declaration + Load Profile provides xml file with ~600 lines</li>
             </ul>
+        </section>
+
+        <section data-background="img/merge.jpg"
+                 data-background-size="90%"
+                 data-transition="slide-in fade-out">
+        </section>
+
+        <section data-transition="slide-in fade-out">
+            <h2>Merging tests</h2>
+            <ul>
+                <li>Need to merge xml</li>
+                <li>That's all</li>
+            </ul>
+        </section>
+    </section>
+    <section class="stack">
+        <section data-transition="slide-in fade-out">
+            <h2>Gatling Reporting</h2>
+        </section>
+
+        <section data-background="slide-in fade-out" data-background-iframe="http://pla01-t04-utl01:3000/dashboard/db/gatling-1?editorTab=General&from=1487142867221&to=1487143409862">
         </section>
 
     </section>
